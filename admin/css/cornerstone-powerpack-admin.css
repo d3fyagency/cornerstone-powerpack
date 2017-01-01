@@ -1,4 +1,7 @@
-/**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
- */
+.cspp-settings-info {
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.cspp-settings-info p {
+  opacity: 0.65;
+}

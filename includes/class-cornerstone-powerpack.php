@@ -9,7 +9,6 @@
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
  *
- * @since      1.0.0
  * @package    Cornerstone_Powerpack
  * @subpackage Cornerstone_Powerpack/includes
  */
@@ -35,6 +34,7 @@ class Cornerstone_Powerpack {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		$this->define_elements();
 		
 	}
 
@@ -65,9 +65,11 @@ class Cornerstone_Powerpack {
 
 	// Register all of the hooks related to the admin area functionality of the plugin.
 	private function define_admin_hooks() {
-		$plugin_admin = new Cornerstone_Powerpack_Admin($this->get_cornerstone_powerpack(), $this->get_version());
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
+  	$plugin_admin = new Cornerstone_Powerpack_Admin($this->get_cornerstone_powerpack(), $this->get_version());
+  	$this->loader->add_action('admin_menu', $plugin_admin, 'admin_menu', 25);
+    $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
+    $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
+    $this->loader->add_action('admin_init', $plugin_admin, 'register_settings_dashboard');
 	}
 
 	// Register all of the hooks related to the public-facing functionality of the plugin.
@@ -75,6 +77,26 @@ class Cornerstone_Powerpack {
 		$plugin_public = new Cornerstone_Powerpack_Public( $this->get_cornerstone_powerpack(), $this->get_version());
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
+	}
+	
+	// Register all the cornerstone elements.
+	private function define_elements() {
+		$elements = Cornerstone_Powerpack_Helper::get_elements();
+		$options = get_option($this->cornerstone_powerpack.'-settings-dashboard');
+	  if (!is_array($options)) $options = array();
+		foreach ($elements as $element) {
+			$element = preg_replace('/[^A-Z0-9_-]/i', '', $element);
+			$classpath = D3FY_CSPP_PATH.'/elements/'.$element.'/'.$element.'.php';
+			$classname = 'Cornerstone_Powerpack_Element_'.str_replace(' ', '_', ucwords(str_replace('-', ' ', $element)));
+			$enabled = (isset($options[$element])) ? (integer) $options[$element] : 0;
+			if ($enabled && is_readable($classpath)) {
+				require_once($classpath);
+				if (class_exists($classname)) {
+					$CSElement = new $classname($this->get_cornerstone_powerpack(), $this->get_version());
+					$CSElement->load_hooks($this->loader);
+				}
+			}
+		}
 	}
 
 	// Run the loader to execute all of the hooks with WordPress.

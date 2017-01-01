@@ -21,22 +21,26 @@
 // If this file is called directly, abort.
 if (!defined('WPINC')) { die; }
 
+define('D3FY_CSPP_PATH', untrailingslashit(plugin_dir_path(__FILE__)));
+define('D3FY_CSPP_URL', untrailingslashit(plugin_dir_url( __FILE__ )));
+require_once D3FY_CSPP_PATH.'/includes/class-cornerstone-powerpack-helper.php';
+
 // activation actions
 function activate_cornerstone_powerpack() {
-	require_once plugin_dir_path(__FILE__).'includes/class-cornerstone-powerpack-activator.php';
+	require_once D3FY_CSPP_PATH.'/includes/class-cornerstone-powerpack-activator.php';
 	Cornerstone_Powerpack_Activator::activate();
 }
 register_activation_hook(__FILE__, 'activate_cornerstone_powerpack');
 
 // deactivation actions
 function deactivate_cornerstone_powerpack() {
-	require_once plugin_dir_path(__FILE__).'includes/class-cornerstone-powerpack-deactivator.php';
+	require_once D3FY_CSPP_PATH.'/includes/class-cornerstone-powerpack-deactivator.php';
 	Cornerstone_Powerpack_Deactivator::deactivate();
 }
 register_deactivation_hook(__FILE__, 'deactivate_cornerstone_powerpack');
 
 // core plugin class and execution
-require plugin_dir_path(__FILE__).'includes/class-cornerstone-powerpack.php';
+require D3FY_CSPP_PATH.'/includes/class-cornerstone-powerpack.php';
 function run_cornerstone_powerpack() {
 	$plugin = new Cornerstone_Powerpack();
 	$plugin->run();

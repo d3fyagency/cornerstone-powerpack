@@ -3,9 +3,6 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the admin-specific stylesheet and JavaScript.
- *
  * @package    Cornerstone_Powerpack
  * @subpackage Cornerstone_Powerpack/admin
  */
@@ -17,29 +14,79 @@ class Cornerstone_Powerpack_Admin {
 
 	// The version of this plugin.
 	private $version;
+	
+	// The option name and group for dashboard options.
+	private $dashboardoptskey;
 
 	// Initialize the class and set its properties.
 	public function __construct($cornerstone_powerpack, $version) {
 		$this->cornerstone_powerpack = $cornerstone_powerpack;
 		$this->version = $version;
+		$this->dashboardoptskey = $this->cornerstone_powerpack.'-settings-dashboard';
 	}
 
 	// Register the stylesheets for the admin area.
 	public function enqueue_styles() {
-    wp_enqueue_style(
-      $this->cornerstone_powerpack, 
-      plugin_dir_url(__FILE__).'css/cornerstone-powerpack-admin.css', 
-      array(), $this->version, 'all'
-    );
+  	$screen = get_current_screen();
+  	if ($screen->id == 'cornerstone_page_cornerstone_powerpack') {
+      wp_enqueue_style(
+        $this->cornerstone_powerpack, 
+        D3FY_CSPP_URL.'/admin/css/cornerstone-powerpack-admin.css', 
+        array(), $this->version, 'all'
+      );
+    }
 	}
 
 	// Register the JavaScript for the admin area.
 	public function enqueue_scripts() {
-    wp_enqueue_script(
-      $this->cornerstone_powerpack, 
-      plugin_dir_url(__FILE__).'js/cornerstone-powerpack-admin.js', 
-      array('jquery'), $this->version, false
+  	$screen = get_current_screen();
+    if ($screen->id == 'cornerstone_page_cornerstone_powerpack') {
+      wp_enqueue_script(
+        $this->cornerstone_powerpack, 
+        D3FY_CSPP_URL.'/admin/js/cornerstone-powerpack-admin.js', 
+        array('jquery'), $this->version, true
+      );
+    }
+	}
+	
+	// Add admin menu link in main Cornerstone section
+	public function admin_menu() {
+    add_submenu_page(
+      'cornerstone-home',         // parent slug
+      'Cornerstone Power Pack',   // page title
+      'Power Pack',               // menu title
+      'manage_options',           // capability
+      'cornerstone_powerpack',   	// menu slug
+      array($this, 'admin_home')  // function
     );
+	}
+	
+	// Output the main admin home screen
+	public function admin_home() {
+  	include(D3FY_CSPP_PATH.'/admin/partials/dashboard.php');
+	}
+	
+	// Register dashboard page settings
+	public function register_settings_dashboard() {
+		register_setting(
+			$this->dashboardoptskey, 										// options group
+			$this->dashboardoptskey, 										// option name
+			array($this, 'sanitize_settings_dashboard')	// options callback
+		);
+	}
+	
+	// Sanitize dashboard page settings
+	public function sanitize_settings_dashboard($input) {
+		if (is_array($input)) {
+			$new_input = array();
+			$int_fields = Cornerstone_Powerpack_Helper::get_elements();
+			foreach ($input as $key=>$val) {
+				if (in_array($key, $int_fields)) $new_input[$key] = absint($val);
+				else $new_input[$key] = $val;
+			}
+			$input = $new_input;
+		}
+		return $input;
 	}
 
 }

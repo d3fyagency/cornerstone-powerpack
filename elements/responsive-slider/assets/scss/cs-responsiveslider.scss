@@ -1,0 +1,344 @@
+/*
+responsive slider sizes
+ */
+
+$paragraph-margin: .25vw;
+
+/* padding size options */
+$padding-small: 1vw;
+$padding-medium: 1.75vw;
+$padding-large: 2.5vw;
+$padding-xlarge: 3.25vw;
+
+/* content text size options */
+$text-xsmall: 1.25vw;
+$text-small: 1.75vw;
+$text-medium-small: 2vw;
+$text-medium: 2.5vw;
+$text-medium-large: 3vw;
+$text-large: 3.5vw;
+$text-xlarge: 4vw;
+$text-default: $text-medium-small;
+
+/* header text size options */
+$header-small: 2vw;
+$header-medium-small: 2.5vw;
+$header-medium: 3vw;
+$header-medium-large: 3.5vw;
+$header-large: 4.5vw;
+$header-xlarge: 6vw;
+$header-default: $header-medium;
+
+/*
+fullheight slider sizes
+ */
+
+$fh-paragraph-margin: .25rem;
+
+/* padding size options */
+$fh-padding-small: 1rem;
+$fh-padding-medium: 1.75rem;
+$fh-padding-large: 2.5rem;
+$fh-padding-xlarge: 3.25rem;
+
+/* content text size options */
+$fh-text-xsmall: .85rem;
+$fh-text-small: 1rem;
+$fh-text-medium-small: 1.25rem;
+$fh-text-medium: 1.5rem;
+$fh-text-medium-large: 1.75rem;
+$fh-text-large: 2rem;
+$fh-text-xlarge: 2.5rem;
+$fh-text-default: $text-medium-small;
+
+/* header text size options */
+$fh-header-small: 1.5rem;
+$fh-header-medium-small: 2rem;
+$fh-header-medium: 2.5rem;
+$fh-header-medium-large: 3rem;
+$fh-header-large: 3.5rem;
+$fh-header-xlarge: 4.5rem;
+$fh-header-default: $header-medium;
+
+/*
+shared line height styles
+ */
+
+/* line height options */
+$lineheight-xtight: .85em;
+$lineheight-tight: 1em;
+$lineheight-regular: 1.15em;
+$lineheight-loose: 1.25em;
+$lineheight-xloose: 1.5em;
+
+// text size mixin
+@mixin relative-text-size($base-size, $paragraph-margin) {
+	
+	p, ul, ol, div, h5, h6 {
+		font-size: $base-size;
+		margin: .25vw 0;
+	}
+	
+	h1 {
+		font-size: ($base-size * 2);
+		margin: 0;
+	}
+	
+	h2 {
+		font-size: ($base-size * 1.75);
+		margin: 0;
+	}
+	
+	h3 {
+		font-size: ($base-size * 1.5);
+		margin: 0;
+	}
+	
+	h4 {
+		font-size: ($base-size * 1.25);
+		margin: 0;
+	}
+	
+}
+
+// line height mixin
+@mixin relative-line-height($lineheight) {
+	
+	p, ul, ol, div, h1, h2, h3, h4, h5, h6 {
+		line-height: $lineheight;
+	}
+	
+}
+
+#cs-content {
+	
+	.x-flexslider-shortcode-container {
+		margin-bottom: 0 !important; /* override cornerstone inserted CSS */
+	}
+
+	.cs-responsive-slider {
+		min-height: 60px;
+		position: relative;
+		overflow: hidden;
+		margin: 0;
+		
+		.loading .x-slides > li:first-child {
+  		opacity: 1 !important;
+    }
+		
+		.cs-responsive-slider-item {
+			
+			.slider-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 5;
+				font-size: $text-default;
+				line-height: 1.2em;
+				overflow: auto;
+				
+				img {
+					width: auto !important;
+					height: auto !important;
+					max-width: 100%;
+				}
+				
+				.logo-image {
+					
+					img {
+						display: block;
+					}
+				}
+				
+				.slider-header {
+					
+					h2 {
+						margin: 0;
+						font-size: $header-default;
+						line-height: 1.2em;
+					}
+					
+					/* selected header size overrides */
+					&.header-small h2 { font-size: $header-small; }
+					&.header-medium-small h2 { font-size: $header-medium-small; }
+					&.header-medium h2 { font-size: $header-medium; }
+					&.header-medium-large h2 { font-size: $header-medium-large; }
+					&.header-large h2 { font-size: $header-large; }
+					&.header-xlarge h2 { font-size: $header-xlarge; }
+				}
+				
+				/* selected text size overrides */
+				&.text-xsmall { @include relative-text-size($text-xsmall, $paragraph-margin); }
+				&.text-small {  @include relative-text-size($text-small, $paragraph-margin); }
+				&.text-medium-small {  @include relative-text-size($text-medium-small, $paragraph-margin); }
+				&.text-medium {  @include relative-text-size($text-medium, $paragraph-margin); }
+				&.text-medium-large {  @include relative-text-size($text-medium-large, $paragraph-margin); }
+				&.text-large {  @include relative-text-size($text-large, $paragraph-margin); }
+				&.text-xlarge {  @include relative-text-size($text-xlarge, $paragraph-margin); }
+				
+				/* selected line height overrides */
+				&.lineheight-xtight { @include relative-line-height($lineheight-xtight); }
+				&.lineheight-tight { @include relative-line-height($lineheight-tight); }
+				&.lineheight-regular { @include relative-line-height($lineheight-regular); }
+				&.lineheight-loose { @include relative-line-height($lineheight-loose); }
+				&.lineheight-xloose { @include relative-line-height($lineheight-xloose); }
+			}
+			
+			/* overall padding options */
+			.padding-small { padding: $padding-small; }
+			.padding-medium { padding: $padding-medium; }
+			.padding-large { padding: $padding-large; }
+			.padding-xlarge { padding: $padding-xlarge; }
+			
+			/* bottom padding options */
+			.padding-btm-small { padding-bottom: $padding-small; }
+			.padding-btm-medium { padding-bottom: $padding-medium; }
+			.padding-btm-large { padding-bottom: $padding-large; }
+			.padding-btm-xlarge { padding-bottom: $padding-xlarge; }
+		}
+		
+		.flex-control-nav {
+			z-index: 10;
+		}
+		
+		/* selectable control nav positions */
+		&.controlnav-top-right .flex-control-nav { top: 15px; right: 13px; bottom: auto; left: auto; }
+		&.controlnav-top-left .flex-control-nav { top: 15px; right: auto; bottom: auto; left: 13px; }
+		&.controlnav-top-center .flex-control-nav { top: 15px; right: auto; bottom: auto; left: auto; text-align: center; width: 100%; }
+		&.controlnav-btm-right .flex-control-nav { top: auto; right: 13px; bottom: 15px; left: auto; }
+		&.controlnav-btm-left .flex-control-nav { top: auto; right: auto; bottom: 15px; left: 13px; }
+		&.controlnav-btm-center .flex-control-nav { top: auto; right: auto; bottom: 15px; left: auto; text-align: center; width: 100%; }
+		
+		/* selectable direction nav positions */
+		&.prevnextnav-top-right .flex-direction-nav {
+			.flex-prev { top: 15px; right: 50px; bottom: auto; left: auto; }
+			.flex-next { top: 15px; right: 15px; bottom: auto; left: auto; }
+		}
+		&.prevnextnav-top-left .flex-direction-nav {
+			.flex-prev { top: 15px; right: auto; bottom: auto; left: 15px; }
+			.flex-next { top: 15px; right: auto; bottom: auto; left: 50px; }
+		}
+		&.prevnextnav-btm-right .flex-direction-nav {
+			.flex-prev { top: auto; right: 50px; bottom: 15px; left: auto; }
+			.flex-next { top: auto; right: 15px; bottom: 15px; left: auto; }
+		}
+		&.prevnextnav-btm-left .flex-direction-nav {
+			.flex-prev { top: auto; right: auto; bottom: 15px; left: 15px; }
+			.flex-next { top: auto; right: auto; bottom: 15px; left: 50px; }
+		}
+		&.prevnextnav-split-middle .flex-direction-nav {
+			.flex-prev, .flex-next { top: 50%; bottom: auto; margin-top: -15px; }
+			.flex-prev { right: auto; left: 15px; }
+			.flex-next { left: auto; right: 15px; }
+		}
+		
+		/* selectable control themes */
+		&.controltheme-dark .flex-control-nav {
+			a { background-color: rgba(0, 0, 0, 0.4); }
+			a:hover, a.flex-active { background-color: rgba(0, 0, 0, 0.6); }
+		}
+		&.controltheme-light .flex-control-nav {
+			a { background-color: rgba(255, 255, 255, 0.4); }
+			a:hover, a.flex-active { background-color: rgba(255, 255, 255, 0.6); }
+		}
+		
+		&.cs-responsive-slider-scaled {
+  		
+  		.slider-overlay {
+    		
+    		.slider-button a {
+					font-size: $text-medium-large;
+					padding: .1vw 1.2vw;
+				}
+				
+				@media (min-width: 768px) {
+					.slider-button a {
+						font-size: $text-medium;
+						padding: .12vw 1.5vw;
+					}
+				}
+  		}
+		}
+		
+		&.cs-responsive-slider-fullheight {
+  		
+  		.x-flexslider,
+  		.x-slides,
+  		.cs-responsive-slider-item,
+  		.slider-item-wrap {
+    		width: 100%;
+    		height: 100%;
+  		}
+  		
+  		.slider-item-wrap {
+    		background-position: center center;
+    		background-repeat: no-repeat;
+    		background-size: cover;
+    		display: table;
+    		
+    		.slider-overlay {
+      		display: table-cell;
+      		vertical-align: middle;
+      		position: relative !important;
+      		top: auto !important;
+      		bottom: auto !important;
+      		left: auto !important;
+      		right: auto !important;
+      		max-height: none !important;
+      		
+      		.slider-header {
+                    
+            h2 {
+              margin: 0;
+              font-size: $header-default;
+              line-height: 1.2em;
+            }
+            
+            /* selected header size overrides */
+            &.header-small h2 { font-size: $fh-header-small; }
+            &.header-medium-small h2 { font-size: $fh-header-medium-small; }
+            &.header-medium h2 { font-size: $fh-header-medium; }
+            &.header-medium-large h2 { font-size: $fh-header-medium-large; }
+            &.header-large h2 { font-size: $fh-header-large; }
+            &.header-xlarge h2 { font-size: $fh-header-xlarge; }
+          }
+                      
+          /* selected text size overrides */
+          &.text-xsmall { @include relative-text-size($fh-text-xsmall, $fh-paragraph-margin); }
+          &.text-small {  @include relative-text-size($fh-text-small, $fh-paragraph-margin); }
+          &.text-medium-small {  @include relative-text-size($fh-text-medium-small, $fh-paragraph-margin); }
+          &.text-medium {  @include relative-text-size($fh-text-medium, $fh-paragraph-margin); }
+          &.text-medium-large {  @include relative-text-size($fh-text-medium-large, $fh-paragraph-margin); }
+          &.text-large {  @include relative-text-size($fh-text-large, $fh-paragraph-margin); }
+          &.text-xlarge {  @include relative-text-size($fh-text-xlarge, $fh-paragraph-margin); }
+          
+          .slider-button a {
+  					font-size: $fh-text-medium-small;
+  				}
+  				
+  				@media (min-width: 768px) {
+  					.slider-button a {
+  						font-size: $fh-text-medium;
+  					}
+  				}
+    		}
+    		
+    		/* overall padding options */
+        .padding-small { padding: $fh-padding-small; }
+        .padding-medium { padding: $fh-padding-medium; }
+        .padding-large { padding: $fh-padding-large; }
+        .padding-xlarge { padding: $fh-padding-xlarge; }
+        
+        /* bottom padding options */
+        .padding-btm-small { padding-bottom: $fh-padding-small; }
+        .padding-btm-medium { padding-bottom: $fh-padding-medium; }
+        .padding-btm-large { padding-bottom: $fh-padding-large; }
+        .padding-btm-xlarge { padding-bottom: $fh-padding-xlarge; }
+    		
+    		.slider-image {
+      		display: none;
+    		}
+  		}
+		}
+	}
+}
