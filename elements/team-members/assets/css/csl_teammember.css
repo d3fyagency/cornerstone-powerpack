@@ -1,0 +1,127 @@
+/* CSS for your custom element goes here */
+.csl-teammember .teammember-bio,
+.csl-teammember .view-profile {
+	display: none;
+}
+.csl-teammember .view-profile {
+	display: block;
+	visibility: hidden;
+	opacity: 0;
+	color: #fff;
+	padding: .5em 1em;
+	position: absolute;
+	text-align: center;
+	top: 48%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 45%;
+	transition: visibility 0s, opacity 0.5s linear;
+}
+.csl-teammember:hover .view-profile {
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 0s, opacity 0.5s linear;
+}
+.teammember-image-wrap {
+	position: relative;
+}
+.teammember-image-wrap img {
+	width: 100%;
+}
+.csl-teammember:hover {
+	cursor: pointer;
+}
+.teammember-image-wrap:hover img {
+	opacity: .7;
+}
+.teammember-info {
+	/*background-color: #00a94e;*/
+	color: #fff;
+	/*font-family: 'TrajanPro', serif;*/
+	padding: .8em 1em;
+	text-transform: capitalize;
+
+}
+.teammember-name {
+	font-size: 20px;
+}
+.teammember-title {
+	font-size: 16px;
+}
+
+.csl-teammember .t-close {
+  background-color: #00a94e;
+  border-radius: 50%;
+  color: #fff;
+  float: right;
+  font-size: 18px;
+  font-weight: bold;
+  height: 2em;
+  line-height: 2;
+  opacity: 1;
+  text-align: center;
+  width: 2em;
+}
+
+.teammember-bio-container {
+	padding: 1em;
+	margin: 0 auto;
+	width: 100%;
+}
+@media screen and (min-width: 600px) {
+	.teammember-bio-container {
+		width: 80%;
+	}
+}
+@media screen and (min-width: 900px) {
+	.teammember-bio-container {
+		width: 50%;
+	}
+}
+
+.teammember-bio-content {
+	margin-top: 100px;
+}
+.teammember-bio-content img {
+	max-width: 250px;
+}
+.teammember-bio-content .teammember-name {
+	/*font-family: 'TrajanPro', serif;*/
+	font-size: 26px;
+	color: #000;
+}
+.teammember-bio-content .teammember-title {
+	/*font-family: 'TrajanPro', serif;*/
+	font-size: 20px;
+	color: #000;
+	margin-bottom: 1em;
+}
+
+.teammember-bio-overlay {
+	-webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+	background-color: rgba(255,255,255,0.98);
+	cursor: default;
+	display: none;
+	height: 100%;
+	min-height: 300px;
+	opacity: 0;
+  overflow: auto;
+	padding-top: 100px;
+	padding-bottom: 3em;
+  position: fixed;
+  text-align: left;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  transition: opacity 1s ease;
+}
+
+.csl-teammember.open .teammember-bio-overlay {
+	display: block;
+	opacity: 1;
+	transition: opacity 1s ease;
+}
