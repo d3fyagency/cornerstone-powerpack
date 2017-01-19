@@ -23,7 +23,11 @@ if (!defined('WPINC')) { die; }
 
 define('D3FY_CSPP_PATH', untrailingslashit(plugin_dir_path(__FILE__)));
 define('D3FY_CSPP_URL', untrailingslashit(plugin_dir_url( __FILE__ )));
-require_once D3FY_CSPP_PATH.'/includes/class-cornerstone-powerpack-helper.php';
+
+// Register custom Cornerstone elements
+require_once D3FY_CSPP_PATH.'/includes/class-cornerstone-powerpack-registry.php';
+require_once D3FY_CSPP_PATH.'/includes/class-cornerstone-powerpack-elements.php';
+require_once D3FY_CSPP_PATH.'/includes/register-elements.php';
 
 // activation actions
 function activate_cornerstone_powerpack() {

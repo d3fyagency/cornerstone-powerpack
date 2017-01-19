@@ -81,7 +81,7 @@ class Cornerstone_Powerpack {
 	
 	// Register all the cornerstone elements.
 	private function define_elements() {
-		$elements = Cornerstone_Powerpack_Helper::get_elements();
+		$elements = Cornerstone_Powerpack_Elements::get_element_keys();
 		$options = get_option($this->cornerstone_powerpack.'-settings-dashboard');
 	  if (!is_array($options)) $options = array();
 		foreach ($elements as $element) {
