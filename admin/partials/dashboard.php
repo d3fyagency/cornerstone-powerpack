@@ -43,6 +43,13 @@
                           <span class="tco-form-control-indicator"></span>
                           <span class="tco-form-control-indicator-label">Enable</span>
                         </label>
+                        <?php if ($video_url = $opts->get('video_url')): ?>
+                        <a href="<?php echo esc_url(
+                            'index.php?page=cornerstone_powerpack_video_page_hidden&cspp_elementkey='
+                              .urlencode($f)
+                              .'&TB_iframe=true&width=875&height=512'
+                          ); ?>" class="thickbox tco-btn tco-btn-sm tco-btn-yep" title="Video Player">Video Tutorial</a> 
+                        <?php endif; ?>
                       </div>
                     </div>
                 

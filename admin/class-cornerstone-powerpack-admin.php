@@ -49,8 +49,10 @@ class Cornerstone_Powerpack_Admin {
     }
 	}
 	
-	// Add admin menu link in main Cornerstone section
+	// Add admin menu links
 	public function admin_menu() {
+    
+    // Add admin link in main Cornerstone section
     add_submenu_page(
       'cornerstone-home',         // parent slug
       'Cornerstone Power Pack',   // page title
@@ -59,11 +61,34 @@ class Cornerstone_Powerpack_Admin {
       'cornerstone_powerpack',   	// menu slug
       array($this, 'admin_home')  // function
     );
+    
+    // Add hidden video player admin page
+    add_submenu_page(
+      null,
+      ' Video', 
+      'Video', 
+      'manage_options', 
+      'cornerstone_powerpack_video_page_hidden', 
+      array($this, 'no_output')
+    );
+    
 	}
 	
 	// Output the main admin home screen
 	public function admin_home() {
+  	add_thickbox();
   	include(D3FY_CSPP_PATH.'/admin/partials/dashboard.php');
+	}
+	
+	// Output the video player iframe screen
+	public function video_player() {
+  	include(D3FY_CSPP_PATH.'/admin/partials/videoplayer.php');
+  	exit;
+	}
+	
+	// Output the video player iframe screen
+	public function no_output() {
+  	/* print nothing */
 	}
 	
 	// Register dashboard page settings
