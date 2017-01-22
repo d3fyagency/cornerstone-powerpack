@@ -2,7 +2,6 @@
 
 /**
  * @link              http://d3fy.com
- * @since             1.0.0
  * @package           Cornerstone_Powerpack
  *
  * @wordpress-plugin
@@ -23,6 +22,14 @@ if (!defined('WPINC')) { die; }
 
 define('D3FY_CSPP_PATH', untrailingslashit(plugin_dir_path(__FILE__)));
 define('D3FY_CSPP_URL', untrailingslashit(plugin_dir_url( __FILE__ )));
+
+// Handle plugin updates
+require_once D3FY_CSPP_PATH.'/update/plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+    'http://test.cornerstonepowerpack.com/updates/plugins/cornerstone-powerpack/cornerstone-powerpack.json',
+    __FILE__,
+    'd3fy-cornerstone-powerpack'
+);
 
 // Register custom Cornerstone elements
 require_once D3FY_CSPP_PATH.'/includes/class-cornerstone-powerpack-registry.php';
