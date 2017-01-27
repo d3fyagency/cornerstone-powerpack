@@ -18,3 +18,10 @@ $Elements->register(
   'Team Members',
   'Adds a Team Member element to the Cornerstone Page Builder in WordPress. Displays photo of team member with a Modal pop-up when clicked on which shows additional information.'
 );
+
+// Carousel
+$Elements->register(
+  'carousel',
+  'Carousel',
+  'A carousel element for the Cornerstone Page Builder in WordPress.'
+);
