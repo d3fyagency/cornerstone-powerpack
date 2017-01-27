@@ -14,7 +14,7 @@ class Cornerstone_Powerpack_Elements {
   
   // private singleton constructor (use getInstance method instead)
 	private function __construct() {
-  	$this->elements = array();
+        self::$elements = array();
 	}
 	
 	// get static instance of class object
@@ -25,11 +25,11 @@ class Cornerstone_Powerpack_Elements {
 	
 	// register element
 	public function register($key, $name, $desc='', $opts=array()) {
-  	$this->elements[$key] = array(
-    	'name'  => $name,
-    	'desc'  => $desc,
-    	'opts'  => $opts,
-  	);
+        self:$elements[$key] = array(
+            'name'  => $name,
+            'desc'  => $desc,
+            'opts'  => $opts,
+        );
 	}
 	
 	// Set element option
@@ -43,7 +43,7 @@ class Cornerstone_Powerpack_Elements {
 	// Get list of all available elements.
 	public static function get_elements() {
   	$self = self::getInstance();
-  	return ($self->elements);
+  	return ($self::$elements);
 	}
 	
 	// Get list of all available element keys.

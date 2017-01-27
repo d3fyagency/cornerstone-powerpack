@@ -68,6 +68,33 @@
           <div class="tco-column">
             <div class="tco-box">
               <header class="tco-box-header">
+                <h2 class="tco-box-title">D3fy Development Group</h2>
+              </header>
+              <div class="tco-box-content">
+                <p style="text-align:center">
+                    Made with <span style="color:#FF0066;">&hearts;</span> by
+                </p>
+                <img src="<?php echo plugins_url('cornerstone-powerpack/public/images/black-logo.png', 'cornerstone-powerpack') ?>">
+                <p style="margin:1em 0;text-align:center">
+                   Based in Phoenix, Arizona.<br/>
+                   We are a unique set of individuals with a high skillset and various backgrounds.<br/>
+                   We’ve come together to share our passion for building for the web.
+                </p>
+                <a class="tco-btn tco-btn-block"
+                    href="https://www.d3fy.com/#team"
+                    target="_blank"
+                    style="text-align: center"
+                >
+                  Learn More 
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tco-row">
+          <div class="tco-column">
+            <div class="tco-box">
+              <header class="tco-box-header">
                 <h2 class="tco-box-title">Save</h2>
               </header>
               <div class="tco-box-content">
@@ -78,7 +105,6 @@
           </div>
         </div>
       </div>
-      
     </form>
 
   </div>
