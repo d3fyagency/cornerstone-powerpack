@@ -25,3 +25,10 @@ $Elements->register(
   'Carousel',
   'A carousel element for the Cornerstone Page Builder in WordPress.'
 );
+
+// Simple Contact Form
+$Elements->register(
+  'simple-contact-form',
+  'Simple Contact Form',
+  'Adds a simple contact form element for the Cornerstone Page Builder in WordPress.'
+);
