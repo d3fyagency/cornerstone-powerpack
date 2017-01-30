@@ -34,16 +34,16 @@ add_action( 'wp_enqueue_scripts', 'csl_simplecontactform_scripts');
  * => FUNCTIONS
  * ---------------------------------------------------------------------------*/
 
-function csl_teammember_scripts() {
-  wp_enqueue_script( 'csl-teammember-script', CSL_TEAMMEMBER_URL . 'assets/js/csl_simplecontactform.js', array('jquery'), null, true );
-  wp_enqueue_style( 'csl-teammember-style', CSL_TEAMMEMBER_URL . 'assets/css/csl_simplecontactform.css', array(), '1.0' );
+function csl_simplecontactform_scripts() {
+  wp_enqueue_script( 'csl-simplecontactform-script', CSL_TEAMMEMBER_URL . 'assets/js/csl_simplecontactform.js', array('jquery'), null, true );
+  wp_enqueue_style( 'csl-simplecontactform-style', CSL_TEAMMEMBER_URL . 'assets/css/csl_simplecontactform.css', array(), '1.0' );
 }
 
-function csl_teammember_register_elements() {
+function csl_simplecontactform_register_elements() {
 	cornerstone_register_element( 'CSL_Team_Member', 'csl-simple-contact-form', CSL_TEAMMEMBER_PATH . 'includes/csl-simple-contact-form' );
 }
 
-function csl_teammember_icon_map() {
+function csl_simplecontactform_icon_map() {
 	$icon_map['default'] = CSL_TEAMMEMBER_URL . 'assets/svg/icons.svg';
 	return $icon_map;
 }
