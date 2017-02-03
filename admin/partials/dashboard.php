@@ -1,15 +1,23 @@
 <div class="tco-reset tco-wrap tco-wrap-settings tco-alt-cs" data-tco-module="cs-settings">
   <div class="tco-content">
     <div class="wrap"><h2>WordPress Wrap</h2></div>
-    
-    <form method="post" class="tco-form" action="options.php">
+
+    <form name="frm-element-list" method="post" class="tco-form" action="options.php">
       <?php
       $options = get_option($this->dashboardoptskey);
-      if (!is_array($options)) $options = array();
-      settings_fields($this->dashboardoptskey);
       $elements = Cornerstone_Powerpack_Elements::get_elements();
+
+      if (!is_array($options)) $options = array();
+
+      $key_diff = array_diff(array_keys($elements), array_keys($options));
+
+      //enable new elements by default -Irvin 2/3/2017
+      $new_elements = array_combine($key_diff, array_fill(0, count($key_diff), 1));
+      update_option($this->dashboardoptskey, array_merge($options, $new_elements));
+
+      settings_fields($this->dashboardoptskey);
       ?>
-      
+
       <div class="tco-main">
         <div class="tco-row">
           <div class="tco-column">
@@ -21,19 +29,19 @@
                 <p>Use the settings below to control which Elements are activated and available to use in Cornerstone.</p>
               </div>
               <div class="tco-box-content tco-pan">
-                
+
                 <?php
                 foreach ($elements as $f => $el):
                   $id = $this->dashboardoptskey.'_'.$f;
                   $name = $this->dashboardoptskey.'['.$f.']';
-                  $v = (isset($options[$f])) ? (integer) $options[$f] : 0;
+                  $v = (isset($options[$f])) ? (integer) $options[$f] : 1;
                   $opts = Cornerstone_Powerpack_Elements::get_element_opts($f);
                 ?>
-                
+
                     <div class="tco-form-setting">
                       <div class="tco-form-setting-info">
                         <label for="cs-control-show_wp_toolbar">
-                          <strong><?php echo esc_html($el['name']) ?></strong> 
+                          <strong><?php echo esc_html($el['name']) ?></strong>
                           <span><?php echo esc_html($el['desc']) ?></span>
                         </label>
                       </div>
@@ -48,15 +56,15 @@
                             'index.php?page=cornerstone_powerpack_video_page_hidden&cspp_elementkey='
                               .urlencode($f)
                               .'&TB_iframe=true&width=875&height=512'
-                          ); ?>" class="thickbox tco-btn tco-btn-sm tco-btn-yep" title="Video Player">Video Tutorial</a> 
+                          ); ?>" class="thickbox tco-btn tco-btn-sm tco-btn-yep" title="Video Player">Video Tutorial</a>
                         <?php endif; ?>
                       </div>
                     </div>
-                
+
                 <?php
                 endforeach;
                 ?>
-                
+
               </div>
             </div>
           </div>
@@ -85,7 +93,7 @@
                     target="_blank"
                     style="text-align: center"
                 >
-                  Learn More 
+                  Learn More
                 </a>
               </div>
             </div>
@@ -106,6 +114,5 @@
         </div>
       </div>
     </form>
-
   </div>
 </div>

@@ -1,0 +1,27 @@
+/*
+ This quick example demonstrates the potentially drastic effects of simply
+ toggling a class on an element.
+ */
+
+.csl-button-element {
+	color: #ffffff;
+	border-radius: 0;
+	display: inline-block;
+	position: relative;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #00a94e;
+	background-color: #00a94e;
+	padding: 0.563em 1.125em 0.813em;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: inherit;
+	text-align: center;
+	vertical-align: middle;
+	margin: 5px 0;
+
+	/*text-shadow: 0 0.075em 0.075em rgba(0,0,0,0.5);*/
+	/*box-shadow: 0 0.25em 0 0 #a71000,0 4px 9px rgba(0,0,0,0.75);*/
+	-webkit-transition: all 0.15s linear;
+	transition: all 0.15s linear;
+}

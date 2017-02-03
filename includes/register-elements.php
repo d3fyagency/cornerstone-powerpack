@@ -25,3 +25,10 @@ $Elements->register(
   'Carousel',
   'A carousel element for the Cornerstone Page Builder in WordPress.'
 );
+
+// Advanced Button
+$Elements->register(
+  'button-advanced',
+  'Advanced Button',
+  'Advanced button element.'
+);
