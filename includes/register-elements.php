@@ -32,3 +32,10 @@ $Elements->register(
   'Advanced Button',
   'Advanced button element.'
 );
+
+// Modal
+$Elements->register(
+  'modal',
+  'Modal',
+  'A modal popup box for Cornerstone.'
+);
