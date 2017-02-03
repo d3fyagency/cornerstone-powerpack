@@ -1,0 +1,143 @@
+.cs-image-overlay {
+  overflow: hidden;
+}
+
+.cs-image-overlay .cs-image-overlay-container {
+	width: 100%;
+	padding-top: 56.25%;
+	position: relative;
+}
+
+.cs-image-overlay .cs-image-overlay-container .overlay-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition-duration: 0.3s;
+    -webkit-transform: translateZ(0);
+}
+.cs-image-overlay .cs-image-overlay-container:hover .overlay-image {
+    transform: scale(1.1);
+}
+
+.cs-image-overlay .io-gradient {
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	-moz-transition: opacity 300ms ease-in-out;
+	-webkit-transition: opacity 300ms ease-in-out;
+	-ms-transition: opacity 300ms ease-in-out;
+	-o-transition: opacity 300ms ease-in-out;
+	transition: opacity 300ms ease-in-out;
+}
+.cs-image-overlay .io-gradient-hover {
+	z-index: 4;
+	opacity: 0;
+}
+
+.cs-image-overlay:hover .io-gradient-state {
+	opacity: 0.5;
+}
+.cs-image-overlay:hover .io-gradient-hover {
+	opacity: 1;
+}
+
+.cs-image-overlay-gradient-vertical .io-gradient {
+    height: 70%;
+}
+
+.cs-image-overlay-gradient-horizontal .io-gradient {
+    width: 58% ;
+}
+
+.cs-image-overlay .cs-image-overlay-container a{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+}
+
+.cs-image-overlay .cs-image-overlay-container figcaption {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	padding: 30px 22px 0;
+	font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    .cs-image-overlay .cs-image-overlay-container figcaption {
+        font-size: 18px;
+    }
+}
+
+.cs-image-overlay .cs-image-overlay-container figcaption strong {
+    font-size: 24px;
+    font-family: trajan-pro-3,Times New Roman,Times,serif;
+    font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .cs-image-overlay .cs-image-overlay-container figcaption strong {
+      font-size: 15px;
+  }
+}
+
+@media (min-width: 979px) {
+  .cs-image-overlay .cs-image-overlay-container figcaption strong {
+      font-size: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cs-image-overlay .cs-image-overlay-container figcaption strong {
+      font-size: 25px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .cs-image-overlay .cs-image-overlay-container figcaption strong {
+      font-size: 40px;
+  }
+}
+.cs-image-overlay .cs-image-overlay-container figcaption > div {
+	line-height: 1.6;
+	margin-top: 7px;
+    font-size: 19px;
+}
+
+.cs-image-overlay.cs-ta-left {
+	text-align: left;
+}
+.cs-image-overlay.cs-ta-left .io-text {
+	padding-right: 20%;
+}
+
+.cs-image-overlay.cs-ta-right {
+	text-align: right;
+}
+.cs-image-overlay.cs-ta-right .io-text {
+	padding-left: 20%;
+}
+
+.cs-image-overlay.cs-ta-center {
+	text-align: center;
+}
+.cs-image-overlay.cs-ta-center .io-text {
+	padding-left: 5%;
+	padding-right: 5%;
+}

@@ -39,3 +39,10 @@ $Elements->register(
   'Modal',
   'A modal popup box for Cornerstone.'
 );
+
+// Image Overlay
+$Elements->register(
+  'image-overlay',
+  'Image Overlay',
+  'Image Overlay element.'
+);
