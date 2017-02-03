@@ -26,7 +26,7 @@ $Elements->register(
   'A carousel element for the Cornerstone Page Builder in WordPress.'
 );
 
-// Carousel
+// Modal
 $Elements->register(
   'modal',
   'Modal',
