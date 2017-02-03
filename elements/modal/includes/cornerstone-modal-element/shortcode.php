@@ -23,13 +23,14 @@ if ($display_on === 'button'):
 	</a>
 	<script>
 		jQuery(document).ready(function($) {
-		document.getElementById('csm-btn-'+<?= $modal_id ?>)
-				.addEventListener('click', function() {
-					vex.dialog.alert({
-						unsafeMessage: '<?= do_shortcode($parsedContent); ?>',
-						className: 'vex-theme-<?= $theme ?>'
+			document.getElementById('csm-btn-'+<?= $modal_id ?>)
+					.addEventListener('click', function() {
+						vex.dialog.alert({
+							unsafeMessage: '<?= do_shortcode($parsedContent); ?>',
+							className: 'vex-theme-<?= $theme ?>'
+						})
 					})
-				})
+		})
 	</script>
 </div>
 <?php elseif ($display_on === 'element'): ?>

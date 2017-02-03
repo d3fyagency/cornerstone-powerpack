@@ -10,9 +10,6 @@ Author Email: https://www.d3fy.com/#contact
 Text Domain: __x__
 */
 
-// Prevent direct access
-if ( ! defined( 'WPINC' ) ) die;
-
 define( 'CS_MODAL_PATH', plugin_dir_path( __FILE__ ) );
 define( 'CS_MODAL_URL', plugin_dir_url( __FILE__ ) );
 
