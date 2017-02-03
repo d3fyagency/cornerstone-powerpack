@@ -27,11 +27,11 @@ class Cornerstone_Powerpack_Elements {
 	public function register($key, $name, $desc='', $opts=array()) {
     $instance = self::getInstance();
 
-        $instance::$elements[$key] = array(
-            'name'  => $name,
-            'desc'  => $desc,
-            'opts'  => $opts,
-        );
+    $instance::$elements[$key] = array(
+        'name'  => $name,
+        'desc'  => $desc,
+        'opts'  => $opts,
+    );
 	}
 
 	// Set element option
