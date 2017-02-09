@@ -29,7 +29,7 @@ class Cornerstone_Powerpack_Element_Responsive_Slider {
 	
 	// Load all actions and filters for element.
 	public function load_hooks(&$loader) {
-		$loader->add_action('cornerstone_register_elements', $this, 'register_elements');
+		$loader->add_action('cornerstone_register_elements', $this, 'register_elements', 100);
 		$loader->add_action('wp_enqueue_scripts', $this, 'enqueue_styles');
 		$loader->add_action('wp_enqueue_scripts', $this, 'enqueue_scripts');
 		$loader->add_filter('cornerstone_icon_map', $this, 'icon_map');
@@ -38,6 +38,8 @@ class Cornerstone_Powerpack_Element_Responsive_Slider {
 	// Register the element.
 	public function register_elements() {
 		require_once($this->path.'/includes/classes/cs-responsiveslider-manager.php');
+		cornerstone_remove_element( 'cs-responsive-slider' );
+		cornerstone_remove_element( 'cs-responsive-slider-item' );
 		cornerstone_register_element(
 			'CS_Responsive_Slider', 
 			'cs-responsive-slider',
