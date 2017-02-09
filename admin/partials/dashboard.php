@@ -6,15 +6,7 @@
       <?php
       $options = get_option($this->dashboardoptskey);
       $elements = Cornerstone_Powerpack_Elements::get_elements();
-
       if (!is_array($options)) $options = array();
-
-      $key_diff = array_diff(array_keys($elements), array_keys($options));
-
-      //enable new elements by default -Irvin 2/3/2017
-      $new_elements = array_combine($key_diff, array_fill(0, count($key_diff), 1));
-      update_option($this->dashboardoptskey, array_merge($options, $new_elements));
-
       settings_fields($this->dashboardoptskey);
       ?>
 

@@ -29,6 +29,7 @@ class Cornerstone_Powerpack {
 		
 		$this->cornerstone_powerpack = 'cornerstone-powerpack';
 		$this->version = '1.0.0';
+		$this->dashboardoptskey = $this->cornerstone_powerpack.'-settings-dashboard';
 		
 		$this->load_dependencies();
 		$this->set_locale();
@@ -85,6 +86,16 @@ class Cornerstone_Powerpack {
 		$elements = Cornerstone_Powerpack_Elements::get_element_keys();
 		$options = get_option($this->cornerstone_powerpack.'-settings-dashboard');
 	  if (!is_array($options)) $options = array();
+    
+    // enable new elements by default
+    $key_diff = array_diff($elements, array_keys($options));
+    if (!empty($key_diff)) {
+      $new_elements = array_combine($key_diff, array_fill(0, count($key_diff), 1));
+      update_option($this->dashboardoptskey, array_merge($options, $new_elements));
+      $test = array_merge($options, $new_elements);
+    }
+	  
+	  // load all activated elements
 		foreach ($elements as $element) {
 			$element = preg_replace('/[^A-Z0-9_-]/i', '', $element);
 			$classpath = D3FY_CSPP_PATH.'/elements/'.$element.'/'.$element.'.php';

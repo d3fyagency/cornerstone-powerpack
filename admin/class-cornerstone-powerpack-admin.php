@@ -104,10 +104,9 @@ class Cornerstone_Powerpack_Admin {
 	public function sanitize_settings_dashboard($input) {
 		if (is_array($input)) {
 			$new_input = array();
-			$int_fields = Cornerstone_Powerpack_Elements::get_element_keys();
-			foreach ($input as $key=>$val) {
-				if (in_array($key, $int_fields)) $new_input[$key] = absint($val);
-				else $new_input[$key] = $val;
+			$elm_fields = Cornerstone_Powerpack_Elements::get_element_keys();
+			foreach ($elm_fields as $f) {
+  			$new_input[$f] = (isset($input[$f])) ? intval($input[$f]) : 0;
 			}
 			$input = $new_input;
 		}
