@@ -46,3 +46,10 @@ $Elements->register(
   'Image Overlay',
   'Image Overlay element.'
 );
+
+// Diagonal Divider
+$Elements->register(
+  'diagonal-separator',
+  'Diagonal Section Divider',
+  'Diagonal Section Dividers element, to add slanted block designs between sections.'
+);
