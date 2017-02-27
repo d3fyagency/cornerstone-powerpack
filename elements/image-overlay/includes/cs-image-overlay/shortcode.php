@@ -5,7 +5,7 @@
  */
 $class = "cs-image-overlay cs-image-overlay-$gradient_orientation $text_align" . $class;
 $color = 'color: ' . $text_content_color;
-$headline_style = 'border-bottom: 1px solid ' . $text_content_color;
+if ( !$animation_effect ) $animation_effect = 'default';
 
 $gradient_atts = cs_atts( array( 'style' => cs_build_gradient( $gradient_color_start, $gradient_color_end, $gradient_orientation ) ) );
 $gradient_atts_hover = cs_atts( array( 'style' => cs_build_gradient( $gradient_color_hover_start, $gradient_color_hover_end, $gradient_orientation ) ) );
@@ -17,7 +17,7 @@ $target = empty( $new_tab ) ? '' : 'target="_blank"';
 
 	<?php if ( false === empty( $image ) ): ?>
 
-		<figure class="cs-image-overlay-container">
+		<figure class="cs-image-overlay-container cs-image-overlay-effect-<?php echo esc_attr($animation_effect); ?>">
 
 			<div class="overlay-image" style="background-image: url(<?php echo $image ?>)"></div>
 
@@ -29,7 +29,7 @@ $target = empty( $new_tab ) ? '' : 'target="_blank"';
 
 				<?php if ( false === empty( $heading ) ): ?>
 
-					<strong <?php cs_atts( array( 'style' => $headline_style ) , true ); ?>><?php echo $heading ?></strong>
+					<strong class="headline"><?php echo $heading ?></strong>
 
 				<?php endif; ?>
 

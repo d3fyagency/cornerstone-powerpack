@@ -15,6 +15,7 @@ return array(
 	'text_content_color' 					=> '#fff',
 	'url'    											=> '',
 	'new_tab' 										=> 0,
+	'animation_effect'            => 'default',
 	'gradient_color_start' 				=> 'rgba(95, 110, 230, 0.87)',
 	'gradient_color_end' 					=> 'rgba(255, 255, 255, 0)',
 	'gradient_color_hover_start' 	=> 'rgb(95, 110, 230)',

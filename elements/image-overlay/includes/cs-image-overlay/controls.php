@@ -77,6 +77,25 @@ return array(
 			'tooltip' => __( 'Select On if you want to open Link in new Tab.', 'cs-image-overlay' ),
 		),
 	),
+	
+	// animation effect
+	'animation_effect' => array(
+    'type' => 'select',
+    'ui' => array(
+        'title' => __('Animation Effect', 'cs-image-overlay'),
+        'tooltip' => __('Select a special animation effect.', 'cs-image-overlay'),
+    ),
+    'options' => array(
+        'choices' => array(
+            array('value' => 'default', 'label' => __('Default', 'cs-image-overlay')),
+            array('value' => 'apollo', 'label' => __('Apollo', 'cs-image-overlay')),
+            array('value' => 'bubba', 'label' => __('Bubba', 'cs-image-overlay')),
+            array('value' => 'sadie', 'label' => __('Sadie', 'cs-image-overlay')),
+            array('value' => 'sarah', 'label' => __('Sarah', 'cs-image-overlay')),
+        ),
+    ),
+    'suggest' => 'medium',
+  ),
 
 	// gradient colors
 	'gradient_color_start' => array(

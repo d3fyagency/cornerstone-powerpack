@@ -16,13 +16,13 @@ add_action( 'cornerstone_register_elements', 'cs_imageoverlay_register_elements'
 add_filter( 'cornerstone_icon_map', 'cs_imageoverlay_icon_map' );
 
 function cs_imageoverlay_register_elements() {
-
+	cornerstone_remove_element( 'cs-image-overlay' );
 	cornerstone_register_element( 'CS_Image_Overlay', 'cs-image-overlay', CS_IMAGEOVERLAY_PATH . 'includes/cs-image-overlay' );
-
 }
 
 function cs_imageoverlay_enqueue() {
-	wp_enqueue_style( 'cs_imageoverlay-styles', CS_IMAGEOVERLAY_URL . '/assets/styles/cs-imageoverlay.css', array(), '0.1.0' );
+  $v = '0.1.5';
+	wp_enqueue_style( 'cs_imageoverlay-styles', CS_IMAGEOVERLAY_URL . '/assets/styles/cs-imageoverlay.css', array(), $v );
 }
 
 function cs_imageoverlay_icon_map( $icon_map ) {
