@@ -53,3 +53,10 @@ $Elements->register(
   'Diagonal Section Divider',
   'Diagonal Section Dividers element, to add slanted block designs between sections.'
 );
+
+// Google Maps - Styled
+$Elements->register(
+  'google-maps-styled',
+  'Google Maps - Styled',
+  'Google Maps element, with advanced styling controls.'
+);
