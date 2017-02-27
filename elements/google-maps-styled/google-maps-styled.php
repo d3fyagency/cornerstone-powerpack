@@ -8,8 +8,6 @@ add_action('wp_enqueue_scripts', 'cs_googlemapsstyled_enqueue');
 add_action('cornerstone_register_elements', 'cs_googlemapsstyled_register_elements', 100);
 add_filter('cornerstone_icon_map', 'cs_googlemapsstyled_icon_map');
 
-// print('<pre>path: '.CS_GOOGEMAPSSTYLED_PATH.'includes/cs-google-maps-styled</pre>'); die();
-
 function cs_googlemapsstyled_register_elements() {
 	require_once(CS_GOOGEMAPSSTYLED_PATH.'includes/classes/cs-google-maps-styled-manager.php');
 	cornerstone_remove_element('cs-google-maps-styled');
@@ -33,11 +31,6 @@ function cs_googlemapsstyled_enqueue() {
 		'cspp-googlemapsstyled-styles', 
 		CS_GOOGEMAPSSTYLED_URL . 'assets/styles/cs-googlemapsstyled.css', 
 		array(), $v 
-	);
-	wp_enqueue_script(
-		'cspp-googlemapsstyled-scripts', 
-    CS_GOOGEMAPSSTYLED_URL . 'assets/scripts/cs-googlemapsstyled-min.js', 
-    array(), $v, true
 	);
 }
 

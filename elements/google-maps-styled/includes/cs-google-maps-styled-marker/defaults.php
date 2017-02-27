@@ -14,6 +14,7 @@ return array(
 	
 	/* custom */
 	
+	'heading'						=> '',
 	'marker_latitude'		=> '',
 	'marker_longitude'	=> '',
 	'marker_text'				=> '',

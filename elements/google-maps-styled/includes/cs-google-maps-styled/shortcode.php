@@ -23,6 +23,14 @@ $ElementAdmin->addCSSRule(
 	'min-height: '.$map_height.'; background-color: #eee;'
 );
 
+$script_url = 'https://maps.googleapis.com/maps/api/js?v=3';
+if ( $google_api_key ) {
+  $api_key = esc_attr( $google_api_key );
+  $script_url = add_query_arg( array( 'key' => $api_key ), $script_url );
+}
+wp_register_script( 'cs-google-maps', $script_url );
+wp_enqueue_script( 'cs-google-maps' );
+
 // set main slider attributes
 $attr_map = cs_atts( array(
 	'id'		=> $id,
@@ -50,13 +58,22 @@ $style_json = str_replace(
 );
 $style_json = json_decode($style_json);
 $map_js['map_style_json'] = ($style_json) ? $style_json : '';
+$ElementAdmin->addScriptData($map_js, $count);
+$script_handle = 'cspp-googlemapsstyled-scripts';
+$v = '1.0.2';
+$v = time();
+// wp_dequeue_script( $script_handle );
+
+wp_deregister_script( $script_handle );
+wp_register_script(
+	$script_handle, 
+  CS_GOOGEMAPSSTYLED_URL . 'assets/scripts/cs-googlemapsstyled-min.js', 
+  array('cs-google-maps', 'jquery'), $v, true
+);
+wp_enqueue_script( $script_handle );
+wp_localize_script( $script_handle, 'CSPPStyledGMaps', $ElementAdmin->getScriptData() );
 
 ob_start();
-
-$script_handle = 'cspp-googlemapsstyled-scripts';
-wp_localize_script( $script_handle, 'csppStyledGmapData'.intval($count), $map_js );
-$ElementAdmin->loadScripts();
-
 ?>
 
 <div <?php echo $attr_container; ?> >

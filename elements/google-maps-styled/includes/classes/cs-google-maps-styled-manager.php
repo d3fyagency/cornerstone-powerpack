@@ -11,31 +11,18 @@ class CSGoogleMapStyledManager {
 	private $css = array();
 	private $googleapikey = null;
 	private $scriptsloaded = false;
+	private $scriptData = array();
 	static private $instance = null;
 	
-	// register action to load scirpts into page
-	public function loadScripts() {
-		if ( !$this->scriptsloaded ) {
-			add_action( 'wp_footer', array($this, 'outputFooterScripts'), 500 );
-		}
-		$this->scriptsloaded = true;
+	// save script data globally
+	public function addScriptData($data, $elementID=null) {
+		if ( $elementID === null ) $elementID = $this->getCurrentElementCount();
+		$this->scriptData[$elementID] = $data;
 	}
 	
-	// output scripts (action callback)
-	public function outputFooterScripts() {
-		$output = array();
-		$output[] = '<script type="text/javascript">';
-		$output[] = '/* <![CDATA[ */';
-		$output[] = 'function CSPPStyledGMapsCallback(){CSPPBuildStyledGMaps();}';
-		for ( $i=1; $i<=$this->elementCount; $i++ ) {
-			$output[] = 'CSPPAddStyledGMaps(csppStyledGmapData'.$i.');';
-		}
-		$output[] = '/* ]]> */';
-		$output[] = '</script>';
-		$output[] = '<script async defer';
-		$output[] = '	src="https://maps.googleapis.com/maps/api/js?key='.urlencode($this->googleapikey).'&callback=CSPPStyledGMapsCallback">';
-		$output[] = '</script>';
-		echo implode("\n", $output);
+	// get global script data
+	public function getScriptData() {
+		return $this->scriptData;
 	}
 	
 	// private constructor - use getInstance instead

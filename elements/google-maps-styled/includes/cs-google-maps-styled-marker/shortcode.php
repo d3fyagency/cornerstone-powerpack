@@ -9,14 +9,12 @@ $map_count = $ElementAdmin->getCurrentElementCount();
 $marker_count = $ElementAdmin->getNewElementItemCount();
 
 $js_params = array(
-  'lat'        => ( $marker_latitude    != '' )	? $marker_latitude : '40.7056308',
-  'lng'        => ( $marker_longitude   != '' ) ? $marker_longitude : '-73.9780035',
+  'lat'        => ( $marker_latitude    != '' )	? (float) $marker_latitude : 0,
+  'lng'        => ( $marker_longitude   != '' ) ? (float) $marker_longitude : 0,
   'markerInfo' => ( $marker_text  			!= '' )	? cs_decode_shortcode_attribute( $marker_text ) : '',
   'startOpen'	 => ( 'true' 							== $marker_open ),
   'title'			 => ( $heading						!= '' ) ? cs_decode_shortcode_attribute( $heading ) : '',
 );
-
-print('<pre>'); print_r($js_params); print('</pre>');
 
 if ( is_numeric( $marker_image ) ) {
   $image_info         = wp_get_attachment_image_src( $marker_image, 'full' );
