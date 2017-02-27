@@ -28,7 +28,7 @@ class Cornerstone_Powerpack {
 	public function __construct() {
 		
 		$this->cornerstone_powerpack = 'cornerstone-powerpack';
-		$this->version = '0.1.2';
+		$this->version = '0.1.3';
 		$this->dashboardoptskey = $this->cornerstone_powerpack.'-settings-dashboard';
 		
 		$this->load_dependencies();
