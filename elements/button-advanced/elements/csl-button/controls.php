@@ -46,7 +46,7 @@ return array(
         'suggest' => __('#00a94e', 'csl-button'),
     ),
 
-    'border_color' => array(
+    'border_main_color' => array(
         'type' => 'color',
         'ui' => array(
             'title' => __('Border Color', 'csl-button'),

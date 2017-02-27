@@ -7,11 +7,14 @@
 $randnum = rand(0, 5000);
 $button_id = "csl-button-" . $randnum;
 
+$transparent_defaults = array('border_main_color', 'border_hover_color', 'background_color');
+foreach ($transparent_defaults as $var) if (!$$var) $$var = 'transparent';
+
 $class .= "csl-button " . $button_id;
 ?>
 <style type="text/css">
     a.<?php echo $button_id; ?> {
-        border: 2px solid <?php echo $border_color; ?>;
+        border: 2px solid <?php echo $border_main_color; ?>;
         border-radius: <?php echo $border_radius; ?>px;
         color: <?php echo $font_color; ?>;
         background-color: <?php echo $background_color; ?>;
@@ -30,7 +33,6 @@ $class .= "csl-button " . $button_id;
                     break;
             }
         ?>
-        border-radius: <?php echo $border_radius; ?>px;
     }
 
     a.<?php echo $button_id; ?>:hover {

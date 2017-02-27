@@ -20,6 +20,7 @@ add_action( 'wp_enqueue_scripts', function() {
 });
 
 add_action( 'cornerstone_register_elements', function() {
+	cornerstone_remove_element( 'csl-button' );
 	cornerstone_register_element( 'CSL_Button', 'csl-button', CSL_BUTTON_PATH . "/elements/csl-button" );
 });
 
