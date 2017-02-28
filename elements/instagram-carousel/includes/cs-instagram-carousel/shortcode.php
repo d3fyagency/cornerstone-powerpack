@@ -58,8 +58,8 @@ if (!function_exists('d3fy_get_object_property')) {
 
 // enqueue scripts if carousel
 if ($carousel) {
-  $v = '0.1.6';
-  $v = time();
+  $v = '0.1.7';
+  // $v = time();
 	wp_enqueue_script(
 		'cs-instagramcarousel-scripts', 
 		CS_INSTAGRAMCAROUSEL_URL.'assets/scripts/cs-instagramcarousel-min.js', 
