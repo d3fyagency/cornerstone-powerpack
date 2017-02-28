@@ -60,3 +60,10 @@ $Elements->register(
   'Google Maps - Styled',
   'Google Maps element, with advanced styling controls.'
 );
+
+// Instagram Feed
+$Elements->register(
+  'instagram-carousel',
+  'Instagram Feed Carousel',
+  'Instagram feed bar with optional carousel scrolling.'
+);
