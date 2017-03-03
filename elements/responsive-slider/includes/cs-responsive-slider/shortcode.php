@@ -8,8 +8,8 @@ $SliderAdmin = CSResponsiveSliderManager::getInstance();
 $count = $SliderAdmin->getNewSliderCount();
 $css_prefix = '#cs-content .cs-responsive-slider ';
 
-// set container classes, include main CS element positioning classes
-$classes = array( 'x-flexslider-shortcode-container', 'cs-responsive-slider' );
+// set container attributes, include main CS element positioning classes
+$classes = array( 'cs-responsive-slider', 'cs-responsive-slider-loading', 'cs-responsive-slider-' . $count );
 if ( $class ) $classes[] = $class;
 if ( $prev_next_nav_position ) $classes[] = 'prevnextnav-' . $prev_next_nav_position;
 if ( $control_nav_position ) $classes[] = 'controlnav-' . $control_nav_position;
@@ -18,25 +18,18 @@ if ( $slider_style != 'fullheight' ) $slider_style = 'scaled';
 $classes[] = 'cs-responsive-slider-'.$slider_style;
 $SliderAdmin->setSliderParam( 'slider_style', $slider_style );
 $attr_container = cs_atts( array(
-	'class'	=> esc_attr( implode( ' ', $classes ) ),
-) );
-
-// set main slider attributes
-$attr_slider = cs_atts( array(
 	'id'		=> $id,
-	'class'	=> 'x-flexslider loading x-flexslider-shortcode x-flexslider-shortcode-' . $count,
+	'class'	=> esc_attr( implode( ' ', $classes ) ),
 	'style'	=> $style,
 ) );
-$attr_data = cs_generate_data_attributes( 'slider', array(
-	'animation'       => $slider_transition,
-	'slideTime'       => $slider_time,
-	'slideSpeed'      => $slider_speed,
-	'controlNav'      => ( $control_nav ) ? true : false,
-	'prevNextNav'     => ( $prev_next_nav ) ? true : false,
-	'slideshow'       => true,
-	'touch'           => true,
-	'pauseOnHover'    => true,
-	'fadeFirstSlide'  => false,
+
+// set slider data attributes
+if ( $slider_transition == 'slide' ) $slider_transition = 'scrollHorz';
+$attr_slider = cs_atts( array(
+	'class'								=> 'cs-responsive-slider-slideshow min-slide-height cs-responsive-slider-items',
+	'data-cycle-timeout'	=> $slider_time,
+	'data-cycle-speed'		=> $slider_speed,
+	'data-cycle-fx'				=> $slider_transition,
 ) );
 
 // set minimum viewport width for nav controls
@@ -56,11 +49,21 @@ ob_start();
 
 ?>
 
-<div <?php echo $attr_container; ?> >
-	<div <?php echo trim( $attr_slider . ' ' . $attr_data ); ?> >
-		<ul class="x-slides">
-			<?php echo do_shortcode( $content ); ?>
-		</ul>
+<div <?php echo $attr_container; ?>>
+	<div <?php echo $attr_slider; ?> 
+		data-cycle-slides="> div.slide" 
+		data-cycle-log=false 
+		data-cycle-auto-height=0
+    data-cycle-pager-template="<a href=#></a>"
+	>
+		<?php echo do_shortcode($content); ?>
+		<?php if ( $prev_next_nav ): ?>
+    <a href="#" class="cycle-prev"><i class="csppicon csppicon-chevron-left"></i></a>
+		<a href="#" class="cycle-next"><i class="csppicon csppicon-chevron-right"></i></a>
+    <?php endif; ?>
+    <?php if ( $control_nav ): ?>
+    <div class="cycle-pager"></div>
+    <?php endif; ?>
 	</div>
 </div>
 

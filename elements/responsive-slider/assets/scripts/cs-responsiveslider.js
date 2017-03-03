@@ -1,4 +1,5 @@
 jQuery(document).ready(function($){
+  "use strict";
     
   // get viewport size (with scrollbar, to match media queries, minus WP admin bar)
 	var getViewportSize = function(){
@@ -24,20 +25,22 @@ jQuery(document).ready(function($){
   });
   
   // set height for full viewport height sliders
-  $(".cs-responsive-slider-fullheight").addClass("with-js");
-	var setFSSliderHeight = function(){
+  var setFSSliderHeight = function(){
 		$(".cs-responsive-slider-fullheight").height(getViewportSize().height);
 	};
 	setFSSliderHeight();
+  $(".cs-responsive-slider-slideshow").on("cycle-post-initialize", function(){
+	  var sContainer = $(this).closest(".cs-responsive-slider");
+		$(sContainer).addClass("with-js");
+		setTimeout(function(){
+			$(sContainer).removeClass("cs-responsive-slider-loading");
+		}, 1000);
+	});
+	$(".cs-responsive-slider-slideshow").cycle();
 	
 	// update things again after window resize
-  $(window).bind('resizeEnd', function() {
+  $(window).bind("resizeEnd", function() {
   	setFSSliderHeight();
   });
-  
-  // remove loading class after a couple seconds
-  setTimeout(function() {
-    $('.x-flexslider').removeClass('loading');
-  }, 1500);
     
 });

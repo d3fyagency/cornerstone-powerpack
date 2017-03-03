@@ -65,10 +65,20 @@ class Cornerstone_Powerpack_Element_Responsive_Slider {
       $this->url.'/assets/styles/cs-responsiveslider.css', 
       array(), $this->version, 'all'
     );
+    wp_enqueue_style(
+      'cspp-icons', 
+      D3FY_CSPP_URL.'/lib/csppicons/style.css', 
+      array(), $this->version, 'all'
+    );
 	}
 
 	// Register the element JavaScript.
 	public function enqueue_scripts() {
+    wp_enqueue_script(
+			'cspp-cycle2', 
+			D3FY_CSPP_URL.'/lib/cycle2/jquery.cycle2.min.js',
+			array('jquery'), $this->version, true
+		);
     wp_enqueue_script(
       $this->cornerstone_powerpack.'-responsive-slider', 
       $this->url.'/assets/scripts/cs-responsiveslider-min.js', 

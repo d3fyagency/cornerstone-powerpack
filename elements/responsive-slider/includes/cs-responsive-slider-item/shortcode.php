@@ -11,7 +11,7 @@ $item_count = $SliderAdmin->getNewSliderItemCount();
 global $csRespSliderStyles;
 $item_styles = array();
 
-$wrap_id = 'cs-responsive-slider-item-' . $item_count;
+$wrap_id = 'cs-responsive-slider-item-' . $slider_count . '-' . $item_count;
 $item_class = 'slider-item-' . $item_count;
 $css_prefix = '#cs-content .cs-responsive-slider .cs-responsive-slider-item #' . $wrap_id . ' ';
 $has_overlay = ( $slider_image || $header_text || $content || $btn_link_url ) ? true : false;
@@ -124,14 +124,14 @@ if ( $has_overlay ) {
 
 ?>
 
-<li <?php echo cs_atts( array(
+<div <?php echo cs_atts( array(
 	'id'		=> $id,
-	'class'	=> 'cs-responsive-slider-item x-slide ' . $item_class,
+	'class'	=> 'cs-responsive-slider-item slide ' . $item_class,
 	'style'	=> $style,
 ) ); ?>>
 	
 	<div id="<?php echo esc_attr( $wrap_id ); ?>" class="slider-item-wrap">
-	
+		
 		<?php if ( $slider_image ): ?>
 		<div class="slider-image">
 			<img src="<?php echo esc_url( $slider_image ); ?>" alt="<?php echo esc_attr( $slider_image_alt ); ?>" />
@@ -143,14 +143,13 @@ if ( $has_overlay ) {
 			'slider-overlay padding-' . $overlay_padding . ' text-' . $overlay_text_size . ' lineheight-'.$overlay_lineheight
 			); ?>">
 	
-			<?php if ( $logo_image ) : ?>
+			<?php if ( $logo_include && $logo_image ) : ?>
 			<div class="logo-image padding-btm-<?php echo esc_attr( $logo_btm_padding ); ?>">
 				<img src="<?php echo esc_url( $logo_image ); ?>" alt="<?php echo esc_attr( $logo_image_alt ); ?>" />
 			</div>
 			<?php endif; ?>
 			
-			<?php if ( $header_text ) : ?>
-			<div class="slider-header padding-btm-<?php echo esc_attr( $header_btm_padding ); ?>">
+			<?php if ( $header_include && $header_text ) : ?>
 			<div class="<?php echo esc_attr( 
 				'slider-header padding-btm-' . $header_btm_padding . ' header-' . $header_text_size 
 				); ?>">
@@ -164,7 +163,7 @@ if ( $has_overlay ) {
 			</div>
 			<?php endif; ?>
 			
-			<?php if ( $btn_link_url && $btn_text ) : ?>
+			<?php if ( $btn_include && $btn_link_url && $btn_text ) : ?>
 			<div class="slider-button padding-btm-<?php echo esc_attr( $btn_btm_padding ); ?>">
 				<a <?php echo cs_atts( array(
 					'href'	=> esc_url( $btn_link_url ),
@@ -180,4 +179,4 @@ if ( $has_overlay ) {
 	
 	</div>
 	
-</li>
+</div>

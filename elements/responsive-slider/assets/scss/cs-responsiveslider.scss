@@ -111,10 +111,6 @@ $lineheight-xloose: 1.5em;
 }
 
 #cs-content {
-	
-	.x-flexslider-shortcode-container {
-		margin-bottom: 0 !important; /* override cornerstone inserted CSS */
-	}
 
 	.cs-responsive-slider {
 		min-height: 60px;
@@ -122,11 +118,42 @@ $lineheight-xloose: 1.5em;
 		overflow: hidden;
 		margin: 0;
 		
-		.loading .x-slides > li:first-child {
-  		opacity: 1 !important;
-    }
+		&.cs-responsive-slider-loading {
+			
+			.cs-responsive-slider-item {
+				position: absolute;
+				width: 100%;
+				top: 0;
+				left: 0;
+				z-index: 0;
+				
+				&.slider-item-1 {
+					position: relative !important;
+					z-index: 2;
+				}
+				
+				&.cycle-sentinel {
+					display: none !important;
+					visibility: visible !important;
+				}
+			}
+		}
+		
+		.cs-responsive-slider-items {
+			position: relative;
+		}
 		
 		.cs-responsive-slider-item {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			left: 0;
+			z-index: 0;
+			
+			&.slider-item-1 {
+				position: relative;
+				z-index: 2;
+			}
 			
 			.slider-overlay {
 				position: absolute;
@@ -197,49 +224,88 @@ $lineheight-xloose: 1.5em;
 			.padding-btm-xlarge { padding-bottom: $padding-xlarge; }
 		}
 		
-		.flex-control-nav {
-			z-index: 10;
+		.cycle-pager {
+			z-index: 150;
+			position: absolute;
+			
+			a {
+				text-decoration: none;
+				display: inline-block;
+				height: 16px;
+				width: 16px;
+				border-radius: 50%;
+				margin: 0 2px;
+				padding: 0;
+			}
 		}
 		
 		/* selectable control nav positions */
-		&.controlnav-top-right .flex-control-nav { top: 15px; right: 13px; bottom: auto; left: auto; }
-		&.controlnav-top-left .flex-control-nav { top: 15px; right: auto; bottom: auto; left: 13px; }
-		&.controlnav-top-center .flex-control-nav { top: 15px; right: auto; bottom: auto; left: auto; text-align: center; width: 100%; }
-		&.controlnav-btm-right .flex-control-nav { top: auto; right: 13px; bottom: 15px; left: auto; }
-		&.controlnav-btm-left .flex-control-nav { top: auto; right: auto; bottom: 15px; left: 13px; }
-		&.controlnav-btm-center .flex-control-nav { top: auto; right: auto; bottom: 15px; left: auto; text-align: center; width: 100%; }
-		
-		/* selectable direction nav positions */
-		&.prevnextnav-top-right .flex-direction-nav {
-			.flex-prev { top: 15px; right: 50px; bottom: auto; left: auto; }
-			.flex-next { top: 15px; right: 15px; bottom: auto; left: auto; }
-		}
-		&.prevnextnav-top-left .flex-direction-nav {
-			.flex-prev { top: 15px; right: auto; bottom: auto; left: 15px; }
-			.flex-next { top: 15px; right: auto; bottom: auto; left: 50px; }
-		}
-		&.prevnextnav-btm-right .flex-direction-nav {
-			.flex-prev { top: auto; right: 50px; bottom: 15px; left: auto; }
-			.flex-next { top: auto; right: 15px; bottom: 15px; left: auto; }
-		}
-		&.prevnextnav-btm-left .flex-direction-nav {
-			.flex-prev { top: auto; right: auto; bottom: 15px; left: 15px; }
-			.flex-next { top: auto; right: auto; bottom: 15px; left: 50px; }
-		}
-		&.prevnextnav-split-middle .flex-direction-nav {
-			.flex-prev, .flex-next { top: 50%; bottom: auto; margin-top: -15px; }
-			.flex-prev { right: auto; left: 15px; }
-			.flex-next { left: auto; right: 15px; }
-		}
+		&.controlnav-top-right .cycle-pager { top: 15px; right: 13px; bottom: auto; left: auto; }
+		&.controlnav-top-left .cycle-pager { top: 15px; right: auto; bottom: auto; left: 13px; }
+		&.controlnav-top-center .cycle-pager { top: 15px; right: auto; bottom: auto; left: auto; text-align: center; width: 100%; }
+		&.controlnav-btm-right .cycle-pager { top: auto; right: 13px; bottom: 15px; left: auto; }
+		&.controlnav-btm-left .cycle-pager { top: auto; right: auto; bottom: 15px; left: 13px; }
+		&.controlnav-btm-center .cycle-pager { top: auto; right: auto; bottom: 15px; left: auto; text-align: center; width: 100%; }
 		
 		/* selectable control themes */
-		&.controltheme-dark .flex-control-nav {
+		&.controltheme-dark .cycle-pager {
 			a { background-color: rgba(0, 0, 0, 0.4); }
-			a:hover, a.flex-active { background-color: rgba(0, 0, 0, 0.6); }
+			a.cycle-pager-active { background-color: rgba(0, 0, 0, 0.6); }
+			a:hover, a.cycle-pager-active:hover { background-color: rgba(0, 0, 0, 0.8); }
 		}
-		&.controltheme-light .flex-control-nav {
+		&.controltheme-light .cycle-pager {
 			a { background-color: rgba(255, 255, 255, 0.4); }
-			a:hover, a.flex-active { background-color: rgba(255, 255, 255, 0.6); }
+			a.cycle-pager-active { background-color: rgba(255, 255, 255, 0.6); }
+			a:hover, a.cycle-pager-active:hover { background-color: rgba(255, 255, 255, 0.8); }
+		}
+		
+		.cycle-prev, .cycle-next {
+			z-index: 150;
+			display: block;
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			background-color: rgba(0, 0, 0, .2);
+			color: rgba(255, 255, 255, .85);
+			text-shadow: 0 0 5px rgba(0, 0, 0, .2);
+			border-radius: 4px;
+			text-decoration: none;
+			
+			&:hover {
+				text-decoration: none;
+				background-color: rgba(0, 0, 0, .35);
+				color: rgba(255, 255, 255, 1);
+			}
+			
+			i {
+				line-height: 30px !important;
+				font-size: 18px;
+			}
+		}
+		
+		/* selectable direction nav positions */
+		&.prevnextnav-top-right {
+			.cycle-prev { top: 15px; right: 50px; bottom: auto; left: auto; }
+			.cycle-next { top: 15px; right: 15px; bottom: auto; left: auto; }
+		}
+		&.prevnextnav-top-left {
+			.cycle-prev { top: 15px; right: auto; bottom: auto; left: 15px; }
+			.cycle-next { top: 15px; right: auto; bottom: auto; left: 50px; }
+		}
+		&.prevnextnav-btm-right {
+			.cycle-prev { top: auto; right: 50px; bottom: 15px; left: auto; }
+			.cycle-next { top: auto; right: 15px; bottom: 15px; left: auto; }
+		}
+		&.prevnextnav-btm-left {
+			.cycle-prev { top: auto; right: auto; bottom: 15px; left: 15px; }
+			.cycle-next { top: auto; right: auto; bottom: 15px; left: 50px; }
+		}
+		&.prevnextnav-split-middle {
+			.cycle-prev, .cycle-next { top: 50%; bottom: auto; margin-top: -15px; }
+			.cycle-prev { right: auto; left: 15px; }
+			.cycle-next { left: auto; right: 15px; }
 		}
 		
 		&.cs-responsive-slider-scaled {
@@ -260,10 +326,9 @@ $lineheight-xloose: 1.5em;
   		}
 		}
 		
-		&.cs-responsive-slider-fullheight {
+		&.cs-responsive-slider-fullheight.with-js {
   		
-  		.x-flexslider,
-  		.x-slides,
+  		.cs-responsive-slider-items,
   		.cs-responsive-slider-item,
   		.slider-item-wrap {
     		width: 100%;
@@ -275,7 +340,7 @@ $lineheight-xloose: 1.5em;
     		background-repeat: no-repeat;
     		background-size: cover;
     		display: table;
-    		
+    		    		
     		.slider-overlay {
       		display: table-cell;
       		vertical-align: middle;

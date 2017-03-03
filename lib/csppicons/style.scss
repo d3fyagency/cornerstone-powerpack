@@ -1,0 +1,89 @@
+@import "variables";
+
+@font-face {
+  font-family: 'csppicons';
+  src:  url('#{$icomoon-font-path}/csppicons.eot?3ir0ee');
+  src:  url('#{$icomoon-font-path}/csppicons.eot?3ir0ee#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/csppicons.ttf?3ir0ee') format('truetype'),
+    url('#{$icomoon-font-path}/csppicons.woff?3ir0ee') format('woff'),
+    url('#{$icomoon-font-path}/csppicons.svg?3ir0ee#csppicons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.csppicon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'csppicons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.csppicon-chevron-left {
+  &:before {
+    content: $csppicon-chevron-left;
+  }
+}
+.csppicon-chevron-right {
+  &:before {
+    content: $csppicon-chevron-right;
+  }
+}
+.csppicon-arrow-left {
+  &:before {
+    content: $csppicon-arrow-left;
+  }
+}
+.csppicon-arrow-right {
+  &:before {
+    content: $csppicon-arrow-right;
+  }
+}
+.csppicon-caret-left {
+  &:before {
+    content: $csppicon-caret-left;
+  }
+}
+.csppicon-caret-right {
+  &:before {
+    content: $csppicon-caret-right;
+  }
+}
+.csppicon-angle-double-left {
+  &:before {
+    content: $csppicon-angle-double-left;
+  }
+}
+.csppicon-angle-double-right {
+  &:before {
+    content: $csppicon-angle-double-right;
+  }
+}
+.csppicon-angle-left {
+  &:before {
+    content: $csppicon-angle-left;
+  }
+}
+.csppicon-angle-right {
+  &:before {
+    content: $csppicon-angle-right;
+  }
+}
+.csppicon-arrow-circle-o-right {
+  &:before {
+    content: $csppicon-arrow-circle-o-right;
+  }
+}
+.csppicon-arrow-circle-o-left {
+  &:before {
+    content: $csppicon-arrow-circle-o-left;
+  }
+}
+
