@@ -31,6 +31,11 @@ class Cornerstone_Powerpack_Admin {
   	if ($screen->id == 'cornerstone_page_cornerstone_powerpack') {
       wp_enqueue_style(
         $this->cornerstone_powerpack, 
+        D3FY_CSPP_URL.'/lib/lity/lity.min.css', 
+        array(), $this->version, 'all'
+      );
+      wp_enqueue_style(
+        $this->cornerstone_powerpack, 
         D3FY_CSPP_URL.'/admin/css/cornerstone-powerpack-admin.css', 
         array(), $this->version, 'all'
       );
@@ -41,6 +46,11 @@ class Cornerstone_Powerpack_Admin {
 	public function enqueue_scripts() {
   	$screen = get_current_screen();
     if ($screen->id == 'cornerstone_page_cornerstone_powerpack') {
+      wp_enqueue_script(
+        $this->cornerstone_powerpack, 
+        D3FY_CSPP_URL.'/lib/lity/lity.min.js', 
+        array('jquery'), $this->version, true
+      );
       wp_enqueue_script(
         $this->cornerstone_powerpack, 
         D3FY_CSPP_URL.'/admin/js/cornerstone-powerpack-admin.js', 
@@ -62,33 +72,12 @@ class Cornerstone_Powerpack_Admin {
       array($this, 'admin_home')  // function
     );
     
-    // Add hidden video player admin page
-    add_submenu_page(
-      null,
-      ' Video', 
-      'Video', 
-      'manage_options', 
-      'cornerstone_powerpack_video_page_hidden', 
-      array($this, 'no_output')
-    );
-    
 	}
 	
 	// Output the main admin home screen
 	public function admin_home() {
   	add_thickbox();
   	include(D3FY_CSPP_PATH.'/admin/partials/dashboard.php');
-	}
-	
-	// Output the video player iframe screen
-	public function video_player() {
-  	include(D3FY_CSPP_PATH.'/admin/partials/videoplayer.php');
-  	exit;
-	}
-	
-	// Output the video player iframe screen
-	public function no_output() {
-  	/* print nothing */
 	}
 	
 	// Register dashboard page settings
