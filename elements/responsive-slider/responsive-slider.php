@@ -7,6 +7,8 @@
  * @subpackage Cornerstone_Powerpack/elements/responsive-slider
  */
 
+if (!class_exists('Cornerstone_Powerpack_Element_Responsive_Slider')):
+
 class Cornerstone_Powerpack_Element_Responsive_Slider {
 
 	// The ID of this plugin.
@@ -85,7 +87,7 @@ class Cornerstone_Powerpack_Element_Responsive_Slider {
       array('jquery'), $this->version, true
     );
 	}
-	
-	
 
 }
+
+endif;

@@ -10,18 +10,24 @@ add_filter('cornerstone_icon_map', 'cs_diagonalsep_icon_map');
 
 // print('<pre>path: '.CS_DIAGONALSEP_PATH.'includes/cs-diagonal-separator</pre>'); die();
 
-function cs_diagonalsep_register_elements() {
-	require_once(CS_DIAGONALSEP_PATH.'includes/classes/cs-diagonalsep-manager.php');
-	cornerstone_remove_element('cs-diagonal-separator');
-	cornerstone_register_element('CS_Diagonal_Separators', 'cs-diagonal-separator', CS_DIAGONALSEP_PATH.'includes/cs-diagonal-separator');
+if ( !function_exists( 'cs_diagonalsep_register_elements' ) ) {
+	function cs_diagonalsep_register_elements() {
+		require_once(CS_DIAGONALSEP_PATH.'includes/classes/cs-diagonalsep-manager.php');
+		cornerstone_remove_element('cs-diagonal-separator');
+		cornerstone_register_element('CS_Diagonal_Separators', 'cs-diagonal-separator', CS_DIAGONALSEP_PATH.'includes/cs-diagonal-separator');
+	}
 }
 
-function cs_diagonalsep_enqueue() {
-  $v = '0.1.5';
-	wp_enqueue_style( 'cs-diagonalsep-styles', CS_DIAGONALSEP_URL . 'assets/styles/cs-diagonalsep.css', array(), $v );
+if ( !function_exists( 'cs_diagonalsep_enqueue' ) ) {
+	function cs_diagonalsep_enqueue() {
+	  $v = '0.1.5';
+		wp_enqueue_style( 'cs-diagonalsep-styles', CS_DIAGONALSEP_URL . 'assets/styles/cs-diagonalsep.css', array(), $v );
+	}
 }
 
-function cs_diagonalsep_icon_map( $icon_map ) {
-	$icon_map['section-dividers-icon'] = CS_DIAGONALSEP_URL . 'assets/svg/section-dividers-icon.svg';
-	return $icon_map;
+if ( !function_exists( 'cs_diagonalsep_icon_map' ) ) {
+	function cs_diagonalsep_icon_map( $icon_map ) {
+		$icon_map['section-dividers-icon'] = CS_DIAGONALSEP_URL . 'assets/svg/section-dividers-icon.svg';
+		return $icon_map;
+	}
 }

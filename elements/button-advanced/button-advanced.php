@@ -22,7 +22,7 @@ add_action( 'wp_enqueue_scripts', function() {
 add_action( 'cornerstone_register_elements', function() {
 	cornerstone_remove_element( 'csl-button' );
 	cornerstone_register_element( 'CSL_Button', 'csl-button', CSL_BUTTON_PATH . "/elements/csl-button" );
-});
+}, 100);
 
 add_filter( 'cornerstone_icon_map', function ($icon_map) {
 	$icon_map['csl-button'] = CSL_BUTTON_URL . '/assets/svg/icons.svg';

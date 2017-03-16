@@ -67,3 +67,10 @@ $Elements->register(
   'Instagram Feed Carousel',
   'Instagram feed bar with optional carousel scrolling.'
 );
+
+// Advanced Posts
+$Elements->register(
+  'cspp-posts-advanced',
+  'Advanced Posts List',
+  'Output groups of posts as styled grids or lists.'
+);

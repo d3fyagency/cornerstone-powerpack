@@ -20,7 +20,7 @@ define( 'CSL_TEAMMEMBER_URL', plugin_dir_url( __FILE__ ) );
 
 
 /* Add element to Cornerstone */
-add_action( 'cornerstone_register_elements', 'csl_teammember_register_elements' );
+add_action( 'cornerstone_register_elements', 'csl_teammember_register_elements', 100 );
 
 /* Add Icon Map */
 add_filter( 'cornerstone_icon_map', 'csl_teammember_icon_map');
@@ -34,19 +34,23 @@ add_action( 'wp_enqueue_scripts', 'csl_teammember_scripts');
  * => FUNCTIONS
  * ---------------------------------------------------------------------------*/
 
-function csl_teammember_scripts() {
-  wp_enqueue_script( 'csl-teammember-script', CSL_TEAMMEMBER_URL . 'assets/js/csl_teammember.js', array('jquery'), null, true );
-  wp_enqueue_style( 'csl-teammember-style', CSL_TEAMMEMBER_URL . 'assets/css/csl_teammember.css', array(), '1.0' );
+if (!function_exists('csl_teammember_scripts')) {
+	function csl_teammember_scripts() {
+	  wp_enqueue_script( 'csl-teammember-script', CSL_TEAMMEMBER_URL . 'assets/js/csl_teammember.js', array('jquery'), null, true );
+	  wp_enqueue_style( 'csl-teammember-style', CSL_TEAMMEMBER_URL . 'assets/css/csl_teammember.css', array(), '1.0' );
+	}
 }
 
-function csl_teammember_register_elements() {
-	cornerstone_register_element( 'CSL_Team_Member', 'csl-team-member', CSL_TEAMMEMBER_PATH . 'includes/csl-team-member' );
+if (!function_exists('csl_teammember_register_elements')) {
+	function csl_teammember_register_elements() {
+		cornerstone_remove_element( 'csl-team-member' );
+		cornerstone_register_element( 'CSL_Team_Member', 'csl-team-member', CSL_TEAMMEMBER_PATH . 'includes/csl-team-member' );
+	}
 }
 
-function csl_teammember_icon_map() {
-	$icon_map['default'] = CSL_TEAMMEMBER_URL . 'assets/svg/icons.svg';
-	return $icon_map;
+if (!function_exists('csl_teammember_icon_map')) {
+	function csl_teammember_icon_map() {
+		$icon_map['default'] = CSL_TEAMMEMBER_URL . 'assets/svg/icons.svg';
+		return $icon_map;
+	}
 }
-
-
-
