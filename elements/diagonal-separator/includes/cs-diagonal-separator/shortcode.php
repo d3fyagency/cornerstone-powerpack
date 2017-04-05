@@ -25,10 +25,14 @@ $attr_container = cs_atts(array(
 
 // generate SVG
 if ($valign == 'bottom') {
-	if ($slope == 'down') $points = '0 0, 100 100, 0 100';
+  if ($slope == 'point') $points = '0 100, 50 0, 100 100';
+  else if ($slope == 'dip') $points = '0 0, 50 100, 100 0, 100 100, 0 100';
+	else if ($slope == 'down') $points = '0 0, 100 100, 0 100';
 	else $points = '0 100, 100 0, 100 100';
 } else {
-	if ($slope == 'down') $points = '0 0, 100 0, 100 100';
+  if ($slope == 'point') $points = '0 0, 50 100, 100 0';
+  else if ($slope == 'dip') $points = '0 0, 0 100, 50 0, 100 100, 100 0';
+	else if ($slope == 'down') $points = '0 0, 100 0, 100 100';
 	else $points = '0 0, 100 0, 0 100';
 }
 

@@ -48,11 +48,19 @@ return array(
 			'choices' => array(
 				array(
 					'value' => 'up',
-					'label' => __( 'Up (from left)', 'cs-powerpack' )
+					'label' => __( 'Slope Up (from left)', 'cs-powerpack' )
 				),
 				array(
 					'value' => 'down',
-					'label' => __( 'Down (from left)', 'cs-powerpack' )
+					'label' => __( 'Slope Down (from left)', 'cs-powerpack' )
+				),
+				array(
+					'value' => 'point',
+					'label' => __( 'Mountain / Point', 'cs-powerpack' )
+				),
+				array(
+					'value' => 'dip',
+					'label' => __( 'Valley / Dip', 'cs-powerpack' )
 				),
 			)
 		)
