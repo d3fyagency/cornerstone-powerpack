@@ -32,8 +32,10 @@ $ElementAdmin->addCSSRule(
 );
 $columns_desktop = (integer) $columns_desktop;
 if (!$columns_desktop) $columns_desktop = 6;
+$rows_desktop = (integer) $rows_desktop;
+if ($rows_desktop < 1) $rows_desktop = 1;
 $slide_width_desktop = floor(10000 * (100/$columns_desktop)) / 10000;
-$maxDesktop = $columns_desktop;
+$maxDesktop = $columns_desktop * $rows_desktop;
 $ElementAdmin->addCSSRule(
 	'#'.$slider_id.' .slide',
 	'width: '.$slide_width_desktop.'%;',

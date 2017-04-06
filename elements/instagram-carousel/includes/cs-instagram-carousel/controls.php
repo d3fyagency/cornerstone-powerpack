@@ -37,6 +37,22 @@ return array(
     'suggest' => '6',
   ),
   
+  'rows_desktop' => array(
+    'type' => 'select',
+    'condition' => array('carousel' => false),
+    'ui' => array(
+        'title' => __('Rows (desktop - ignored if carousel enabled)', 'cs-powerpack'),
+    ),
+    'options' => array(
+        'choices' => array(
+            array('value' => '1', 'label' => __('1', 'cs-powerpack')),
+            array('value' => '2', 'label' => __('2', 'cs-powerpack')),
+            array('value' => '3', 'label' => __('3', 'cs-powerpack')),
+        ),
+    ),
+    'suggest' => '1',
+  ),
+  
   'minwidth_desktop' => array(
 		'type'    => 'number',
 		'ui' => array(
