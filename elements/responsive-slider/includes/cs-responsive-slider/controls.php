@@ -10,14 +10,14 @@ return array(
 		'type'    => 'sortable',
 		'options' => array(
 			'element' => 'cs-responsive-slider-item',
-			'newTitle' => __( 'Slide %s', csl18n() ),
+			'newTitle' => __( 'Slide %s', 'cs-powerpack' ),
 			'floor'   => 1,
 			'title_field' => 'heading'
 		),
 		'context' => 'content',
 		'suggest' => array(
-	   	array( 'heading' => __( 'First Slide', csl18n() ) ),
-			array( 'heading' => __( 'Second Slide', csl18n() ) ),
+	   	array( 'heading' => __( 'First Slide', 'cs-powerpack' ) ),
+			array( 'heading' => __( 'Second Slide', 'cs-powerpack' ) ),
 		)
 	),
 	

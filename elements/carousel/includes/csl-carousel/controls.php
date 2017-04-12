@@ -11,10 +11,10 @@ return array(
 	'max_visible_items' => array(
 		'type'    => 'number',
 		'ui' => array(
-			'title'   => __( 'Max visible items', csl18n() ),
-			'tooltip' => __( 'Carousel will automatically show less items to fit smaller screens. Limit the max amount here.', csl18n() ),
+			'title'   => __( 'Max visible items', 'cs-powerpack' ),
+			'tooltip' => __( 'Carousel will automatically show less items to fit smaller screens. Limit the max amount here.', 'cs-powerpack' ),
 		),
-    'suggest' => __( '3', csl18n() ),
+    'suggest' => __( '3', 'cs-powerpack' ),
 	),
 
 	// Slide by number of items
@@ -22,10 +22,10 @@ return array(
 	'slide_by' => array(
 		'type'    => 'number',
 		'ui' => array(
-			'title'   => __( 'Slide to no. of items', csl18n() ),
-			'tooltip' => __( 'Carousel will move based on what is specified here.', csl18n() ),
+			'title'   => __( 'Slide to no. of items', 'cs-powerpack' ),
+			'tooltip' => __( 'Carousel will move based on what is specified here.', 'cs-powerpack' ),
 		),
-		'suggest' => __( '3', csl18n() ),
+		'suggest' => __( '3', 'cs-powerpack' ),
 	),
 
 	// Auto Play
@@ -33,8 +33,8 @@ return array(
 	'auto_play' => array(
 		'type'    => 'toggle',
 		'ui' => array(
-			'title'   => __( 'Auto Play', csl18n() ),
-			'tooltip' => __( 'Will automatically play the carousel', csl18n() ),
+			'title'   => __( 'Auto Play', 'cs-powerpack' ),
+			'tooltip' => __( 'Will automatically play the carousel', 'cs-powerpack' ),
 		)
 	),
 
@@ -43,8 +43,8 @@ return array(
 	'loop' => array(
 		'type'    => 'toggle',
 		'ui' => array(
-			'title'   => __( 'Loop', csl18n() ),
-			'tooltip' => __( 'Instead of rewinding at the end, simulate eternal looping.', csl18n() ),
+			'title'   => __( 'Loop', 'cs-powerpack' ),
+			'tooltip' => __( 'Instead of rewinding at the end, simulate eternal looping.', 'cs-powerpack' ),
 		)
 	),
 
@@ -53,8 +53,8 @@ return array(
 	'auto_valign' => array(
 		'type'    => 'toggle',
 		'ui' => array(
-			'title'   => __( 'Automatically Center Items?', csl18n() ),
-			'tooltip' => __( 'Will auto center vertically and horizontally', csl18n() ),
+			'title'   => __( 'Automatically Center Items?', 'cs-powerpack' ),
+			'tooltip' => __( 'Will auto center vertically and horizontally', 'cs-powerpack' ),
 		)
 	),
 
@@ -63,8 +63,8 @@ return array(
 	'pause_hover' => array(
 		'type'    => 'toggle',
 		'ui' => array(
-			'title'   => __( 'Pause on Hover?', csl18n() ),
-			'tooltip' => __( 'Will pause the carousel when the user hovers their mouse over it.', csl18n() ),
+			'title'   => __( 'Pause on Hover?', 'cs-powerpack' ),
+			'tooltip' => __( 'Will pause the carousel when the user hovers their mouse over it.', 'cs-powerpack' ),
 		)
 	),
 
@@ -73,17 +73,17 @@ return array(
 	'pagination_type' => array(
 		'type' => 'select',
 		'ui'   => array(
-			'title' => __( 'Navigation & Pagination', csl18n() ),
-      'tooltip' => __( 'Select the pagination style.', csl18n() ),
+			'title' => __( 'Navigation & Pagination', 'cs-powerpack' ),
+      'tooltip' => __( 'Select the pagination style.', 'cs-powerpack' ),
 		),
 		'options' => array(
 			'choices' => array(
-        array( 'value' => 'none',        'label' => __( 'None', csl18n() ) ),
-        // array( 'value' => 'dots',        'label' => __( 'Dots Only', csl18n() ) ),
-        // array( 'value' => 'dots_nav',    'label' => __( 'Dots and Prev/Next', csl18n() ) ),
-        // array( 'value' => 'numbers',     'label' => __( 'Numbers Only', csl18n() ) ),
-        // array( 'value' => 'numbers_nav', 'label' => __( 'Numbers and Prev/Next', csl18n() ) ),
-        array( 'value' => 'prev_next',   'label' => __( 'Prev/Next Only', csl18n() ) )
+        array( 'value' => 'none',        'label' => __( 'None', 'cs-powerpack' ) ),
+        // array( 'value' => 'dots',        'label' => __( 'Dots Only', 'cs-powerpack' ) ),
+        // array( 'value' => 'dots_nav',    'label' => __( 'Dots and Prev/Next', 'cs-powerpack' ) ),
+        // array( 'value' => 'numbers',     'label' => __( 'Numbers Only', 'cs-powerpack' ) ),
+        // array( 'value' => 'numbers_nav', 'label' => __( 'Numbers and Prev/Next', 'cs-powerpack' ) ),
+        array( 'value' => 'prev_next',   'label' => __( 'Prev/Next Only', 'cs-powerpack' ) )
       ),
 		),
 	),
@@ -96,16 +96,16 @@ return array(
 		'type' => 'sortable',
 		'options' => array(
 			'element' => 'csl-carousel-item',
-			'newTitle' => __('Carousel Item %s', csl18n()),
+			'newTitle' => __('Carousel Item %s', 'cs-powerpack'),
 			'floor' => 2,
 			'capacity' => 100,
 			'title_field' => 'heading'
 		),
 		'context' => 'content',
 		'suggest' => array(
-			array( 'heading' => __('Carousel Item 1', csl18n()) ),
-			array( 'heading' => __('Carousel Item 2', csl18n()) ),
-			array( 'heading' => __('Carousel Item 3', csl18n()) ),
+			array( 'heading' => __('Carousel Item 1', 'cs-powerpack') ),
+			array( 'heading' => __('Carousel Item 2', 'cs-powerpack') ),
+			array( 'heading' => __('Carousel Item 3', 'cs-powerpack') ),
 		)
 	)
 

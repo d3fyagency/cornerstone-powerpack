@@ -10,13 +10,13 @@ return array(
 		'type'    => 'sortable',
 		'options' => array(
 			'element' => 'cs-google-maps-styled-marker',
-			'newTitle' => __( 'Marker %s', csl18n() ),
+			'newTitle' => __( 'Marker %s', 'cs-powerpack' ),
 			'floor'   => 1,
 			'title_field' => 'heading'
 		),
 		'context' => 'content',
 		'suggest' => array(
-	   	array( 'heading' => __( 'Marker 1', csl18n() ) ),
+	   	array( 'heading' => __( 'Marker 1', 'cs-powerpack' ) ),
 		)
 	),
 	

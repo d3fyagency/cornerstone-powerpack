@@ -26,8 +26,8 @@ return array(
     'new_window' => array(
         'type' => 'toggle',
         'ui' => array(
-            'title' => __('Open link in new window', csl18n()),
-            'tooltip' => __('Will open the link in a new tab/window.', csl18n()),
+            'title' => __('Open link in new window', 'cs-powerpack'),
+            'tooltip' => __('Will open the link in a new tab/window.', 'cs-powerpack'),
         )
     ),
 

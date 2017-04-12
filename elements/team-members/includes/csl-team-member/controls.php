@@ -11,8 +11,8 @@ return array(
 	'name' => array(
 		'type'    => 'text',
 		'ui' => array(
-			'title'   => __( 'Name', csl18n() ),
-			'tooltip' => __( 'Enter team member\'s name.', csl18n() ),
+			'title'   => __( 'Name', 'cs-powerpack' ),
+			'tooltip' => __( 'Enter team member\'s name.', 'cs-powerpack' ),
 		)
 	),
 
@@ -21,8 +21,8 @@ return array(
 	'job_title' => array(
 		'type'    => 'text',
 		'ui' => array(
-			'title'   => __( 'Job Title', csl18n() ),
-			'tooltip' => __( 'Enter team member\'s job title.', csl18n() ),
+			'title'   => __( 'Job Title', 'cs-powerpack' ),
+			'tooltip' => __( 'Enter team member\'s job title.', 'cs-powerpack' ),
 		)
 	),
 
@@ -31,8 +31,8 @@ return array(
 	'highlight_color' => array(
 		'type'    => 'color',
 		'ui' => array(
-			'title'   => __( 'Highlight Color', csl18n() ),
-			'tooltip' => __( 'Choose a highlight color.', csl18n() ),
+			'title'   => __( 'Highlight Color', 'cs-powerpack' ),
+			'tooltip' => __( 'Choose a highlight color.', 'cs-powerpack' ),
 		)
 	),
 
@@ -41,8 +41,8 @@ return array(
 	'member_image' => array(
 		'type'    => 'image',
 		'ui' => array(
-			'title'   => __( 'Team Member Image', csl18n() ),
-			'tooltip' => __( 'Choose an image.', csl18n() ),
+			'title'   => __( 'Team Member Image', 'cs-powerpack' ),
+			'tooltip' => __( 'Choose an image.', 'cs-powerpack' ),
 		)
 	),
 
@@ -51,8 +51,8 @@ return array(
 	'custom_open_text' => array(
 		'type' => 'text',
 		'ui' => array(
-			'title' => __( 'Alternate \'View Profile\' text', csl18n() ),
-			'tooltip' => __( 'Default will be \'View Profile\'.', csl18n() ),
+			'title' => __( 'Alternate \'View Profile\' text', 'cs-powerpack' ),
+			'tooltip' => __( 'Default will be \'View Profile\'.', 'cs-powerpack' ),
 		)
 
 	),

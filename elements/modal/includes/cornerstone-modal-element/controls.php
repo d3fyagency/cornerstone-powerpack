@@ -1,6 +1,6 @@
 <?php
 
-$handle = csl18n();
+$handle = 'cs-powerpack';
 
 return array(
 	'modalcontent' => array(
