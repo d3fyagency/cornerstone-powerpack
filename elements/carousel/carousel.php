@@ -21,29 +21,29 @@ define( 'CSL_CAROUSEL_URL', plugin_dir_url( __FILE__ ) );
 
 
 /* Add element to Cornerstone */
-add_action( 'cornerstone_register_elements', 'csl_carousel_register_elements', 100 );
+add_action( 'cornerstone_register_elements', 'cspp_carousel_register_elements', 100 );
 
 /* Add Icon Map */
 add_filter( 'cornerstone_icon_map', 'cornerstone_library_icon_map');
 
 /* scripts */
-add_action( 'wp_enqueue_scripts', 'csl_carousel_scripts');
+add_action( 'wp_enqueue_scripts', 'cspp_carousel_scripts');
 
 
 /*
  * => FUNCTIONS
  * ---------------------------------------------------------------------------*/
 
-if ( !function_exists( 'csl_carousel_scripts' ) ) {
-	function csl_carousel_scripts() {
+if ( !function_exists( 'cspp_carousel_scripts' ) ) {
+	function cspp_carousel_scripts() {
 	  wp_enqueue_style( 'owl-main-css',  CSL_CAROUSEL_URL . 'bower_components/owl.carousel/dist/assets/owl.carousel.css', array(), '1.2' );
 	  wp_enqueue_style( 'owl-theme-css', CSL_CAROUSEL_URL . 'bower_components/owl.carousel/dist/assets/owl.theme.default.css', array(), '1.2' );
 	  wp_enqueue_script( 'owlcarousel-js', CSL_CAROUSEL_URL . 'bower_components/owl.carousel/dist/owl.carousel.js', array('jquery'), null, true );
 	}
 }
 
-if ( !function_exists( 'csl_carousel_register_elements' ) ) {
-	function csl_carousel_register_elements() {
+if ( !function_exists( 'cspp_carousel_register_elements' ) ) {
+	function cspp_carousel_register_elements() {
 		cornerstone_remove_element( 'csl-carousel' );
 		cornerstone_register_element( 'CSL_Carousel', 'csl-carousel', CSL_CAROUSEL_PATH . 'includes/csl-carousel' );
 		cornerstone_remove_element( 'csl-carousel-item' );
