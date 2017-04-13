@@ -13,20 +13,20 @@ Text Domain: __x__
 define( 'CS_MODAL_PATH', plugin_dir_path( __FILE__ ) );
 define( 'CS_MODAL_URL', plugin_dir_url( __FILE__ ) );
 
-add_action( 'wp_enqueue_scripts', 'csl_modal_enqeue' );
+add_action( 'wp_enqueue_scripts', 'cspp_modal_enqeue' );
 
 /* Add Icon Map */
-add_filter( 'cornerstone_icon_map', 'csl_modal_icon_map');
+add_filter( 'cornerstone_icon_map', 'cspp_modal_icon_map');
 
 /* Add element to Cornerstone */
-add_action( 'cornerstone_register_elements', 'csl_register_elements', 100 );
+add_action( 'cornerstone_register_elements', 'cspp_register_elements', 100 );
 
 /*
  * => Enqueue Scripts
  * ---------------------------------------------------------------------------*/
 
-if ( !function_exists( 'csl_modal_enqeue' ) ) {
-	function csl_modal_enqeue() {
+if ( !function_exists( 'cspp_modal_enqeue' ) ) {
+	function cspp_modal_enqeue() {
 		wp_enqueue_style( 'vex', plugins_url('/assets/css/vex.css', __FILE__ ), array(), '1.0' );
 		wp_enqueue_style( 'vex-theme-default', plugins_url('/assets/css/vex-theme-default.css', __FILE__ ), array('vex'), '1.0' );
 		wp_enqueue_style( 'vex-theme-bottom-right-corner', plugins_url('/assets/css/vex-theme-bottom-right-corner.css', __FILE__ ), array('vex'), '1.0' );
@@ -40,15 +40,15 @@ if ( !function_exists( 'csl_modal_enqeue' ) ) {
 	}
 }
 
-if ( !function_exists( 'csl_modal_icon_map' ) ) {
-	function csl_modal_icon_map() {
+if ( !function_exists( 'cspp_modal_icon_map' ) ) {
+	function cspp_modal_icon_map() {
 		$icon_map['cs-modal'] = CS_MODAL_URL . '/assets/svg/icons.svg';
 		return $icon_map;
 	}
 }
 
-if ( !function_exists( 'csl_register_elements' ) ) {
-	function csl_register_elements() {
+if ( !function_exists( 'cspp_register_elements' ) ) {
+	function cspp_register_elements() {
 		cornerstone_remove_element( 'cs-modal' );
 		cornerstone_register_element(
 			'CSL_Modal', 
