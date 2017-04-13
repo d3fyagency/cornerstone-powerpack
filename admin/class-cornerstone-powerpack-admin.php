@@ -72,11 +72,20 @@ class Cornerstone_Powerpack_Admin {
       array($this, 'admin_home')  // function
     );
     
+    // Also add admin link in X under Cornerstone, if applicable
+    add_submenu_page(
+      'x-addons-home',         // parent slug
+      'Cornerstone Power Pack',   // page title
+      'Power Pack',               // menu title
+      'manage_options',           // capability
+      'cornerstone_powerpack',   	// menu slug
+      array($this, 'admin_home')  // function
+    );
+    
 	}
 	
 	// Output the main admin home screen
 	public function admin_home() {
-  	add_thickbox();
   	include(D3FY_CSPP_PATH.'/admin/partials/dashboard.php');
 	}
 	

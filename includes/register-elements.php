@@ -10,7 +10,7 @@ $Elements->register(
   'Responsive Slider',
   'Responsive slider with text and content sizing relative to the window width, resulting in consistent layout regardless of screen size.'
 );
-$Elements->set_option('responsive-slider', 'video_url', 'https://www.youtube.com/embed/vjqg0DxEK0E');
+// $Elements->set_option('responsive-slider', 'video_url', 'https://www.youtube.com/embed/vjqg0DxEK0E');
 
 // Team Members
 $Elements->register(
