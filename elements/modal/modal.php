@@ -50,6 +50,7 @@ if ( !function_exists( 'cspp_modal_icon_map' ) ) {
 if ( !function_exists( 'cspp_register_elements' ) ) {
 	function cspp_register_elements() {
 		cornerstone_remove_element( 'cs-modal' );
+		cornerstone_remove_element( 'cornerstone-modal' );
 		cornerstone_register_element(
 			'CSL_Modal', 
 			'cs-modal', 

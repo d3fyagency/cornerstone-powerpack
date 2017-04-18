@@ -2,7 +2,10 @@
 
 $modal_id = rand( 0, 1000 );
 
-$parsedContent = html_entity_decode($modalcontent);
+$parsedContent = html_entity_decode( $modalcontent );
+$parsedContent = do_shortcode( $parsedContent );
+$parsedContent = preg_replace( "/\r|\n/", '', $parsedContent );
+$parsedContent = addslashes( $parsedContent );
 
 if ($display_on === 'button'):
 
@@ -26,7 +29,7 @@ if ($display_on === 'button'):
 			document.getElementById('csm-btn-'+<?= $modal_id ?>)
 					.addEventListener('click', function() {
 						vex.dialog.alert({
-							unsafeMessage: '<?= do_shortcode($parsedContent); ?>',
+							unsafeMessage: '<?= $parsedContent; ?>',
 							className: 'vex-theme-<?= $theme ?>'
 						})
 					})
@@ -38,7 +41,7 @@ if ($display_on === 'button'):
 		jQuery(document).ready(function($) {
 			$('<?= $identifier ?>').click(function() {
 				vex.dialog.alert({
-					unsafeMessage: '<?= do_shortcode($parsedContent); ?>',
+					unsafeMessage: '<?= $parsedContent; ?>',
 					className: 'vex-theme-<?= $theme ?>'
 				})
 			})
@@ -48,7 +51,7 @@ if ($display_on === 'button'):
 	<script>
 		setTimeout(function() {
 			vex.dialog.alert({
-				unsafeMessage: '<?= do_shortcode( $parsedContent ); ?>',
+				unsafeMessage: '<?= $parsedContent; ?>',
 				className: 'vex-theme-<?= $theme ?>'
 			})
 		}, <?= $delay * 1000 ?>)
