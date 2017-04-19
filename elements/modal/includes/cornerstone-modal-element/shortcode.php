@@ -1,13 +1,17 @@
-<?php 
+<?php
 
 $modal_id = rand( 0, 1000 );
 
 $parsedContent = html_entity_decode( $modalcontent );
+$parsedContent = str_replace(
+  array( '&lsqb;', '&rsqb;', "\r", "\n" ),
+  array( '[', ']', '', '' ),
+  $parsedContent
+);
 $parsedContent = do_shortcode( $parsedContent );
-$parsedContent = preg_replace( "/\r|\n/", '', $parsedContent );
 $parsedContent = addslashes( $parsedContent );
 
-if ($display_on === 'button'):
+if ( $display_on === 'button' ):
 
 	if ( $button_size !== 'default' ) {
 		$btn_class = 'x-btn ' . $button_size;
