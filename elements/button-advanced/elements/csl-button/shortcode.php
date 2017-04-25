@@ -10,7 +10,7 @@ $button_id = "csl-button-" . $randnum;
 $transparent_defaults = array('border_main_color', 'border_hover_color', 'background_color');
 foreach ($transparent_defaults as $var) if (!$$var) $$var = 'transparent';
 
-$class .= "csl-button " . $button_id;
+$class .= " csl-button " . $button_id;
 ?>
 <style type="text/css">
     a.<?php echo $button_id; ?> {
