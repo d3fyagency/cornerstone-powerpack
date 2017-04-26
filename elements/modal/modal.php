@@ -10,8 +10,8 @@ Author Email: https://www.d3fy.com/#contact
 Text Domain: __x__
 */
 
-define( 'CS_MODAL_PATH', plugin_dir_path( __FILE__ ) );
-define( 'CS_MODAL_URL', plugin_dir_url( __FILE__ ) );
+define( 'CS_MODAL_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
+define( 'CS_MODAL_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 
 add_action( 'wp_enqueue_scripts', 'cspp_modal_enqeue' );
 
@@ -27,16 +27,10 @@ add_action( 'cornerstone_register_elements', 'cspp_register_elements', 100 );
 
 if ( !function_exists( 'cspp_modal_enqeue' ) ) {
 	function cspp_modal_enqeue() {
-		wp_enqueue_style( 'vex', plugins_url('/assets/css/vex.css', __FILE__ ), array(), '1.0' );
-		wp_enqueue_style( 'vex-theme-default', plugins_url('/assets/css/vex-theme-default.css', __FILE__ ), array('vex'), '1.0' );
-		wp_enqueue_style( 'vex-theme-bottom-right-corner', plugins_url('/assets/css/vex-theme-bottom-right-corner.css', __FILE__ ), array('vex'), '1.0' );
-		wp_enqueue_style( 'vex-theme-flat-attack', plugins_url('/assets/css/vex-theme-flat-attack.css', __FILE__ ), array('vex'), '1.0' );
-		wp_enqueue_style( 'vex-theme-os', plugins_url('/assets/css/vex-theme-os.css', __FILE__ ), array('vex'), '1.0' );
-		wp_enqueue_style( 'vex-theme-plain', plugins_url('/assets/css/vex-theme-plain.css', __FILE__ ), array('vex'), '1.0' );
-		wp_enqueue_style( 'vex-theme-top', plugins_url('/assets/css/vex-theme-top.css', __FILE__ ), array('vex'), '1.0' );
-		wp_enqueue_style( 'vex-theme-wireframe', plugins_url('/assets/css/vex-theme-wireframe.css', __FILE__ ), array('vex'), '1.0' );
-		wp_enqueue_script( 'vex', plugins_url('/assets/js/vex.min.js', __FILE__ ), array(), null, false );
-		wp_enqueue_script( 'vex-combine', plugins_url('/assets/js/vex.combined.min.js', __FILE__ ), array('vex'), null, false );
+  	$v = '1.1';
+  	$v = time();
+  	wp_enqueue_script( 'cspp-lity', D3FY_CSPP_URL.'/lib/lity/lity.min.js', array( 'jquery' ), $v );
+  	wp_enqueue_style( 'cspp-lity-csmodal', CS_MODAL_URL.'/assets/css/csmodal.css', array(), $v );
 	}
 }
 
@@ -54,7 +48,7 @@ if ( !function_exists( 'cspp_register_elements' ) ) {
 		cornerstone_register_element(
 			'CSL_Modal', 
 			'cs-modal', 
-			CS_MODAL_PATH . 'includes/cornerstone-modal-element'
+			CS_MODAL_PATH . '/includes/cornerstone-modal-element'
 		);
 	}
 }

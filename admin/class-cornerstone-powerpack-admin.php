@@ -30,7 +30,7 @@ class Cornerstone_Powerpack_Admin {
   	$screen = get_current_screen();
   	if ($screen->id == 'cornerstone_page_cornerstone_powerpack') {
       wp_enqueue_style(
-        $this->cornerstone_powerpack, 
+        'cspp-lity', 
         D3FY_CSPP_URL.'/lib/lity/lity.min.css', 
         array(), $this->version, 'all'
       );
@@ -47,7 +47,7 @@ class Cornerstone_Powerpack_Admin {
   	$screen = get_current_screen();
     if ($screen->id == 'cornerstone_page_cornerstone_powerpack') {
       wp_enqueue_script(
-        $this->cornerstone_powerpack, 
+        'cspp-lity', 
         D3FY_CSPP_URL.'/lib/lity/lity.min.js', 
         array('jquery'), $this->version, true
       );
