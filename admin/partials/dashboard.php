@@ -89,19 +89,6 @@
             </div>
           </div>
         </div>
-        <div class="tco-row">
-          <div class="tco-column">
-            <div class="tco-box">
-              <header class="tco-box-header">
-                <h2 class="tco-box-title">Save</h2>
-              </header>
-              <div class="tco-box-content">
-                <p>Once you are satisfied with your settings, click the button below to save them.</p>
-                <button class="tco-btn tco-btn-block" type="submit" name="submit" data-tco-module-target="update">Update</button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </form>
   </div>

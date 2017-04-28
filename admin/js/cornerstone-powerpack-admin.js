@@ -28,5 +28,31 @@
 	 * Although scripts in the WordPress core, Plugins and Themes may be
 	 * practising this, we should strive to set a better example in our own work.
 	 */
+	 $(document).ready(function(){
+		 var loadingOverlayMarkup = $('<div id="cornerstone-powerpack-overlay">' +
+																		'<div class="cornerstone-powerpack-spinner">' +
+																				'<div class="bounce1"></div>' +
+																				'<div class="bounce2"></div>' +
+																				'<div class="bounce3"></div>' +
+																			'</div>' +
+																		'</div>');
 
+		var savedText = $('<span class="saved-text">Saved!</span>');
+
+		$('body').append(loadingOverlayMarkup);
+
+		 var elementsForm = $('form[name="frm-element-list"]');
+		 
+		 $('.tco-form-control').on('change', elementsForm, function(e){
+			 loadingOverlayMarkup.show();
+				$.post(elementsForm.attr('action'), elementsForm.serialize(), function(data, textStatus){
+					loadingOverlayMarkup.hide();
+					var container = $(e.target).parents('label:first');
+					container.append(savedText);
+					setTimeout(function(){
+						container.find('.saved-text').remove();
+					}, 2000);
+				});
+		 })
+	 });
 })( jQuery );
