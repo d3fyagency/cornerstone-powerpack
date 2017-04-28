@@ -1,3 +1,19 @@
+<?php
+  require_once( plugin_dir_path( __FILE__ ) . '../Parsedown.php');
+
+  $changeLogFile = plugin_dir_path( __FILE__ ) . '../../CHANGELOG.md';
+  $changeLogContents = '';
+  
+  $fp = fopen( $changeLogFile, 'r' );
+  
+  if($fp && filesize($changeLogFile) > 0){
+    $changeLogStr = fread($fp, filesize($changeLogFile));
+    fclose($fp);
+
+    $Parsedown = new Parsedown();
+    $changeLogContents = $Parsedown->text($changeLogStr);
+  }
+?>
 <div class="tco-reset tco-wrap tco-wrap-settings tco-alt-cs" data-tco-module="cs-settings">
   <div class="tco-content">
     <div class="wrap"><h2>WordPress Wrap</h2></div>
@@ -89,6 +105,26 @@
             </div>
           </div>
         </div>
+        <?php
+            if(strlen($changeLogContents) > 0):
+          ?>
+          <div class="tco-row changelog-container">
+            <div class="tco-column">
+              <div class="tco-box">
+                <header class="tco-box-header">
+                  <h2 class="tco-box-title">Change log</h2>
+                </header>
+                <div class="tco-box-content">
+                  <?php
+                    echo $changeLogContents;
+                  ?>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php
+            endif;
+          ?>
       </div>
     </form>
   </div>
