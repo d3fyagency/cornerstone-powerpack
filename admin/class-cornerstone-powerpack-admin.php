@@ -31,7 +31,7 @@ class Cornerstone_Powerpack_Admin {
   	if ($screen->id == 'cornerstone_page_cornerstone_powerpack') {
       wp_enqueue_style(
         'cspp-lity', 
-        D3FY_CSPP_URL.'/lib/lity/lity.min.css', 
+        D3FY_CSPP_URL.'/lib/cspplity/lity.min.css', 
         array(), $this->version, 'all'
       );
       wp_enqueue_style(
@@ -48,7 +48,7 @@ class Cornerstone_Powerpack_Admin {
     if ($screen->id == 'cornerstone_page_cornerstone_powerpack') {
       wp_enqueue_script(
         'cspp-lity', 
-        D3FY_CSPP_URL.'/lib/lity/lity.min.js', 
+        D3FY_CSPP_URL.'/lib/cspplity/lity.min.js', 
         array('jquery'), $this->version, true
       );
       wp_enqueue_script(

@@ -2,11 +2,11 @@
 
 $btncolor: #3489e6;
 
-.lity {
+.cspplity {
   background-color: rgba(0, 0, 0, .65);
 }
 
-.lity-content:after {
+.cspplity-content:after {
   box-shadow: none;
 }
 
@@ -54,11 +54,11 @@ $btncolor: #3489e6;
 
 .theme-top {
   
-  .lity-wrap:before {
+  .cspplity-wrap:before {
     vertical-align: top;
   }
   
-  .lity-content:after {
+  .cspplity-content:after {
     box-shadow: 0 0 20px rgba(0, 0, 0, .25);
   }
   
@@ -75,17 +75,17 @@ $btncolor: #3489e6;
 
 .theme-bottom-right-corner {
   
-  .lity-wrap:before {
+  .cspplity-wrap:before {
     vertical-align: bottom;
   }
   
-  .lity-container {
+  .cspplity-container {
     position: absolute;
     bottom: 0;
     right: 0;
   }
   
-  .lity-content:after {
+  .cspplity-content:after {
     box-shadow: 0 10px 20px rgba(0, 0, 0, .25);
   }
   
@@ -116,7 +116,7 @@ $btncolor: #3489e6;
 .theme-os {
   background-color: rgba(100, 100, 100, .65);
   
-  .lity-content:after {
+  .cspplity-content:after {
     box-shadow: 0 0 20px rgba(0, 0, 0, .25);
   }
   

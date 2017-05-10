@@ -60,7 +60,7 @@
                           <span class="tco-form-control-indicator-label">Enable</span>
                         </label>
                         <?php if ($video_url = $opts->get('video_url')): ?>
-                        <a href="<?php echo esc_url($video_url); ?>" class="tco-btn tco-btn-sm tco-btn-yep" title="Video Player" data-lity>
+                        <a href="<?php echo esc_url($video_url); ?>" class="tco-btn tco-btn-sm tco-btn-yep" title="Video Player" data-cspplity>
 	                        Video Tutorial
 	                      </a>
                         <?php endif; ?>
