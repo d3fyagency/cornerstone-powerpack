@@ -60,7 +60,7 @@ if (!function_exists('d3fy_get_object_property')) {
 
 // enqueue scripts if carousel
 if ($carousel) {
-  $v = '0.1.7';
+  $v = '0.1.8';
   // $v = time();
 	wp_enqueue_script(
 		'cs-instagramcarousel-scripts', 

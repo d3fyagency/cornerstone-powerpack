@@ -32,12 +32,7 @@ jQuery(document).ready(function($){
   	}, 250);
   });
     
-  // remove loading class after a couple seconds
-  setTimeout(function() {
-    $('.d3fy-instagram-carousel').removeClass('loading');
-  }, 2500);
-  
-	// load responsive cycle slider
+  // load responsive cycle slider
   loadCarousels = function() {
     var viewportSize = getViewportSize();
     var wasAlreadyLoaded = cycleCarouselLoaded;
@@ -55,6 +50,11 @@ jQuery(document).ready(function($){
       if (!cycleCarouselLoaded) {
         slider.attr("data-cycle-carousel-visible", visibleTarget);
         slider.cycle();
+        if (!wasAlreadyLoaded) {
+	        setTimeout(function() {
+				    $('.d3fy-instagram-carousel').removeClass('loading');
+				  }, 500);
+        }
       }
     });
     cycleCarouselLoaded = true;

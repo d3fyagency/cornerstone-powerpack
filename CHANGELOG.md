@@ -9,3 +9,6 @@ All notable changes to this project will be documented in this file.
 - Admin: implement (this) changelog and display in admin panel, replacing Save button
 ### Changed
 - Admin and Modal Element: Prefix Lity lightbox script and styles to avoid conflicts (cspplity)
+### Fixed
+- Element - Instagram Carousel: Fix CS editor display to not be stacked vertically
+- Element - Instagram Carousel: Fix slide opacity bug
