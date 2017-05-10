@@ -29,16 +29,19 @@ class Cornerstone_Powerpack_Admin {
 	// Register the stylesheets for the admin area.
 	public function enqueue_styles() {
   	$screen = get_current_screen();
-  	if ($screen->id == 'cornerstone_page_cornerstone_powerpack') {
+  	if (
+  		$screen->id == 'cornerstone_page_cornerstone_powerpack' || 
+  		$screen->id == 'x_page_cornerstone_powerpack'
+  	) {
       wp_enqueue_style(
         'cspp-lity', 
         D3FY_CSPP_URL.'/lib/cspplity/lity.min.css', 
         array(), $this->version, 'all'
       );
       wp_enqueue_style(
-        $this->cornerstone_powerpack, 
+        'cspp-admin-styles', 
         D3FY_CSPP_URL.'/admin/css/cornerstone-powerpack-admin.css', 
-        array(), $this->version, 'all'
+        array(), $this->version.'b', 'all'
       );
     }
 	}
@@ -46,16 +49,19 @@ class Cornerstone_Powerpack_Admin {
 	// Register the JavaScript for the admin area.
 	public function enqueue_scripts() {
   	$screen = get_current_screen();
-    if ($screen->id == 'cornerstone_page_cornerstone_powerpack') {
+		if (
+			$screen->id == 'cornerstone_page_cornerstone_powerpack' || 
+			$screen->id == 'x_page_cornerstone_powerpack'
+		) {
       wp_enqueue_script(
         'cspp-lity', 
         D3FY_CSPP_URL.'/lib/cspplity/lity.min.js', 
         array('jquery'), $this->version, true
       );
       wp_enqueue_script(
-        $this->cornerstone_powerpack, 
+        'cspp-admin-scripts', 
         D3FY_CSPP_URL.'/admin/js/cornerstone-powerpack-admin.js', 
-        array('jquery'), $this->version, true
+        array('jquery'), $this->version.'b', true
       );
     }
 	}
