@@ -22,6 +22,7 @@ class Cornerstone_Powerpack_Admin {
 	public function __construct($cornerstone_powerpack, $version) {
 		$this->cornerstone_powerpack = $cornerstone_powerpack;
 		$this->version = $version;
+		// $this->version = time();
 		$this->dashboardoptskey = $this->cornerstone_powerpack.'-settings-dashboard';
 	}
 

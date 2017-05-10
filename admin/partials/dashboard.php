@@ -115,9 +115,11 @@
                   <h2 class="tco-box-title">Change log</h2>
                 </header>
                 <div class="tco-box-content">
+	                <div class="cspp-changelog-admin">
                   <?php
                     echo $changeLogContents;
                   ?>
+	                </div>
                 </div>
               </div>
             </div>

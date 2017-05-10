@@ -4,11 +4,17 @@ All notable changes to this project will be documented in this file.
 <!--- and this project adheres to [Semantic Versioning](http://semver.org/). -->
 
 ## [0.1.11] - 2017-05-09
+
 ### Added
+
 - Admin: auto-save the loaded elements form when checkbox status changes
 - Admin: implement (this) changelog and display in admin panel, replacing Save button
+
 ### Changed
+
 - Admin and Modal Element: Prefix Lity lightbox script and styles to avoid conflicts (cspplity)
+
 ### Fixed
+
 - Element - Instagram Carousel: Fix CS editor display to not be stacked vertically
 - Element - Instagram Carousel: Fix slide opacity bug
