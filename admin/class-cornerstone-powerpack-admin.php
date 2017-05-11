@@ -28,11 +28,12 @@ class Cornerstone_Powerpack_Admin {
 
 	// Register the stylesheets for the admin area.
 	public function enqueue_styles() {
-  	$screen = get_current_screen();
-  	if (
-  		$screen->id == 'cornerstone_page_cornerstone_powerpack' || 
-  		$screen->id == 'x_page_cornerstone_powerpack'
-  	) {
+		if ( $this->in_cspp_admin_dashboard() ) {
+      wp_enqueue_style(
+        'cspp-lity', 
+        D3FY_CSPP_URL.'/lib/fontawesome/css/font-awesome.min.css', 
+        array(), $this->version, 'all'
+      );
       wp_enqueue_style(
         'cspp-lity', 
         D3FY_CSPP_URL.'/lib/cspplity/lity.min.css', 
@@ -41,18 +42,14 @@ class Cornerstone_Powerpack_Admin {
       wp_enqueue_style(
         'cspp-admin-styles', 
         D3FY_CSPP_URL.'/admin/css/cornerstone-powerpack-admin.css', 
-        array(), $this->version.'b', 'all'
+        array(), $this->version.'x', 'all'
       );
     }
 	}
 
 	// Register the JavaScript for the admin area.
 	public function enqueue_scripts() {
-  	$screen = get_current_screen();
-		if (
-			$screen->id == 'cornerstone_page_cornerstone_powerpack' || 
-			$screen->id == 'x_page_cornerstone_powerpack'
-		) {
+  	if ( $this->in_cspp_admin_dashboard() ) {
       wp_enqueue_script(
         'cspp-lity', 
         D3FY_CSPP_URL.'/lib/cspplity/lity.min.js', 
@@ -60,8 +57,8 @@ class Cornerstone_Powerpack_Admin {
       );
       wp_enqueue_script(
         'cspp-admin-scripts', 
-        D3FY_CSPP_URL.'/admin/js/cornerstone-powerpack-admin.js', 
-        array('jquery'), $this->version.'b', true
+        D3FY_CSPP_URL.'/admin/js/cornerstone-powerpack-admin-min.js', 
+        array('jquery'), $this->version.'x', true
       );
     }
 	}
@@ -116,6 +113,17 @@ class Cornerstone_Powerpack_Admin {
 			$input = $new_input;
 		}
 		return $input;
+	}
+	
+	// Determine if we're in the Power Pack admin page
+	public function in_cspp_admin_dashboard() {
+		$screen = get_current_screen();
+  	$suffix = '_cornerstone_powerpack';
+  	if (
+  		strlen($screen->id) > strlen($suffix) &&
+  		substr_compare($screen->id, $suffix, 0 - strlen($suffix), strlen($suffix)) === 0
+		) return true;
+		else return false;
 	}
 
 }

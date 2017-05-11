@@ -6,6 +6,8 @@
   opacity: 0.65;
 }
 
+/*
+
 .cornerstone-powerpack-spinner {
   display: inline-block;
   text-align: center;
@@ -61,7 +63,18 @@
   display: none;
 }
 
-.saved-text{
+*/
+
+.saving-text {
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  color: orange;
+  font-weight: bold;
+}
+
+.saved-text {
   line-height: 1;
   display: inline-block;
   vertical-align: middle;

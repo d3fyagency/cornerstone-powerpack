@@ -29,6 +29,29 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 	 $(document).ready(function(){
+  	 var savingText = $('<span class="saving-text"><i class="fa fa-refresh fa-spin"></i> Saving...</span>');
+  	 var savedText = $('<span class="saved-text">Saved!</span>');
+  	 var elementsForm = $('form[name="frm-element-list"]');
+  	 $('.tco-form-control').on('change', elementsForm, function(e){
+    	 var container = $(e.target).parents('label:first');
+    	 container.find('.saving-text, .saved-text').remove();
+    	 container.append(savingText);
+    	 $.post(elementsForm.attr('action'), elementsForm.serialize(), function(data, textStatus){
+					setTimeout(function(){
+  					container.find('.saving-text').remove();
+  					container.append($(savedText).show(0));
+  					setTimeout(function(){
+    					container.find('.saved-text').fadeOut(500, function(){
+      					container.find('.saved-text').remove();
+    					});
+  					}, 2000);
+					}, 500);
+				});
+     });
+	 });
+	 
+	 /*
+	 $(document).ready(function(){
 		 var loadingOverlayMarkup = $('<div id="cornerstone-powerpack-overlay">' +
 																		'<div class="cornerstone-powerpack-spinner">' +
 																				'<div class="bounce1"></div>' +
@@ -55,4 +78,6 @@
 				});
 		 })
 	 });
+	 */
+	 
 })( jQuery );
