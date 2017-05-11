@@ -29,17 +29,15 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 	 $(document).ready(function(){
-  	 var savingText = $('<span class="saving-text"><i class="fa fa-refresh fa-spin"></i> Saving...</span>');
-  	 var savedText = $('<span class="saved-text">Saved!</span>');
   	 var elementsForm = $('form[name="frm-element-list"]');
   	 $('.tco-form-control').on('change', elementsForm, function(e){
-    	 var container = $(e.target).parents('label:first');
+    	 var container = $(this).closest("label");
     	 container.find('.saving-text, .saved-text').remove();
-    	 container.append(savingText);
+    	 container.append('<span class="saving-text"><i class="fa fa-refresh fa-spin"></i> Saving...</span>');
     	 $.post(elementsForm.attr('action'), elementsForm.serialize(), function(data, textStatus){
 					setTimeout(function(){
   					container.find('.saving-text').remove();
-  					container.append($(savedText).show(0));
+  					container.append('<span class="saved-text">Saved!</span>');
   					setTimeout(function(){
     					container.find('.saved-text').fadeOut(500, function(){
       					container.find('.saved-text').remove();

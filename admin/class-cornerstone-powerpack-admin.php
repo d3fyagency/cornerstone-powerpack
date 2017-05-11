@@ -58,7 +58,7 @@ class Cornerstone_Powerpack_Admin {
       wp_enqueue_script(
         'cspp-admin-scripts', 
         D3FY_CSPP_URL.'/admin/js/cornerstone-powerpack-admin-min.js', 
-        array('jquery'), $this->version.'x', true
+        array('jquery'), $this->version.'z', true
       );
     }
 	}
