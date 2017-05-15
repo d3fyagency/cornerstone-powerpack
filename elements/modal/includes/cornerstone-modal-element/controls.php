@@ -82,6 +82,13 @@ return array(
         	)
         )
 	),
+	
+	'hideokbtn' => array(
+		'type'    => 'toggle',
+		'ui' => array(
+			'title'   => __( 'Hide the OK (modal close) Button', 'cs-powerpack' ),
+		),
+	),
 
 	'identifier' => array(
 		'type'    => 'text',

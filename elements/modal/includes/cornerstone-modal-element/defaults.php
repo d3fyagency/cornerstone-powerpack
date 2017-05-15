@@ -7,6 +7,7 @@ return array (
 
     'modalcontent'	   => '',
     'theme'            => 'default',
+    'hideokbtn'        => false,
     'identifier'       => '#my-popup',
     'display_on'       => 'button',
     'button_size'      => 'default',

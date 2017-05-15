@@ -35,9 +35,11 @@ if ( $display_on === 'button' ):
   	<div class="csmodal-content">
   	  <?php echo do_shortcode( $parsedContent ); ?>
   	</div>
+  	<?php if ( !$hideokbtn || $hideokbtn === 'false' ): ?>
   	<div class="csmodal-footer">
     	<a href="javascript:void(0);" id="<? echo $modal_id; ?>-closebtn" class="csm-ok-btn"><span>OK</span></a>
     </div>
+    <?php endif; ?>
 	</div>
 </div>
 <script>
