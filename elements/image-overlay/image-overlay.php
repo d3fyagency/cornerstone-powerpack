@@ -24,7 +24,8 @@ if ( !function_exists( 'cs_imageoverlay_register_elements' ) ) {
 
 if ( !function_exists( 'cs_imageoverlay_enqueue' ) ) {
 	function cs_imageoverlay_enqueue() {
-	  $v = '0.1.5';
+	  $v = '20170515';
+	  // $v = time();
 		wp_enqueue_style( 'cs_imageoverlay-styles', CS_IMAGEOVERLAY_URL . '/assets/styles/cs-imageoverlay.css', array(), $v );
 	}
 }
