@@ -62,6 +62,69 @@ return array(
 	'member_content' => array(
 		'type' => 'editor',
 		'context' => 'content',
-	)
+	),
+	
+	// Social - Facebook
+	
+	'social_facebook' => array(
+		'type' => 'text',
+		'ui' => array(
+			'title' => __( 'Facebook Profile URL', 'cs-powerpack' ),
+		)
+	),
+	
+	// Social - Twitter
+	
+	'social_twitter' => array(
+		'type' => 'text',
+		'ui' => array(
+			'title' => __( 'Twitter Profile URL', 'cs-powerpack' ),
+		)
+	),
+	
+	// Social - LinkedIn
+	
+	'social_linkedin' => array(
+		'type' => 'text',
+		'ui' => array(
+			'title' => __( 'LinkedIn Profile URL', 'cs-powerpack' ),
+		)
+	),
+	
+	// Social - Google+
+	
+	'social_gplus' => array(
+		'type' => 'text',
+		'ui' => array(
+			'title' => __( 'Google+ Profile URL', 'cs-powerpack' ),
+		)
+	),
+	
+	// Social - Instagram
+	
+	'social_instagram' => array(
+		'type' => 'text',
+		'ui' => array(
+			'title' => __( 'Instagram Profile URL', 'cs-powerpack' ),
+		)
+	),
+	
+	// Social - Pinterest
+	
+	'social_pinterest' => array(
+		'type' => 'text',
+		'ui' => array(
+			'title' => __( 'Pinterest Profile URL', 'cs-powerpack' ),
+		)
+	),
+	
+	// Social - YouTube
+	
+	'social_youtube' => array(
+		'type' => 'text',
+		'ui' => array(
+			'title' => __( 'YouTube Channel URL', 'cs-powerpack' ),
+		)
+	),
 
 );

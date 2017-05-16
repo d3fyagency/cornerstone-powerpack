@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'csppicons';
-  src:  url('fonts/csppicons.eot?3ir0ee');
-  src:  url('fonts/csppicons.eot?3ir0ee#iefix') format('embedded-opentype'),
-    url('fonts/csppicons.ttf?3ir0ee') format('truetype'),
-    url('fonts/csppicons.woff?3ir0ee') format('woff'),
-    url('fonts/csppicons.svg?3ir0ee#csppicons') format('svg');
+  src:  url('fonts/csppicons.eot?vgc5g1');
+  src:  url('fonts/csppicons.eot?vgc5g1#iefix') format('embedded-opentype'),
+    url('fonts/csppicons.ttf?vgc5g1') format('truetype'),
+    url('fonts/csppicons.woff?vgc5g1') format('woff'),
+    url('fonts/csppicons.svg?vgc5g1#csppicons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -59,5 +59,53 @@
 }
 .csppicon-arrow-circle-o-left:before {
   content: "\f190";
+}
+.csppicon-facebook:before {
+  content: "\f09a";
+}
+.csppicon-facebook-f:before {
+  content: "\f09a";
+}
+.csppicon-twitter:before {
+  content: "\f099";
+}
+.csppicon-linkedin:before {
+  content: "\f0e1";
+}
+.csppicon-google-plus:before {
+  content: "\f0d5";
+}
+.csppicon-instagram:before {
+  content: "\f16d";
+}
+.csppicon-pinterest:before {
+  content: "\f0d2";
+}
+.csppicon-youtube-play:before {
+  content: "\f16a";
+}
+.csppicon-youtube:before {
+  content: "\f167";
+}
+.csppicon-camera-retro:before {
+  content: "\f083";
+}
+.csppicon-facebook-square:before {
+  content: "\f082";
+}
+.csppicon-twitter-square:before {
+  content: "\f081";
+}
+.csppicon-linkedin-square:before {
+  content: "\f08c";
+}
+.csppicon-google-plus-square:before {
+  content: "\f0d4";
+}
+.csppicon-pinterest-square:before {
+  content: "\f0d3";
+}
+.csppicon-youtube-square:before {
+  content: "\f166";
 }
 
