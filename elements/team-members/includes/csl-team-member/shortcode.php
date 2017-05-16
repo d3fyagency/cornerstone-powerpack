@@ -5,14 +5,20 @@
 
 $class = 'csl-teammember ' . $class;
 $custom_open_text = ($custom_open_text == '' ? 'View Profile' : $custom_open_text);
+
+$member_content = html_entity_decode( $member_content );
+$member_content = str_replace(
+  array( '&lsqb;', '&rsqb;' ),
+  array( '[', ']' ),
+  $member_content
+);
+
 ?>
-
-
 <div <?php echo cs_atts( array( 'id' => $id, 'class' => $class, 'style' => $style ) ); ?>>
 	<div class="teammember-image-wrap">
 		<img src="<?= $member_image ?>" />
 		<div class="teammember-info" style="background-color:<?= $highlight_color ?>;">
-			<div class="teammember-name"><?= $name ?></div>
+			<div class="teammember-name">NAME: <?= $name ?></div>
 			<div class="teammember-title"><?= $job_title ?></div>
 		</div>
 		<div class="view-profile" style="background-color:<?= $highlight_color ?>;"><?= $custom_open_text ?></div>
@@ -25,7 +31,7 @@ $custom_open_text = ($custom_open_text == '' ? 'View Profile' : $custom_open_tex
 				<div class="teammember-name"><?= $name ?></div>
 				<div class="teammember-title"><?= $job_title ?></div>
 				<?php echo do_shortcode( $content ); ?>
-				<?= $member_content ?>
+				<?php echo do_shortcode( $member_content ); ?>
 			</div>
 		</div>
 	</div>
