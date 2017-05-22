@@ -68,6 +68,13 @@ $Elements->register(
   'Instagram feed bar with optional carousel scrolling.'
 );
 
+// Color Accordion
+$Elements->register(
+  'color-accordion',
+  'Color Accordion',
+  'Accordion element with added controls for color and style.'
+);
+
 // Advanced Posts
 /*
 $Elements->register(
