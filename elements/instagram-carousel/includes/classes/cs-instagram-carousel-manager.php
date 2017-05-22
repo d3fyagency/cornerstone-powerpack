@@ -80,6 +80,14 @@ class CSInstagramCarouselManager {
 		return ( $output ) ? implode( "\n", $output ) : '';
 	}
 	
+	// sort feed object by date
+	public static function sortFeedByDate($a, $b) {
+  	$ats = intval($a->created_time);
+  	$bts = intval($b->created_time);
+  	if ($ats == $bts) return 0;
+    else return ($ats > $bts) ? -1 : 1;
+	}
+	
 }
 
 endif;

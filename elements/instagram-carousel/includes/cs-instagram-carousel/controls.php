@@ -48,6 +48,9 @@ return array(
             array('value' => '1', 'label' => __('1', 'cs-powerpack')),
             array('value' => '2', 'label' => __('2', 'cs-powerpack')),
             array('value' => '3', 'label' => __('3', 'cs-powerpack')),
+            array('value' => '4', 'label' => __('4', 'cs-powerpack')),
+            array('value' => '5', 'label' => __('5', 'cs-powerpack')),
+            array('value' => '6', 'label' => __('6', 'cs-powerpack')),
         ),
     ),
     'suggest' => '1',
@@ -92,6 +95,23 @@ return array(
         ),
     ),
     'suggest' => '6',
+  ),
+  
+  'hover_effect' => array(
+    'type' => 'select',
+    'ui' => array(
+        'title' => __('Hover Effect', 'cs-powerpack'),
+    ),
+    'options' => array(
+        'choices' => array(
+            array('value' => 'default', 'label' => __('None/Default', 'cs-powerpack')),
+            array('value' => 'gradientdark', 'label' => __('Dark Gradient Overlay', 'cs-powerpack')),
+            array('value' => 'gradientlight', 'label' => __('Light Gradient Overlay', 'cs-powerpack')),
+            array('value' => 'gradientdarkicon', 'label' => __('Dark Gradient Overlay + Instagram Icon', 'cs-powerpack')),
+            array('value' => 'gradientlighticon', 'label' => __('Light Gradient Overlay + Instagram Icon', 'cs-powerpack')),
+        ),
+    ),
+    'suggest' => '3',
   ),
   
   'carousel' => array(

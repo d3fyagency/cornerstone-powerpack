@@ -3,12 +3,13 @@ All notable changes to this project will be documented in this file.
 <!--- The format is based on [Keep a Changelog](http://keepachangelog.com/) -->
 <!--- and this project adheres to [Semantic Versioning](http://semver.org/). -->
 
-## [0.1.12] - 2017-05-16
+## [0.1.12] - 2017-05-21
 
 ### Added
 
 - Element - Modal: add option to hide the OK button (to close modal)
 - Element - Team Members: add optional social icon links
+- Element - Color Accordion: add updated color accordion element
 
 ### Fixed
 

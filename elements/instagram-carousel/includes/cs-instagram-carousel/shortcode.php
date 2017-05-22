@@ -11,6 +11,11 @@ $slider_id = 'd3fy-instagram-carousel-'.$count;
 // set container classes, include main CS element positioning classes
 $classes = array('cs-instagram-feed-carousel', 'min-slide-height');
 if ($class) $classes[] = $class;
+if ($hover_effect == 'gradientdark') $classes[] = 'hover-gradient hover-gradient-dark';
+else if ($hover_effect == 'gradientlight') $classes[] = 'hover-gradient hover-gradient-light';
+else if ($hover_effect == 'gradientdarkicon') $classes[] = 'hover-gradient hover-gradient-dark hover-icon';
+else if ($hover_effect == 'gradientlighticon') $classes[] = 'hover-gradient hover-gradient-light hover-icon';
+
 $attr_container = cs_atts(array(
   'id'    => $id,
 	'class'	=> esc_attr(implode(' ', $classes)),
@@ -81,26 +86,34 @@ if ($carousel) {
 
 $images = array();
 if ($instagram_key) {
-	$feed = 'https://www.instagram.com/'.urlencode($instagram_key).'/media/';
-	$json = file_get_contents($feed);
-	$data = json_decode($json);
-	if ($data) {
-		foreach (d3fy_get_object_property($data, 'items') as $item) {
-			if (d3fy_get_object_property($item, 'type') == 'image') {
-				$image = new stdClass();
-				$image->standard = d3fy_get_object_property(d3fy_get_object_property(d3fy_get_object_property($item, 'images'), 'standard_resolution'), 'url');
-				$image->thumbnail = d3fy_get_object_property(d3fy_get_object_property(d3fy_get_object_property($item, 'images'), 'thumbnail'), 'url');
-				$image->link = d3fy_get_object_property($item, 'link');
-				$image->created_time = d3fy_get_object_property($item, 'created_time');
-				$image->code = d3fy_get_object_property($item, 'code');
-				$image->id = d3fy_get_object_property($item, 'id');
-				$images[] = $image;
-			}
-		}
-	}
+  $keys = explode(',', $instagram_key);
+  foreach ($keys as $key) {
+    $key = trim($key);
+    if ($key) {
+      $feed = 'https://www.instagram.com/'.urlencode($key).'/media/';
+    	$json = file_get_contents($feed);
+    	$data = json_decode($json);
+    	if ($data) {
+    		foreach (d3fy_get_object_property($data, 'items') as $item) {
+    			if (d3fy_get_object_property($item, 'type') == 'image') {
+    				$image = new stdClass();
+    				$image->feed = $key;
+    				$image->standard = d3fy_get_object_property(d3fy_get_object_property(d3fy_get_object_property($item, 'images'), 'standard_resolution'), 'url');
+    				$image->thumbnail = d3fy_get_object_property(d3fy_get_object_property(d3fy_get_object_property($item, 'images'), 'thumbnail'), 'url');
+    				$image->link = d3fy_get_object_property($item, 'link');
+    				$image->created_time = d3fy_get_object_property($item, 'created_time');
+    				$image->code = d3fy_get_object_property($item, 'code');
+    				$image->id = d3fy_get_object_property($item, 'id');
+    				$images[] = $image;
+    			}
+    		}
+    	} // if ($data)
+    } // if ($key)
+  } // foreach ($keys as $key)
 }
 if ($images):
 
+usort($images, array('CSInstagramCarouselManager', 'sortFeedByDate'));
 ob_start();
 
 ?>
@@ -131,7 +144,7 @@ ob_start();
 			if ($i >= $maxMobile) $maxClasses[] = 'overmax-mobile';
 		?>
 		<div class="<?php echo esc_attr(implode(' ', $maxClasses)); ?>">
-			<a href="<?php echo esc_url($image->link); ?>" target="_blank">
+			<a href="<?php echo esc_url($image->link); ?>" class="instagram-link" target="_blank">
 				<img src="<?php echo esc_attr($image->standard); ?>" alt="" />
 			</a>
 		</div>

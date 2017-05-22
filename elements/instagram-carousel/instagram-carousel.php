@@ -17,7 +17,7 @@ add_action('cornerstone_register_elements', 'cs_instagramcarousel_register_eleme
 // enqueue scripts and styles
 if (!function_exists('cs_instagramcarousel_enqueue')) {
 	function cs_instagramcarousel_enqueue() {
-	  $v = '0.1.8';
+	  $v = '20170522B';
 	  // $v = time();
 		wp_enqueue_style(
 			'cs-instagramcarousel-styles', 
