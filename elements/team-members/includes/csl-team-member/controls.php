@@ -5,7 +5,6 @@
  */
 
 return array(
-
 	// Name
 
 	'name' => array(
@@ -44,6 +43,35 @@ return array(
 			)
 		),
 		'suggest' => 'default'
+	),
+
+	// Box width
+
+	'box_width' => array(
+		'type'    => 'text',
+		'ui' => array(
+			'title'   => __( 'Flipcard Box Width', 'cs-powerpack' ),
+			'tooltip' => __( 'Enter the width of the box (e.g. 300px or 100%). Only works with flip-card layout.', 'cs-powerpack' ),
+		)
+	),
+
+	// Box height
+
+	'box_height' => array(
+		'type'    => 'text',
+		'ui' => array(
+			'title'   => __( 'Flipcard Box Height', 'cs-powerpack' ),
+			'tooltip' => __( 'Enter the height of the box (e.g. 300px or 100%). Only works with flip-card layout.', 'cs-powerpack' ),
+		)
+	),
+
+	// Back Background Color
+	'flipcard_back_color' => array(
+		'type'    => 'color',
+		'ui' => array(
+			'title'   => __( 'Flipcard Back Background', 'cs-powerpack' ),
+			'tooltip' => __( 'Choose a background color for the flipcard\'s back.', 'cs-powerpack' ),
+		)
 	),
 
 	// Color

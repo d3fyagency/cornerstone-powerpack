@@ -253,3 +253,83 @@
 	color: inherit;
 }
 /* End Details slideup layout */
+
+/* Flip Card Layout */
+.flip-card {
+	perspective: 1000px;
+	transform-style: preserve-3d;
+	position: relative;
+}
+	/*  UPDATED! flip the pane when hovered */
+	.flip-card:hover .back {
+		transform: rotateY(0deg);
+	}
+	.flip-card:hover .front {
+	    transform: rotateY(180deg);
+	}
+
+/* flip speed goes here */
+.flip-card .flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.flip-card .front, .flip-card .back {
+	backface-visibility: hidden;
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.flip-card .front {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+.flip-card .back {
+	transform: rotateY(-180deg);
+}
+
+.flip-card .back {
+	transform: rotateX(180deg);
+}
+
+.flip-card:hover .back {
+    transform: rotateX(0deg);
+}
+
+.flip-card:hover .front {
+    transform: rotateX(180deg);
+}
+
+.flip-card .teammember-bio-content{
+	margin-top: 10px;
+}
+
+.flip-card .teammember-bio-container .teammember-social{
+	margin-top: 15px;
+}
+
+.flip-card .teammember-bio-container .teammember-social ul{
+	list-style-type: none;
+}
+
+.flip-card .teammember-bio-container .teammember-social ul li{
+	display: inline-block;
+	background-color: transparent;
+	padding-right: 10px;
+}
+
+.flip-card .teammember-bio-container .teammember-social ul li a{
+	text-decoration: none;
+	box-shadow: none;
+	font-size: 1.5em;
+	color: inherit;
+}
+/*  End Flip Card Layout */
