@@ -171,3 +171,44 @@
 .teammember-bio-content .teammember-social li a:focus .social-icon {
   opacity: .8;
 }
+
+/* No Popup Layout */
+
+.no-popup{
+	text-align: center;
+	border: #EBEBEB 2px solid;
+}
+
+.no-popup .teammember-info div{
+	color: black;
+}
+
+.no-popup .teammember-info .teammember-content{
+	text-transform: none;
+}
+
+.no-popup .teammember-info .teammember-social{
+	margin-top: 15px;
+}
+
+.no-popup .teammember-info .teammember-social ul{
+	list-style-type: none;
+}
+
+.no-popup .teammember-info .teammember-social ul li{
+	display: inline-block;
+	background-color: transparent;
+	padding-right: 10px;
+}
+
+.no-popup .teammember-info .teammember-social ul li:last-child{
+	padding-right: 0;
+}
+
+.no-popup .teammember-info .teammember-social ul li a{
+	text-decoration: none;
+	box-shadow: none;
+	font-size: 1.5em;
+	color: inherit;
+}
+/* End No Popup Layout */
