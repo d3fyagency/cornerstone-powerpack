@@ -212,3 +212,44 @@
 	color: inherit;
 }
 /* End No Popup Layout */
+
+/* Details Slideup Layout */
+.details-slideup .teammember-image-wrap{
+	position: relative;
+	overflow: hidden;
+}
+
+.details-slideup .teammember-image-wrap .teammember-info{
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	bottom: -100%;
+	-webkit-transition: bottom ease 200ms;
+  transition: bottom ease 200ms;
+}
+
+.details-slideup .teammember-image-wrap:hover .teammember-info{
+	bottom: 0;
+}
+
+.details-slideup .teammember-bio-container .teammember-social{
+	margin-top: 15px;
+}
+
+.details-slideup .teammember-bio-container .teammember-social ul{
+	list-style-type: none;
+}
+
+.details-slideup .teammember-bio-container .teammember-social ul li{
+	display: inline-block;
+	background-color: transparent;
+	padding-right: 10px;
+}
+
+.details-slideup .teammember-bio-container .teammember-social ul li a{
+	text-decoration: none;
+	box-shadow: none;
+	font-size: 1.5em;
+	color: inherit;
+}
+/* End Details slideup layout */
