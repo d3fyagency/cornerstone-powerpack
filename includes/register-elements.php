@@ -75,6 +75,13 @@ $Elements->register(
   'Accordion element with added controls for color and style.'
 );
 
+// Color Accordion
+$Elements->register(
+  'charts',
+  'Charts',
+  'Charts element'
+);
+
 // Advanced Posts
 /*
 $Elements->register(
