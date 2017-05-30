@@ -48,6 +48,7 @@ return array(
 	// Box width
 
 	'box_width' => array(
+		'condition' => array('layout' => 'flip-card'),
 		'type'    => 'text',
 		'ui' => array(
 			'title'   => __( 'Flipcard Box Width', 'cs-powerpack' ),
@@ -58,6 +59,7 @@ return array(
 	// Box height
 
 	'box_height' => array(
+		'condition' => array('layout' => 'flip-card'),
 		'type'    => 'text',
 		'ui' => array(
 			'title'   => __( 'Flipcard Box Height', 'cs-powerpack' ),
@@ -67,6 +69,7 @@ return array(
 
 	// Back Background Color
 	'flipcard_back_color' => array(
+		'condition' => array('layout' => 'flip-card'),
 		'type'    => 'color',
 		'ui' => array(
 			'title'   => __( 'Flipcard Back Background', 'cs-powerpack' ),
