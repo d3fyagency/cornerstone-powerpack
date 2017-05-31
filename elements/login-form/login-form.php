@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Cornerstone Modal
+Plugin Name: Cornerstone Login Form
 Plugin URI:  http://cornerstonelibrary.com
-Description: A modal popup box for Cornerstone
+Description: A login form for Cornerstone
 Version:     0.3
 Author:      D3fy Development Group
 Author URI:  https://www.d3fy.com
