@@ -60,9 +60,8 @@ $style_json = json_decode($style_json);
 $map_js['map_style_json'] = ($style_json) ? $style_json : '';
 $ElementAdmin->addScriptData($map_js, $count);
 $script_handle = 'cspp-googlemapsstyled-scripts';
-$v = '1.0.2';
-$v = time();
-// wp_dequeue_script( $script_handle );
+$v = '1.0.3';
+// $v = time();
 
 wp_deregister_script( $script_handle );
 wp_register_script(

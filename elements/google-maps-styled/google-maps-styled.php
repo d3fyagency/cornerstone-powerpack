@@ -28,8 +28,8 @@ if ( !function_exists( 'cs_googlemapsstyled_register_elements' ) ) {
 
 if ( !function_exists( 'cs_googlemapsstyled_enqueue' ) ) {
 	function cs_googlemapsstyled_enqueue() {
-	  $v = '1.0.2';
-	  // $v = time();
+	  $v = '1.0.3';
+	  $v = time();
 		wp_enqueue_style(
 			'cspp-googlemapsstyled-styles', 
 			CS_GOOGEMAPSSTYLED_URL . 'assets/styles/cs-googlemapsstyled.css', 

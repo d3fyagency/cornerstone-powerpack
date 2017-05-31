@@ -1,16 +1,17 @@
 jQuery(document).ready(function(){
 	
-	var mapInfoWindow = null;
 	var buildMaps = null;
 	var addClicker = null;
 	
 	// add clicker to map
-	addClicker = function(map, marker, content){
+	addClicker = function(map, marker, content, startOpen){
+		var mapInfoWindow = new google.maps.InfoWindow({ content: content });
 		google.maps.event.addListener(marker, 'click', function(){
-			if (mapInfoWindow) { mapInfoWindow.close(); }
-			mapInfoWindow = new google.maps.InfoWindow({ content: content });
 			mapInfoWindow.open(map, marker);
 		});
+		if (startOpen) {
+  		mapInfoWindow.open(map, marker);
+		}
 	};
 	
 	// build styled maps
@@ -18,7 +19,7 @@ jQuery(document).ready(function(){
 		if (typeof CSPPStyledGMaps !== 'undefined'){
 			for (var i in CSPPStyledGMaps){
 				var maprow = CSPPStyledGMaps[i];
-				var mapOpts = { 
+				var mapOpts = {
 					zoom: parseInt(maprow.zoom),
 					center: {lat: parseFloat(maprow.lat), lng: parseFloat(maprow.lng)},
 					zoomControl: maprow.zoomControl,
@@ -58,7 +59,7 @@ jQuery(document).ready(function(){
 						var marker = new google.maps.Marker(markerOpts);
 						bounds.extend(marker.getPosition());
 						if (markerrow.markerInfo){
-							var clicker = addClicker(map, marker, markerrow.markerInfo);
+							var clicker = addClicker(map, marker, markerrow.markerInfo, markerrow.startOpen);
 						}
 					}
 				});
