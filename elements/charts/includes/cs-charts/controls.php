@@ -21,15 +21,15 @@ return array(
 		'type'    => 'sortable',
 		'options' => array(
 			'element' => 'cs-charts-item',
-			'newTitle' => __( 'Item %s', csl18n() ),
+			'newTitle' => __( 'Item %s', 'cs-charts' ),
 			'floor'   => 1,
 			'capacity' => 5,
 			'title_field' => 'heading'
 		),
 		'context' => 'content',
 		'suggest' => array(
-			array( 'heading' => __( 'Item 1', csl18n() ) ),
-			array( 'heading' => __( 'Item 2', csl18n() ) ),
+			array( 'heading' => __( 'Item 1', 'cs-charts' ) ),
+			array( 'heading' => __( 'Item 2', 'cs-charts' ) ),
 		)
 	),
 );
