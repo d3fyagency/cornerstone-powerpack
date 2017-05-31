@@ -75,12 +75,20 @@ $Elements->register(
   'Accordion element with added controls for color and style.'
 );
 
-// Color Accordion
+// Charts
 $Elements->register(
   'charts',
   'Charts',
   'Charts element'
 );
+
+// Login Form
+$Elements->register(
+  'login-form',
+  'Login Form',
+  'Place a login form for your site anywhere'
+);
+
 
 // Advanced Posts
 /*
