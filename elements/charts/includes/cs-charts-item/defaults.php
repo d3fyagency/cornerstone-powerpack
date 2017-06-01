@@ -14,5 +14,6 @@ return array(
 	
 	/* custom */
 	
+	'heading'            => '',
 	'item_value'            => '',
 );

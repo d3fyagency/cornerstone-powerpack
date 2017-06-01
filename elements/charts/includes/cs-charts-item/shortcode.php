@@ -3,7 +3,4 @@
  * Shortcode definition
  */
 
-?>
-<div>
-    <?php echo $item_value; ?>
-</div>
+echo "{ label: '${heading}', value: ${item_value} },";

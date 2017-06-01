@@ -39,8 +39,8 @@ if (!function_exists('cspp_teammember_scripts')) {
   	$v = 20170515;
   	// $v = time();
 
-	  wp_enqueue_script( 'csl-teammember-script', CSL_TEAMMEMBER_URL . 'assets/js/csl_teammember.js?' . mktime(), array('jquery'), $v, true );
-	  wp_enqueue_style( 'csl-teammember-style', CSL_TEAMMEMBER_URL . 'assets/css/csl_teammember.css?' . mktime(), array(), $v );
+	  wp_enqueue_script( 'csl-teammember-script', CSL_TEAMMEMBER_URL . 'assets/js/csl_teammember.js?' . time(), array('jquery'), $v, true );
+	  wp_enqueue_style( 'csl-teammember-style', CSL_TEAMMEMBER_URL . 'assets/css/csl_teammember.css?' . time(), array(), $v );
 	  wp_enqueue_style( 'cspp-icons', D3FY_CSPP_URL.'/lib/csppicons/style.css', array(), $v, 'all' );
 	}
 }

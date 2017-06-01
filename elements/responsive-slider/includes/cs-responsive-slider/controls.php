@@ -16,7 +16,7 @@ return array(
 		),
 		'context' => 'content',
 		'suggest' => array(
-	   	array( 'heading' => __( 'First Slide', 'cs-powerpack' ) ),
+			array( 'heading' => __( 'First Slide', 'cs-powerpack' ) ),
 			array( 'heading' => __( 'Second Slide', 'cs-powerpack' ) ),
 		)
 	),

@@ -32,7 +32,7 @@ class Cornerstone_Powerpack_Element_Charts {
 	// Load all actions and filters for element.
 	public function load_hooks(&$loader) {
 		$loader->add_action('cornerstone_register_elements', $this, 'register_elements', 100);
-		$loader->add_action('wp_enqueue_scripts', $this, 'enqueue_styles');
+		$loader->add_action('wp_enqueue_styles', $this, 'enqueue_styles');
 		$loader->add_action('wp_enqueue_scripts', $this, 'enqueue_scripts');
 		$loader->add_filter('cornerstone_icon_map', $this, 'icon_map');
 	}
@@ -75,10 +75,9 @@ class Cornerstone_Powerpack_Element_Charts {
 			$this->url.'/assets/scripts/d3.v4.min.js',
 			array(),
 			$this->version,
-			true
+			false
 		);
 	}
-
 }
 
 endif;
