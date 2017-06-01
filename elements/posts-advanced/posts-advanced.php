@@ -1,77 +1,41 @@
 <?php
+/*
+Plugin Name: Cornerstone Library: Recent Posts Extended
+Plugin URI:  http://cornerstonelibrary.com/
+Description: Shows recent posts. Allows all public post types.
+Version:     0.1
+Author:      William Cobb
+Author URI:  http://bigwilliam.com
+Author Email: hello@bigwilliam.com
+Text Domain: __x__
+*/
 
-/**
- * Manage and load the responsive slider element
- *
- * @package    Cornerstone_Powerpack
- * @subpackage Cornerstone_Powerpack/elements/responsive-slider
- */
 
-if (!class_exists('Cornerstone_Powerpack_Element_Posts_Advanced')):
-
-class Cornerstone_Powerpack_Element_Posts_Advanced {
-
-	// The ID of this plugin.
-	private $cornerstone_powerpack;
-
-	// The version of this plugin.
-	private $version;
-	
-	// The sub-path to this element
-	private $path;
-
-	// Initialize the class and set its properties.
-	public function __construct($cornerstone_powerpack, $version) {
-		$this->cornerstone_powerpack = $cornerstone_powerpack;
-		$this->version = $version;
-		$this->version = time();
-		$subpath = '/elements/posts-advanced';
-		$this->path = D3FY_CSPP_PATH.$subpath;
-		$this->url = D3FY_CSPP_URL.$subpath;
-	}
-	
-	// Load all actions and filters for element.
-	public function load_hooks(&$loader) {
-		$loader->add_action('cornerstone_register_elements', $this, 'register_elements', 100);
-		$loader->add_action('wp_enqueue_scripts', $this, 'enqueue_styles');
-		$loader->add_action('wp_enqueue_scripts', $this, 'enqueue_scripts');
-		$loader->add_filter('cornerstone_icon_map', $this, 'icon_map');
-	}
-	
-	// Register the element.
-	public function register_elements() {
-		cornerstone_remove_element( 'cspp-posts-advanced' );
-		cornerstone_register_element(
-			'CS_Posts_Advanced', 
-			'cspp-posts-advanced',
-			$this->path.'/includes/cspp-posts-advanced'
-		);
-	}
-	
-	// Register the element icon(s)
-	public function icon_map($icon_map) {
-		$icon_map['cs-imageslider'] = $this->path.'/assets/svg/icons.svg';
-		return $icon_map;
-	}
-
-	// Register the element stylesheets.
-	public function enqueue_styles() {
-    wp_enqueue_style(
-      $this->cornerstone_powerpack.'-posts-advanced', 
-      $this->url.'/assets/styles/cspp-posts-advanced.css', 
-      array(), $this->version, 'all'
-    );
-	}
-
-	// Register the element JavaScript.
-	public function enqueue_scripts() {
-    wp_enqueue_script(
-      $this->cornerstone_powerpack.'-posts-advanced', 
-      $this->url.'/assets/scripts/cspp-posts-advanced-min.js', 
-      array('jquery'), $this->version, true
-    );
-	}
-
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
 }
 
-endif;
+/*
+ * => Enqueue Scripts
+ * ---------------------------------------------------------------------------*/
+function csl_recent_posts_scripts() {
+	wp_enqueue_script( 'csl-recent-posts-script', plugins_url( '/assets/js/custom.js', __FILE__ ), array( 'jquery' ), null, true );
+	wp_enqueue_style( 'csl-recent-posts-css', plugins_url( '/assets/css/custom.css', __FILE__ ), array(), '0.1' );
+}
+add_action( 'wp_enqueue_scripts', 'csl_recent_posts_scripts', 100 );
+
+
+/*
+ * => Load Shortcodes
+ * ---------------------------------------------------------------------------*/
+require_once('includes/cs-posts-advanced/shortcodes/recent-posts-extended.php');
+
+/*
+ * => ADD CUSTOM ELEMENTS TO CORNERSTONE
+ * ---------------------------------------------------------------------------*/
+function csl_recent_posts_extended() {
+	require_once( 'includes/cs-posts-advanced/elements/recent-posts-extended.php' );
+  cornerstone_add_element( 'CSL_Recent_Posts_Extended' );
+}
+add_action( 'cornerstone_load_elements', 'csl_recent_posts_extended' );

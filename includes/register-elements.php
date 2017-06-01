@@ -91,10 +91,8 @@ $Elements->register(
 
 
 // Advanced Posts
-/*
 $Elements->register(
-  'cspp-posts-advanced',
+  'posts-advanced',
   'Advanced Posts List',
   'Output groups of posts as styled grids or lists.'
 );
-*/
