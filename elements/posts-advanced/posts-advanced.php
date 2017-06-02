@@ -1,41 +1,28 @@
 <?php
 /*
-Plugin Name: Cornerstone Library: Recent Posts Extended
-Plugin URI:  http://cornerstonelibrary.com/
-Description: Shows recent posts. Allows all public post types.
-Version:     0.1
-Author:      William Cobb
-Author URI:  http://bigwilliam.com
-Author Email: hello@bigwilliam.com
+Plugin Name: Cornerstone Modal
+Plugin URI:  http://cornerstonelibrary.com
+Description: A modal popup box for Cornerstone
+Version:     0.3
+Author:      D3fy Development Group
+Author URI:  https://www.d3fy.com
+Author Email: https://www.d3fy.com/#contact
 Text Domain: __x__
 */
 
+define( 'CS_POSTS_ADVANCED_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
+define( 'CS_POSTS_ADVANCED_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+/* Add element to Cornerstone */
+add_action( 'cornerstone_register_elements', 'cspp_register_posts_advanced_elements', 100 );
+
+if ( !function_exists( 'cspp_register_posts_advanced_elements' ) ) {
+	function cspp_register_posts_advanced_elements() {
+		cornerstone_remove_element( 'cs-posts-advanced' );
+		cornerstone_register_element(
+			'CSL_Posts_Advanced',
+			'cs-posts-advanced', 
+			CS_POSTS_ADVANCED_PATH . '/includes/csl-posts-advanced'
+		);
+	}
 }
-
-/*
- * => Enqueue Scripts
- * ---------------------------------------------------------------------------*/
-function csl_recent_posts_scripts() {
-	wp_enqueue_script( 'csl-recent-posts-script', plugins_url( '/assets/js/custom.js', __FILE__ ), array( 'jquery' ), null, true );
-	wp_enqueue_style( 'csl-recent-posts-css', plugins_url( '/assets/css/custom.css', __FILE__ ), array(), '0.1' );
-}
-add_action( 'wp_enqueue_scripts', 'csl_recent_posts_scripts', 100 );
-
-
-/*
- * => Load Shortcodes
- * ---------------------------------------------------------------------------*/
-require_once('includes/cs-posts-advanced/shortcodes/recent-posts-extended.php');
-
-/*
- * => ADD CUSTOM ELEMENTS TO CORNERSTONE
- * ---------------------------------------------------------------------------*/
-function csl_recent_posts_extended() {
-	require_once( 'includes/cs-posts-advanced/elements/recent-posts-extended.php' );
-  cornerstone_add_element( 'CSL_Recent_Posts_Extended' );
-}
-add_action( 'cornerstone_load_elements', 'csl_recent_posts_extended' );
