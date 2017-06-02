@@ -11,7 +11,7 @@ return array(
 	'item_value' => array(
 		'type'    => 'text',
 		'ui'      => array(
-			'title'   => __( 'Item Value', 'cs-charts-item' ),
+			'title'   => __( 'Item Value', 'csl-charts-item' ),
 		),
 	),
 );

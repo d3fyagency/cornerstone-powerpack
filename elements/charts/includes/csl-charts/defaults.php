@@ -15,5 +15,6 @@ return array(
 	/* custom */
 	'chart_style' => 'pie',
 	'elements' => '',
-	
+	'height' => 600,
+	'width' => 600,
 );

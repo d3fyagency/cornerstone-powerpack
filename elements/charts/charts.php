@@ -39,17 +39,17 @@ class Cornerstone_Powerpack_Element_Charts {
 	
 	// Register the element.
 	public function register_elements() {
-		cornerstone_remove_element('cs-charts');
-		cornerstone_remove_element('cs-charts-item');
+		cornerstone_remove_element('csl-charts');
+		cornerstone_remove_element('csl-charts-item');
 		cornerstone_register_element(
-			'CS_Charts', 
-			'cs-charts',
-			$this->path.'/includes/cs-charts'
+			'CSL_Charts', 
+			'csl-charts',
+			$this->path.'/includes/csl-charts'
 		);
 		cornerstone_register_element(
-			'CS_Charts_Item', 
-			'cs-charts-item',
-			$this->path.'/includes/cs-charts-item'
+			'CSL_Charts_Item', 
+			'csl-charts-item',
+			$this->path.'/includes/csl-charts-item'
 		);
 	}
 	
