@@ -32,6 +32,20 @@ return array(
       'choices' => $choices
     )
 	),
+	'layout' => array(
+    'type' => 'select',
+    'ui' => array(
+			'title'   => __( 'Layout', $handle ),
+			'tooltip' => __( 'Choose between grid and list layouts.', $handle ),
+		),
+    'options' => array(
+      'choices' => array(
+				array('value' => 'Grid', 'label' => 'Grid'),
+				array('value' => 'List', 'label' => 'List'),
+			)
+    ),
+		'suggest' => 'Grid'
+	),
   'count' => array(
     'type' => 'select',
     'ui' => array(

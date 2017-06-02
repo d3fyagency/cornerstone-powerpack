@@ -9,6 +9,7 @@ return array(
 	'class'            			=> '',
 	'style'            			=> '',
   'count'                 => '2',
+  'layout'                => 'Grid',
   'offset'                => '',
   'category'              => '',
   'orientation'           => 'horizontal',
