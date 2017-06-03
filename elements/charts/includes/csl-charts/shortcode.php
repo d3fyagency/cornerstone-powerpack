@@ -11,7 +11,7 @@
   // Common settings
   var width = <?php echo $width; ?>;
   var height = <?php echo $height; ?>;
-  var color = d3.scaleOrdinal(d3.schemeCategory20b);
+  var color = d3.scaleOrdinal(d3.schemeCategory20b)
 
   <?php if ($chart_style === 'donut' || $chart_style === 'pie'): ?>
     var radius = Math.min(width, height) / 2;
@@ -43,8 +43,8 @@
       .enter()
         .append('path')
         .attr('d', arc)
-        .attr('fill', function(d) {
-          return color(d.value);
+        .attr('fill', function(d, i) {
+          return color(i);
         });
 
   <?php elseif ($chart_style === 'bar'): ?>
@@ -82,8 +82,8 @@
         return height - y(d.value);
       })
       .attr('width', x.bandwidth())
-      .attr('fill', function(d) {
-        return color(d.label);
+      .attr('fill', function(d, i) {
+        return color(i);
       })
     
     bar.append('text')
