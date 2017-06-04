@@ -64,6 +64,41 @@ return array(
       ),
     ),
   ),
+  'include_excerpt' => array(
+    'type' => 'toggle',
+    'condition' => array('layout' => 'Grid'),
+    'ui' => array(
+      'title' => __( 'Excerpt Text', $handle ),
+      'tooltip' => __( 'Display Excerpt Text', $handle ),
+    ),
+  ),
+  'include_post_meta' => array(
+    'type' => 'toggle',
+    'condition' => array('layout' => 'Grid'),
+    'ui' => array(
+      'title' => __( 'Post Meta', $handle ),
+      'tooltip' => __( 'Display Post Meta', $handle ),
+    ),
+  ),
+
+  'display_order' => array(
+    'type' => 'select',
+    'ui' => array(
+			'title'   => __( 'Item Ordering', $handle ),
+			'tooltip' => __( 'Select how the posts are ordered by.', $handle ),
+		 ),
+     'suggest' => 'date-desc',
+     'options' => array(
+       'choices' => array(
+         array( 'value' => 'date-asc', 'label' => __( 'Date - Ascending', $handle ) ),
+         array( 'value' => 'date-desc', 'label' => __( 'Date - Descending', $handle ) ),
+         array( 'value' => 'title-asc', 'label' => __( 'Title - Ascending', $handle ) ),
+         array( 'value' => 'title-desc', 'label' => __( 'Title - Descending', $handle ) ),
+         array( 'value' => 'random', 'label' => __( 'Random', $handle ) ),
+       )
+     )
+  ),
+
   'count' => array(
     'type' => 'select',
     'ui' => array(

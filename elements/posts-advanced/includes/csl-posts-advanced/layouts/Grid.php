@@ -22,7 +22,42 @@
 
           <div class="x-recent-posts-content">
             <h3 class="h-recent-posts"><?=get_the_title()?></h3>
-            <span class="x-recent-posts-date"><?= get_the_date() ?></span>
+            <?php
+              if($include_excerpt):
+            ?>
+              <div class="x-recent-posts-excerpt">
+                <?=get_the_excerpt()?>
+              </div>
+            <?php
+              endif;
+            ?>
+            <?php
+              if($include_post_meta):
+            ?>
+              <div class="x-recent-posts-meta">
+                <div class="x-recent-posts-author"><?= get_the_author() ?></div>
+                <div class="x-recent-posts-date"><?= get_the_date() ?></div>
+                <?php
+                  $posttags = get_the_tags();
+                  if ($posttags):
+                ?>
+                    <div class="x-recent-posts-tags">
+                      Tags:
+                        <?php
+                          foreach($posttags as $tag):
+                        ?>
+                            <span class="tag"><?=$tag->name?></span>
+                        <?php
+                          endforeach;
+                        ?>
+                    </div>
+                  <?php
+                    endif;
+                  ?>
+              </div>
+            <?php
+              endif;
+            ?>
           </div>
         </div>
       </article>
