@@ -46,6 +46,24 @@ return array(
     ),
 		'suggest' => 'Grid'
 	),
+  'list_fields' => array(
+    'type' => 'multi-choose',
+    'condition' => array('layout' => 'List'),
+    'ui' => array(
+			'title'   => __( 'List Fields', $handle ),
+			'tooltip' => __( 'Choose the post info to display', $handle ),
+		),
+    'columns' => '5',
+    'options' => array(
+      'choices' => array(
+        array( 'value' => 'title', 'label' => __( 'Title', $handle ) ),
+        array( 'value' => 'author', 'label' => __( 'Author', $handle ) ),
+        array( 'value' => 'categories', 'label' => __( 'Categories', $handle ) ),
+        array( 'value' => 'tags', 'label' => __( 'Tags', $handle ) ),
+        array( 'value' => 'date', 'label' => __( 'Date', $handle ) ),
+      ),
+    ),
+  ),
   'count' => array(
     'type' => 'select',
     'ui' => array(
@@ -55,10 +73,10 @@ return array(
      'suggest' => '2',
      'options' => array(
        'choices' => array(
-         array( 'value' => '1', 'label' => __( '1', csl18n() ) ),
-         array( 'value' => '2', 'label' => __( '2', csl18n() ) ),
-         array( 'value' => '3', 'label' => __( '3', csl18n() ) ),
-         array( 'value' => '4', 'label' => __( '4', csl18n() ) )
+         array( 'value' => '1', 'label' => __( '1', $handle ) ),
+         array( 'value' => '2', 'label' => __( '2', $handle ) ),
+         array( 'value' => '3', 'label' => __( '3', $handle ) ),
+         array( 'value' => '4', 'label' => __( '4', $handle ) )
        )
      )
   ),
@@ -89,8 +107,8 @@ return array(
     'options' => array(
       'columns' => '2',
       'choices' => array(
-        array( 'value' => 'horizontal', 'label' => __( 'Horizontal', csl18n() ), 'icon' => fa_entity( 'arrows-h' ) ),
-        array( 'value' => 'vertical',   'label' => __( 'Vertical', csl18n() ),   'icon' => fa_entity( 'arrows-v' ) )
+        array( 'value' => 'horizontal', 'label' => __( 'Horizontal', $handle ), 'icon' => fa_entity( 'arrows-h' ) ),
+        array( 'value' => 'vertical',   'label' => __( 'Vertical', $handle ),   'icon' => fa_entity( 'arrows-v' ) )
       )
     )
   ),
@@ -110,4 +128,5 @@ return array(
 			'tooltip' => __( 'Select to activate the fade effect.', $handle ),
 		),
   ),
+
 );

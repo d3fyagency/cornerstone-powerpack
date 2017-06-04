@@ -10,6 +10,7 @@ return array(
 	'style'            			=> '',
   'count'                 => '2',
   'layout'                => 'Grid',
+  'list_fields'           => array('title', 'author', 'categories', 'tags', 'date'),
   'offset'                => '',
   'category'              => '',
   'orientation'           => 'horizontal',
