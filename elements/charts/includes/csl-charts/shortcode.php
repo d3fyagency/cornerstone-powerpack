@@ -38,14 +38,25 @@
       })
       .sort(null);
 
-    var path = svg.selectAll('path')
+    var g = svg.selectAll('path')
       .data(pie(dataSet))
       .enter()
-        .append('path')
+        .append('g');
+    var path = g.append('path')
         .attr('d', arc)
         .attr('fill', function(d, i) {
           return color(i);
         });
+    g.append('text')
+      .attr('transform', function(d) {
+        var _d = arc.centroid(d);
+        return 'translate(' + _d + ')';
+      })
+      .style('text-anchor', 'middle')
+      .text(function(d) {
+        return d.value + '%';
+      });
+    g.append('text')
 
   <?php elseif ($chart_style === 'bar'): ?>
     var margin = {
