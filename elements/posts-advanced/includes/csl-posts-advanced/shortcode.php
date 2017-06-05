@@ -37,13 +37,25 @@ switch($display_order){
         $order_params = array('orderby' => 'rand');
 }
 
+$taxonomy_params = array();
+
+if(!!$taxonomy && !!$taxonomy_field && !!$taxonomy_terms){
+  $taxonomy_params['tax_query'] = array(
+    array(
+      'taxonomy' => $taxonomy,
+      'field'   => $taxonomy_field,
+      'terms'   => $taxonomy_terms
+    )
+  );
+}
+
 $q = new WP_Query( array_merge(
   array(
     'post_type'        => "{$type}",
     'posts_per_page'   => "{$count}",
     'offset'           => "{$offset}",
     "{$category_type}" => "{$category}"
-  ), $order_params) );
+  ), $order_params, $taxonomy_params) );
 
 $supported_layouts = array('Grid', 'List');
 

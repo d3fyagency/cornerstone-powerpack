@@ -123,7 +123,27 @@ return array(
 			'tooltip' => __( 'Enter a number to offset initial starting post of your Recent Posts.', $handle ),
 		),
   ),
-
+  'taxonomy' => array(
+    'type' => 'text',
+    'ui' => array(
+			'title'   => __( 'Taxonomy', $handle ),
+			'tooltip' => __( 'Enter the taxonomy to use as filter.', $handle ),
+		),
+  ),
+  'taxonomy_field' => array(
+    'type' => 'text',
+    'ui' => array(
+			'title'   => __( 'Taxonomy Field', $handle ),
+			'tooltip' => __( 'Enter the taxonomy field to use as filter.', $handle ),
+		),
+  ),
+  'taxonomy_terms' => array(
+    'type' => 'text',
+    'ui' => array(
+			'title'   => __( 'Taxonomy Terms', $handle ),
+			'tooltip' => __( 'Enter the taxonomy terms separated by spaces to use as filter.', $handle ),
+		),
+  ),
   'category' => array(
     'type' => 'text',
     'ui' => array(
