@@ -11,7 +11,7 @@
   // Common settings
   var width = <?php echo $width; ?>;
   var height = <?php echo $height; ?>;
-  var color = d3.scaleOrdinal(d3.schemeCategory20b);
+  var color = d3.scaleOrdinal(d3.schemeCategory20b)
 
   <?php if ($chart_style === 'donut' || $chart_style === 'pie'): ?>
     var radius = Math.min(width, height) / 2;
@@ -43,21 +43,34 @@
       .enter()
         .append('path')
         .attr('d', arc)
-        .attr('fill', function(d) {
-          return color(d.value);
+        .attr('fill', function(d, i) {
+          return color(i);
         });
 
   <?php elseif ($chart_style === 'bar'): ?>
-    var chart = d3.select("#chart")
+    var margin = {
+      top: 20,
+      right: 20,
+      bottom: 30,
+      left: 40
+    }
+    var innerHeight = height - margin.top - margin.bottom;
+    var innerWidth = width - margin.left - margin.right;
+    var svg = d3.select("#chart")
       .append('svg')
       .attr("width", width)
-      .attr("height", height);
+      .attr("height", height)
+      .append('g')
+      .attr(
+        'transform',
+        'translate(' + margin.left + ',' + margin.top + ')'
+      );
 
     var x = d3.scaleBand()
       .domain(dataSet.map(function(d) {
         return d.label;
       }))
-      .rangeRound([0, width])
+      .rangeRound([0, innerWidth])
       .padding([0.05]);
     var y = d3.scaleLinear()
       .domain([
@@ -66,8 +79,11 @@
           return d.value;
         })
       ])
-      .range([height, 0]);
-    var bar = chart.selectAll('g')
+      .range([
+        innerHeight,
+        0
+      ]);
+    var bar = svg.selectAll('g')
       .data(dataSet)
       .enter()
         .append('g')
@@ -79,11 +95,11 @@
         return y(d.value);
       })
       .attr('height', function(d) {
-        return height - y(d.value);
+        return innerHeight - y(d.value);
       })
       .attr('width', x.bandwidth())
-      .attr('fill', function(d) {
-        return color(d.label);
+      .attr('fill', function(d, i) {
+        return color(i);
       })
     
     bar.append('text')
@@ -96,6 +112,11 @@
       .text(function(d) {
         return d.value;
       })
+    svg.append('g')
+      .attr('transform', 'translate(0, ' + innerHeight + ')')
+      .call(d3.axisBottom(x));
+    svg.append('g')
+      .call(d3.axisLeft(y));
   <?php endif; ?>
 })(window.d3);
 </script>
