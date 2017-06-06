@@ -21,7 +21,20 @@ $handle = 'cs-powerpack';
    $choices[] = array( 'value' => $key, 'label' => $obj->labels->name );
  }
 
-return array(
+$categories_qry = get_categories( array(
+  'orderby' => 'name',
+  'order'   => 'asc'
+) );
+
+$categories = array(array('value' => '', 'label' => '- select -'));
+
+if(count($categories_qry)){
+  foreach($categories_qry as $cat){
+    $categories[] = array('value' => $cat->cat_name, 'label' => $cat->cat_name);
+  }
+}
+
+$controls_array = array(
   'post_type' => array(
     'type' => 'select',
     'ui' => array(
@@ -123,33 +136,16 @@ return array(
 			'tooltip' => __( 'Enter a number to offset initial starting post of your Recent Posts.', $handle ),
 		),
   ),
-  'taxonomy' => array(
-    'type' => 'text',
-    'ui' => array(
-			'title'   => __( 'Taxonomy', $handle ),
-			'tooltip' => __( 'Enter the taxonomy to use as filter.', $handle ),
-		),
-  ),
-  'taxonomy_field' => array(
-    'type' => 'text',
-    'ui' => array(
-			'title'   => __( 'Taxonomy Field', $handle ),
-			'tooltip' => __( 'Enter the taxonomy field to use as filter.', $handle ),
-		),
-  ),
-  'taxonomy_terms' => array(
-    'type' => 'text',
-    'ui' => array(
-			'title'   => __( 'Taxonomy Terms', $handle ),
-			'tooltip' => __( 'Enter the taxonomy terms separated by spaces to use as filter.', $handle ),
-		),
-  ),
+
   'category' => array(
-    'type' => 'text',
+    'type' => 'select',
     'ui' => array(
 			'title'   => __( 'Category', $handle ),
 			'tooltip' => __( 'To filter your posts by category, enter in the slug of your desired category. To filter by multiple categories, enter in your slugs separated by a comma.', $handle ),
 		),
+    'options' => array(
+      'choices' => $categories
+    ),
   ),
 
   'orientation' => array(
@@ -185,3 +181,52 @@ return array(
   ),
 
 );
+
+$taxonomies_controls = array();
+$taxonomies_qry = get_taxonomies();
+
+if(count($taxonomies_qry)){
+  $taxonomies = array(array('value' => '', 'label' => '- select -'));
+
+  foreach($taxonomies_qry as $t){
+    $taxonomies[] = array('value' => $t, 'label' => $t);
+  }
+
+  $taxonomies_controls['taxonomy'] = array(
+    'type' => 'select',
+    'ui'  => array(
+      'title'   => __( 'Taxonomy', $handle ),
+      'tooltip' => __( 'Enter the taxonomy to use as filter.', $handle ),
+    ),
+    'options' => array(
+      'choices' => $taxonomies
+    ),
+  );
+
+  $taxonomies_controls['taxonomy_field'] = array(
+    'type' => 'select',
+    'ui'  => array(
+      'title'   => __( 'Taxonomy Field', $handle ),
+      'tooltip' => __( 'Enter the taxonomy field to use as filter.', $handle ),
+    ),
+    'options' => array(
+      'choices' => array(
+        array('value' => '', 'label' => '- select -'),
+        array('value' => 'term_id', 'label' => 'term_id'),
+        array('value' => 'name', 'label' => 'name'),
+        array('value' => 'slug', 'label' => 'slug'),
+        array('value' => 'term_taxonomy_id', 'label' => 'term_taxonomy_id'),
+      )
+    ),
+  );
+
+  $taxonomies_controls['taxonomy_terms'] = array(
+    'type' => 'text',
+    'ui' => array(
+      'title'   => __( 'Taxonomy Terms', $handle ),
+      'tooltip' => __( 'Enter the taxonomy terms separated by spaces to use as filter.', $handle ),
+    ),
+  );
+}
+
+return array_merge($controls_array, $taxonomies_controls);
