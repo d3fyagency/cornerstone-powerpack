@@ -14,6 +14,12 @@
   var color = d3.scaleOrdinal(d3.schemeCategory20b)
 
   <?php if ($chart_style === 'donut' || $chart_style === 'pie'): ?>
+    if (dataSet.length === 1) {
+      dataSet.push({
+        value: 100 - dataSet[0].value,
+      })
+    }
+
     var radius = Math.min(width, height) / 2;
     var donutWidth = radius / 2;
 
@@ -56,7 +62,6 @@
       .text(function(d) {
         return d.value + '%';
       });
-    g.append('text')
 
   <?php elseif ($chart_style === 'bar'): ?>
     var margin = {
