@@ -44,15 +44,24 @@
       })
       .sort(null);
 
-    var g = svg.selectAll('path')
+    var slice = svg.selectAll('path')
       .data(pie(dataSet))
-      .enter()
-        .append('g');
+    var g = slice.enter()
+              .append('g');
     var path = g.append('path')
-        .attr('d', arc)
         .attr('fill', function(d, i) {
           return color(i);
-        });
+        })
+        // .attr('d', arc)
+        .transition()
+        .duration(1000)
+        .attrTween("d", function(d) {
+          var i = d3.interpolate({
+            startAngle: 1.1 * Math.PI,
+            endAngle: 1.1 * Math.PI
+          }, d);
+          return function(t) { return arc(i(t)); };
+        })
     g.append('text')
       .attr('transform', function(d) {
         var _d = arc.centroid(d);
