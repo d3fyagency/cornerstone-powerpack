@@ -16,6 +16,7 @@
   <?php if ($chart_style === 'donut' || $chart_style === 'pie'): ?>
     if (dataSet.length === 1) {
       dataSet.push({
+        label: "None",
         value: 100 - dataSet[0].value,
       })
     }
@@ -52,7 +53,6 @@
         .attr('fill', function(d, i) {
           return color(i);
         })
-        // .attr('d', arc)
         .transition()
         .duration(1000)
         .attrTween("d", function(d) {
@@ -62,6 +62,16 @@
           }, d);
           return function(t) { return arc(i(t)); };
         })
+    var div = d3.select("body").append("div").attr("class", "toolTip");
+    g.on("mousemove", function(d) {
+        div.style("left", d3.event.pageX+10+"px");
+        div.style("top", d3.event.pageY-25+"px");
+        div.style("display", "inline-block");
+        div.html((d.data.label) + "<br />" + (d.data.value) + "%");
+      })
+      .on("mouseout", function(d){
+        div.style("display", "none");
+      });
     g.append('text')
       .attr('transform', function(d) {
         var _d = arc.centroid(d);
