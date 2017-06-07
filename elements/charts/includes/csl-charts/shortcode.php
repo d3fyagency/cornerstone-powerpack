@@ -11,7 +11,7 @@
   // Common settings
   var width = <?php echo $width; ?>;
   var height = <?php echo $height; ?>;
-  var color = d3.scaleOrdinal(d3.schemeCategory20b)
+  var color = d3.scaleOrdinal(<?php echo $color_scheme; ?>)
 
   <?php if ($chart_style === 'donut' || $chart_style === 'pie'): ?>
     if (dataSet.length === 1) {

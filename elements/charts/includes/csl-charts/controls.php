@@ -19,6 +19,20 @@ return array(
       )
     )
   ),
+  'color_scheme' => array(
+    'type'    => 'select',
+    'ui'      => array(
+      'title'   => __( 'Color Scheme', 'csl-charts' ),
+    ),
+    'options' => array(
+      'choices' => array(
+        array( 'value' => 'd3.schemeCategory20',   'label' => __( 'Default', 'csl-charts' ) ),
+        array( 'value' => 'd3.schemeCategory10',   'label' => __( 'Scheme Category A', 'csl-charts' ) ),
+        array( 'value' => 'd3.schemeCategory20b',   'label' => __( 'Scheme Category B', 'csl-charts' ) ),
+        array( 'value' => 'd3.schemeCategory20c',   'label' => __( 'Scheme Category C', 'csl-charts' ) ),
+      )
+    )
+  ),
   'elements' => array(
     'type'    => 'sortable',
     'options' => array(
