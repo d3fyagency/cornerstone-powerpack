@@ -124,29 +124,26 @@
         .append('g')
         .attr('transform', function(d) {
           return 'translate(' + x(d.label) + ',0)'
-        });
+        })
     bar.append('rect')
-      .attr('y', function(d) {
-        return y(d.value);
-      })
-      .attr('height', function(d) {
-        return innerHeight - y(d.value);
-      })
+      .attr('height', 0)
+      .attr('y', y(0))
       .attr('width', x.bandwidth())
       .attr('fill', function(d, i) {
         return color(i);
       })
-    
-    bar.append('text')
-      .attr('x', x.bandwidth() / 2)
-      .attr('y', function(d) {
-        return y(d.value) + 3;
-      })
-      .attr('dy', '.75em')
-      .style('text-anchor', 'middle')
-      .text(function(d) {
-        return d.value;
-      })
+        .transition()
+        .delay(function(d, i) {
+          return i * 20
+        })
+        .duration(800)
+        .attr('y', function(d) {
+          return y(d.value)
+        })
+        .attr('height', function(d) {
+          return innerHeight - y(d.value);
+        })
+
     svg.append('g')
       .attr('transform', 'translate(0, ' + innerHeight + ')')
       .call(d3.axisBottom(x));
