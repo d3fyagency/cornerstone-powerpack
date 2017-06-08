@@ -18,15 +18,23 @@
     .attr('width', width)
     .attr('height', height);
 
-  function onView(applyTransition) {
-    window.addEventListener('scroll', function handler(e) {
-      if (document.getElementById('chart-<?php echo $time; ?>')
+  function isViewable() {
+    return document.getElementById('chart-<?php echo $time; ?>')
         .getBoundingClientRect()
-        .bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+        .bottom <= (window.innerHeight || document.documentElement.clientHeight)
+  }
+
+  function onView(applyTransition) {
+    if (isViewable()) {
+      applyTransition();
+    } else {
+      window.addEventListener('scroll', function handler(e) {
+        if (isViewable()) {
           this.removeEventListener('scroll', handler);
           applyTransition();
         }
-    });
+      });
+    }
   }
 
   <?php if ($chart_style === 'donut' || $chart_style === 'pie'): ?>
