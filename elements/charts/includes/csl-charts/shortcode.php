@@ -1,4 +1,5 @@
-<div id="chart-<?php echo time(); ?>"></div>
+<?php $time = time(); ?>
+<div id="chart-<?php echo $time; ?>"></div>
 <script type="text/javascript">
 (function(d3) {
   'use strict';
@@ -12,7 +13,7 @@
   var width = <?php echo $width; ?>;
   var height = <?php echo $height; ?>;
   var color = d3.scaleOrdinal(<?php echo $color_scheme; ?>)
-  var svg = d3.select('#chart-<?php echo time(); ?>')
+  var svg = d3.select('#chart-<?php echo $time; ?>')
     .append('svg')
     .attr('width', width)
     .attr('height', height);
