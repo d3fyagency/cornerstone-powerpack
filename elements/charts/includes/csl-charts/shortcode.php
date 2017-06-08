@@ -12,6 +12,10 @@
   var width = <?php echo $width; ?>;
   var height = <?php echo $height; ?>;
   var color = d3.scaleOrdinal(<?php echo $color_scheme; ?>)
+  var svg = d3.select('#chart')
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height);
 
   <?php if ($chart_style === 'donut' || $chart_style === 'pie'): ?>
     if (dataSet.length === 1) {
@@ -24,11 +28,7 @@
     var radius = Math.min(width, height) / 2;
     var donutWidth = radius / 2;
 
-    var svg = d3.select('#chart')
-      .append('svg')
-      .attr('width', width)
-      .attr('height', height)
-        .append('g')
+    var innerG = svg.append('g')
         .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')');
 
     var arc = d3.arc()
@@ -45,7 +45,7 @@
       })
       .sort(null);
 
-    var slice = svg.selectAll('path')
+    var slice = innerG.selectAll('path')
       .data(pie(dataSet))
     var g = slice.enter()
               .append('g');
@@ -91,11 +91,8 @@
     }
     var innerHeight = height - margin.top - margin.bottom;
     var innerWidth = width - margin.left - margin.right;
-    var svg = d3.select("#chart")
-      .append('svg')
-      .attr("width", width)
-      .attr("height", height)
-      .append('g')
+
+    var innerG = svg.append('g')
       .attr(
         'transform',
         'translate(' + margin.left + ',' + margin.top + ')'
@@ -118,7 +115,7 @@
         innerHeight,
         0
       ]);
-    var bar = svg.selectAll('g')
+    var bar = innerG.selectAll('g')
       .data(dataSet)
       .enter()
         .append('g')
@@ -144,10 +141,11 @@
           return innerHeight - y(d.value);
         })
 
-    svg.append('g')
+    innerG.append('g')
       .attr('transform', 'translate(0, ' + innerHeight + ')')
       .call(d3.axisBottom(x));
-    svg.append('g')
+    innerG.append('g')
+      .attr('transform', 'translate(0, 0)')
       .call(d3.axisLeft(y));
   <?php endif; ?>
 })(window.d3);
