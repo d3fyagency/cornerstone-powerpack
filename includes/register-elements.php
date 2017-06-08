@@ -96,3 +96,10 @@ $Elements->register(
   'Advanced Posts List',
   'Output groups of posts as styled grids or lists.'
 );
+
+// Woocommerce Product
+$Elements->register(
+  'woocommerce-product',
+  'Woocommerce Product',
+  'Display a woocommerce product'
+);
