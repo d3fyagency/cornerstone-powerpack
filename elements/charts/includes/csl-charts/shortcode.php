@@ -18,6 +18,17 @@
     .attr('width', width)
     .attr('height', height);
 
+  function onView(applyTransition) {
+    window.addEventListener('scroll', function handler(e) {
+      if (document.getElementById('chart-<?php echo $time; ?>')
+        .getBoundingClientRect()
+        .bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+          this.removeEventListener('scroll', handler);
+          applyTransition();
+        }
+    });
+  }
+
   <?php if ($chart_style === 'donut' || $chart_style === 'pie'): ?>
     if (dataSet.length === 1) {
       dataSet.push({
@@ -54,7 +65,10 @@
         .attr('fill', function(d, i) {
           return color(i);
         })
-        .transition()
+    
+    onView(
+      function() {
+        path.transition()
         .duration(1000)
         .attrTween("d", function(d) {
           var i = d3.interpolate({
@@ -62,26 +76,29 @@
             endAngle: 1.1 * Math.PI
           }, d);
           return function(t) { return arc(i(t)); };
-        })
-    var div = d3.select("body").append("div").attr("class", "toolTip");
-    g.on("mousemove", function(d) {
-        div.style("left", d3.event.pageX+10+"px");
-        div.style("top", d3.event.pageY-25+"px");
-        div.style("display", "inline-block");
-        div.html((d.data.label) + "<br />" + (d.data.value) + "%");
-      })
-      .on("mouseout", function(d){
-        div.style("display", "none");
-      });
-    g.append('text')
-      .attr('transform', function(d) {
-        var _d = arc.centroid(d);
-        return 'translate(' + _d + ')';
-      })
-      .style('text-anchor', 'middle')
-      .text(function(d) {
-        return d.value + '%';
-      });
+        });
+
+        var div = d3.select("body").append("div").attr("class", "toolTip");
+        g.on("mousemove", function(d) {
+            div.style("left", d3.event.pageX+10+"px");
+            div.style("top", d3.event.pageY-25+"px");
+            div.style("display", "inline-block");
+            div.html((d.data.label) + "<br />" + (d.data.value) + "%");
+          })
+          .on("mouseout", function(d){
+            div.style("display", "none");
+          });
+        g.append('text')
+          .attr('transform', function(d) {
+            var _d = arc.centroid(d);
+            return 'translate(' + _d + ')';
+          })
+          .style('text-anchor', 'middle')
+          .text(function(d) {
+            return d.value + '%';
+          });
+      }
+    );
 
   <?php elseif ($chart_style === 'bar'): ?>
     var margin = {
@@ -123,14 +140,17 @@
         .attr('transform', function(d) {
           return 'translate(' + x(d.label) + ',0)'
         })
-    bar.append('rect')
+    var shape = bar.append('rect')
       .attr('height', 0)
       .attr('y', y(0))
       .attr('width', x.bandwidth())
       .attr('fill', function(d, i) {
         return color(i);
       })
-        .transition()
+
+    onView(
+      function() {
+        shape.transition()
         .delay(function(d, i) {
           return i * 20
         })
@@ -141,6 +161,8 @@
         .attr('height', function(d) {
           return innerHeight - y(d.value);
         })
+      }
+    );
 
     innerG.append('g')
       .attr('transform', 'translate(0, ' + innerHeight + ')')
