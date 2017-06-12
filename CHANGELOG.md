@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 <!--- The format is based on [Keep a Changelog](http://keepachangelog.com/) -->
 <!--- and this project adheres to [Semantic Versioning](http://semver.org/). -->
 
+## [Unreleased]
+
+### Fixed
+
+- Element - Modal: fix admin edit area loop when editing modals that open on page load
+
 ## [0.1.12] - 2017-05-21
 
 ### Added
