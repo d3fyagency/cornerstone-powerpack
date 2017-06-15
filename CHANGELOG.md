@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 
 - Element - Modal: fix admin edit area loop when editing modals that open on page load
+- Element - Carousel: fix default image styling (don't force to 100% width, set as max width instead)
 
 ## [0.1.12] - 2017-05-21
 
