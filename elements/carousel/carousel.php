@@ -36,8 +36,11 @@ add_action( 'wp_enqueue_scripts', 'cspp_carousel_scripts');
 
 if ( !function_exists( 'cspp_carousel_scripts' ) ) {
 	function cspp_carousel_scripts() {
+  	$v = '20170515';
+  	// $v = time();
 	  wp_enqueue_style( 'owl-main-css',  CSL_CAROUSEL_URL . 'bower_components/owl.carousel/dist/assets/owl.carousel.css', array(), '1.2' );
 	  wp_enqueue_style( 'owl-theme-css', CSL_CAROUSEL_URL . 'bower_components/owl.carousel/dist/assets/owl.theme.default.css', array(), '1.2' );
+	  wp_enqueue_style( 'cspp-carousel', CSL_CAROUSEL_URL . 'assets/css/cornerstone-carousel.css', array(), $v );
 	  wp_enqueue_script( 'owlcarousel-js', CSL_CAROUSEL_URL . 'bower_components/owl.carousel/dist/owl.carousel.js', array('jquery'), null, true );
 	}
 }
