@@ -123,7 +123,7 @@ if ($make_responsive) {
         //  this tip: https://github.com/OwlCarousel2/OwlCarousel2/issues/158#issuecomment-56747066
         // dotData: true
       ?>
-      responsiveClass: <?php echo ($make_responsive) ? 'true' : 'false'; ?>,
+      responsiveClass: true,
       responsive: {
         0:{
           items: <?php echo $max_items_xs; ?>,
