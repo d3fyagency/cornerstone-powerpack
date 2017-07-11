@@ -27,6 +27,16 @@ return array(
 		),
 		'suggest' => __( '3', 'cs-powerpack' ),
 	),
+	
+	// Make Responsive
+
+	'make_responsive' => array(
+		'type'    => 'toggle',
+		'ui' => array(
+			'title'   => __( 'Responsive', 'cs-powerpack' ),
+			'tooltip' => __( 'Make max visible and slide by controls responsive (best guess)', 'cs-powerpack' ),
+		)
+	),
 
 	// Auto Play
 

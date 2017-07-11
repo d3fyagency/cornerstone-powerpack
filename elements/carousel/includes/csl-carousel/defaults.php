@@ -9,6 +9,7 @@ return array(
 	'class'             => '',
 	'style'             => '',
 	'max_visible_items' => 3,
+	'make_responsive'		=> false,
 	'auto_play'         => false,
 	'loop'              => false,
 	'auto_valign'       => false,

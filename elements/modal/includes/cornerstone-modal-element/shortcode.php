@@ -43,8 +43,10 @@ if ( $display_on === 'button' ):
 	</div>
 </div>
 <script>
-	jQuery(document).ready(function($) {
-  	var lightbox = null;
+  
+  (function($){
+
+	  var lightbox = null;
 		
 <?php if ( $display_on === 'button' ): ?>
 
@@ -61,10 +63,16 @@ if ( $display_on === 'button' ):
     });
 
 <?php else: ?>
-
-    setTimeout(function() {
-    	lightbox = cspplity("#<?php echo $modal_id; ?>", { template: '<?php echo $template; ?>' });
-    }, <? echo floatVal($delay) * 1000; ?>);
+    
+    jQuery(window).on("load", function(){
+      var csppModalAuto = function(){
+        if (lightbox){
+    		  lightbox.close();
+        }
+        lightbox = cspplity("#<?php echo $modal_id; ?>", { template: '<?php echo $template; ?>' });
+      };
+      setTimeout(csppModalAuto, <? echo floatVal($delay) * 1000; ?>);
+    });
 
 <?php endif; ?>
 		
@@ -74,5 +82,7 @@ if ( $display_on === 'button' ):
     		lightbox.close();
       }
 		});
-	});
+    
+	})(jQuery);
+	
 </script>
