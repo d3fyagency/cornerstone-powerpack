@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Element - Login Form: add new element to include WP login form in content
+
 ### Fixed
 
 - Element - Modal: fix admin edit area loop when editing modals that open on page load
