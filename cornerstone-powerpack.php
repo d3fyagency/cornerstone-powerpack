@@ -26,7 +26,7 @@ define('D3FY_CSPP_URL', untrailingslashit(plugin_dir_url( __FILE__ )));
 // Handle plugin updates
 require_once D3FY_CSPP_PATH.'/update/plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'http://cornerstonelibrary.com/updates/plugins/cornerstone-powerpack/cornerstone-powerpack.json',
+    'https://www.cornerstonepowerpack.com/updates/plugins/cornerstone-powerpack/cornerstone-powerpack.json',
     __FILE__,
     'd3fy-cornerstone-powerpack'
 );

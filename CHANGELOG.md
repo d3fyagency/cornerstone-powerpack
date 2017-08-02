@@ -3,9 +3,20 @@ All notable changes to this project will be documented in this file.
 <!--- The format is based on [Keep a Changelog](http://keepachangelog.com/) -->
 <!--- and this project adheres to [Semantic Versioning](http://semver.org/). -->
 
-## [Unreleased]
+## [0.1.14] - 2017-08-02
+
+### Changed
+
+- Updates - Changed the update server to use the new cornerstonelibrary.com domain, and https
+
+### Fixed
+
+- Changelog - Corrected version info in (this) changelog
+
+## [0.1.13] - 2017-07-19
 
 ### Added
+
 - Element - Login Form: add new element to include WP login form in content
 
 ### Fixed
