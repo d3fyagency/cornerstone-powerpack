@@ -3,6 +3,28 @@ All notable changes to this project will be documented in this file.
 <!--- The format is based on [Keep a Changelog](http://keepachangelog.com/) -->
 <!--- and this project adheres to [Semantic Versioning](http://semver.org/). -->
 
+## [0.1.14] - 2017-08-02
+
+### Changed
+
+- Updates - Changed the update server to use the new cornerstonelibrary.com domain, and https
+
+### Fixed
+
+- Changelog - Corrected version info in (this) changelog
+
+## [0.1.13] - 2017-07-19
+
+### Added
+
+- Element - Login Form: add new element to include WP login form in content
+
+### Fixed
+
+- Element - Modal: fix admin edit area loop when editing modals that open on page load
+- Element - Carousel: fix default image styling (don't force to 100% width, set as max width instead)
+- Element - Carousel: make number of visible items responsive (best guess adjustments), optionally
+
 ## [0.1.12] - 2017-05-21
 
 ### Added
