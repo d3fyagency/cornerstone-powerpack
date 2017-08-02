@@ -75,13 +75,6 @@ $Elements->register(
   'Accordion element with added controls for color and style.'
 );
 
-// Charts
-$Elements->register(
-  'charts',
-  'Charts',
-  'Charts element'
-);
-
 // Login Form
 $Elements->register(
   'login-form',
@@ -89,6 +82,14 @@ $Elements->register(
   'Place a login form for your site anywhere'
 );
 
+/*
+
+// Charts
+$Elements->register(
+  'charts',
+  'Charts',
+  'Charts element'
+);
 
 // Advanced Posts
 $Elements->register(
@@ -96,3 +97,5 @@ $Elements->register(
   'Advanced Posts List',
   'Output groups of posts as styled grids or lists.'
 );
+
+*/
