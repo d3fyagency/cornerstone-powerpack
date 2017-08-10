@@ -22,6 +22,9 @@ $auto_play   = ( ($auto_play   == 1) ? "true" : "false" );
 $auto_valign = ( ($auto_valign == 1) ? true : false );
 $loop        = ( ($loop == 1) ? "true" : "false" );
 $pause_hover = ( ($pause_hover == 1) ? "true" : "false" );
+if ($auto_play_speed === null) $auto_play_speed = 5;
+$auto_play_speed = round(floatval($auto_play_speed * 1000), 5);
+if ($auto_play_speed < 1000) $auto_play_speed = 1000;
 
 // Pagination
 switch ( $pagination_type ) {
@@ -111,6 +114,7 @@ if ($make_responsive) {
   jQuery(document).ready(function($) {
     $("<?= '#'.$carousel_id ?>").owlCarousel({
       autoplay: <?= $auto_play ?>,
+      autoplayTimeout: <?= $auto_play_speed ?>,
       loop: <?= $loop ?>,
       items: <?= $max_visible_items ?>,
       autoplayHoverPause: <?= $pause_hover ?>,
