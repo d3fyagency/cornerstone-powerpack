@@ -11,6 +11,7 @@ return array(
 	'max_visible_items' => 3,
 	'make_responsive'		=> false,
 	'auto_play'         => false,
+	'auto_play_speed'   => 5,
 	'loop'              => false,
 	'auto_valign'       => false,
 	'pause_hover'       => false,

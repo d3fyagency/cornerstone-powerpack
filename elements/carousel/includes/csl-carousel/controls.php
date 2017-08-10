@@ -47,6 +47,17 @@ return array(
 			'tooltip' => __( 'Will automatically play the carousel', 'cs-powerpack' ),
 		)
 	),
+	
+	// Auto Play Speed
+	
+	'auto_play_speed' => array(
+		'type'    => 'number',
+		'ui' => array(
+			'title'   => __( 'Auto Play Speed (seconds)', 'cs-powerpack' ),
+			'tooltip' => __( 'Will automatically play the carousel item at this speed (in seconds, minimum speed of 1 second)', 'cs-powerpack' ),
+		),
+		'suggest' => __( '5', 'cs-powerpack' ),
+	),
 
 	// Loop (instead of rewind)
 

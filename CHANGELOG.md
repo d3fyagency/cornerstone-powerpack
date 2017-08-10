@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 <!--- The format is based on [Keep a Changelog](http://keepachangelog.com/) -->
 <!--- and this project adheres to [Semantic Versioning](http://semver.org/). -->
 
+## [0.1.15] - 2017-08-10
+
+### Added
+
+- Element - Carousel: add control for auto-play timeout (time between slide changes)
+
+### Fixed
+
+- Element - Team Members: fix bug where only first team member was outputting to page
+
 ## [0.1.14] - 2017-08-02
 
 ### Changed
