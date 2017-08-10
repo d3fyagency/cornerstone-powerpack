@@ -47,5 +47,5 @@ $social_networks = array(
 $supported_layouts = array('default', 'details-slideup', 'flip-card', 'no-popup', 'x-theme-style');
 
 if(in_array($layout, $supported_layouts)){
-  require_once( realpath(dirname(__FILE__)) . '/layouts/' . $layout . '.php' );
+  include( realpath(dirname(__FILE__)) . '/layouts/' . $layout . '.php' );
 }
