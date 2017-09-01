@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 <!--- The format is based on [Keep a Changelog](http://keepachangelog.com/) -->
 <!--- and this project adheres to [Semantic Versioning](http://semver.org/). -->
 
+## [0.1.16] - 2017-09-01
+
+### Fixed
+
+- Element - Instagram Carousel: IG feed changed, so updated styling to force images to the same proportions (1:1) via CSS
+
 ## [0.1.15] - 2017-08-10
 
 ### Added
