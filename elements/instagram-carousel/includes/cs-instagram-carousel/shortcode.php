@@ -144,7 +144,7 @@ ob_start();
 			if ($i >= $maxMobile) $maxClasses[] = 'overmax-mobile';
 		?>
 		<div class="<?php echo esc_attr(implode(' ', $maxClasses)); ?>">
-			<a href="<?php echo esc_url($image->link); ?>" class="instagram-link" target="_blank">
+			<a href="<?php echo esc_url($image->link); ?>" class="instagram-link" target="_blank" style="background-image: url('<?php echo esc_attr($image->standard); ?>');">
 				<img src="<?php echo esc_attr($image->standard); ?>" alt="" />
 			</a>
 		</div>

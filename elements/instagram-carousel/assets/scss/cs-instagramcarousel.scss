@@ -15,6 +15,17 @@
 			width: 100%;
 			max-width: 100%;
 			height: auto;
+			display: none;
+		}
+		
+		a.instagram-link {
+  		display: block;
+  		width: 100%;
+  		margin: 0;
+  		padding: 100% 0 0 0;
+  		background-repeat: no-repeat;
+  		background-position: center center;
+  		background-size: cover;
 		}
 	}
 	
