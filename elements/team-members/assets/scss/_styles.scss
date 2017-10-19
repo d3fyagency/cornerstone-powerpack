@@ -1,3 +1,9 @@
+/* Modal style overrides */
+.cspplity.cspplity-teammember {
+  background: #fff;
+  background: rgba(255, 255, 255, 0.925) !important;
+}
+
 /* CSS for your custom element goes here */
 .csl-teammember .teammember-bio,
 .csl-teammember .view-profile {
@@ -50,7 +56,7 @@
 	font-size: 16px;
 }
 
-.csl-teammember .t-close {
+.teammember-bio-container .t-close {
   background-color: #00a94e;
   border-radius: 50%;
   color: #fff;
@@ -66,9 +72,11 @@
 }
 
 .teammember-bio-container {
-	padding: 1em;
+	padding: 1.2em;
 	margin: 0 auto;
 	width: 100%;
+	background-color: #fff;
+	box-shadow: 0 0 40px rgba(0, 0, 0, .2);
 }
 @media screen and (min-width: 600px) {
 	.teammember-bio-container {
@@ -80,10 +88,11 @@
 		width: 50%;
 	}
 }
-
+/*
 .teammember-bio-content {
 	margin-top: 100px;
 }
+*/
 .teammember-bio-content img {
 	max-width: 250px;
 }
@@ -120,12 +129,13 @@
   width: 100%;
   transition: opacity 1s ease;
 }
-
+/*
 .csl-teammember.open .teammember-bio-overlay {
 	display: block;
 	opacity: 1;
 	transition: opacity 1s ease;
 }
+*/
 
 .teammember-bio-content .teammember-social ul {
   display: block;
