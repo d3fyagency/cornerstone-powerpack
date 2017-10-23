@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 <!--- The format is based on [Keep a Changelog](http://keepachangelog.com/) -->
 <!--- and this project adheres to [Semantic Versioning](http://semver.org/). -->
 
+## [0.1.17] - 2017-10-18
+
+### Fixed
+
+- Element - Team Members: Fix container bug introduced with updated version of Cornerstone
+
 ## [0.1.16] - 2017-09-01
 
 ### Fixed
