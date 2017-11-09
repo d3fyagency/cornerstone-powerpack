@@ -101,7 +101,10 @@ if ($instagram_key) {
         && property_exists($data->user->media, 'nodes')
       ){
         foreach ($data->user->media->nodes as $item) {
-          if (d3fy_get_object_property($item, '__typename') == 'GraphImage') {
+          if (
+            d3fy_get_object_property($item, '__typename') == 'GraphImage'
+            || d3fy_get_object_property($item, '__typename') == 'GraphSidecar'
+          ) {
             $image = new stdClass();
             $image->feed = $key;
             $image->standard = d3fy_get_object_property($item, 'display_src');
