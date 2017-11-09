@@ -8,7 +8,7 @@
  * Plugin Name:       Cornerstone Power Pack
  * Plugin URI:        http://d3fy.com
  * Description:       Cornerstone Elements Power Pack (BETA)
- * Version:           0.1.17
+ * Version:           0.1.18
  * Author:            D3FY
  * Author URI:        http://d3fy.com/
  * License:           GPL-2.0+
