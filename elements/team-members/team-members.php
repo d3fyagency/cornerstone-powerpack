@@ -36,7 +36,7 @@ add_action( 'wp_enqueue_scripts', 'cspp_teammember_scripts');
 
 if (!function_exists('cspp_teammember_scripts')) {
 	function cspp_teammember_scripts() {
-  	$v = 20171018;
+  	$v = '20171222A';
   	// $v = time();
     wp_enqueue_script( 'cspp-lity', D3FY_CSPP_URL.'/lib/cspplity/lity.min.js', array( 'jquery' ), $v );  	
 	  wp_enqueue_script( 'csl-teammember-script', CSL_TEAMMEMBER_URL . 'assets/js/csl_teammember.js?' . time(), array('jquery'), $v, true );
