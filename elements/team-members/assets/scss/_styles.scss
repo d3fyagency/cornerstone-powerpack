@@ -77,6 +77,8 @@
 	width: 100%;
 	background-color: #fff;
 	box-shadow: 0 0 40px rgba(0, 0, 0, .2);
+	max-height: 100%;
+	overflow-y: auto;
 }
 @media screen and (min-width: 600px) {
 	.teammember-bio-container {
@@ -137,6 +139,12 @@
 }
 */
 
+@media screen and (max-width: 639px) {
+  .teammember-bio-content .teammember-social {
+    clear: both;
+  }
+}
+
 .teammember-bio-content .teammember-social ul {
   display: block;
   margin: 0;
@@ -165,7 +173,7 @@
   height: 36px;
   line-height: 36px;
   border-radius: 50%;
-  margin: 0 4px 0 0;
+  margin: 0 4px 4px 0;
   padding: 0;
   text-align: center;
   font-size: 21px;
@@ -195,6 +203,8 @@
 
 .no-popup .teammember-info .teammember-content{
 	text-transform: none;
+	/* overflow-y: scroll;
+	max-height: 100vh; */
 }
 
 .no-popup .teammember-info .teammember-social{
