@@ -96,24 +96,28 @@ if ($instagram_key) {
       if (
         $data 
         && is_object($data)
-        && property_exists($data, 'user')
-        && property_exists($data->user, 'media')
-        && property_exists($data->user->media, 'nodes')
+        && property_exists($data, 'graphql')
+        && property_exists($data->graphql, 'user')
+        && property_exists($data->graphql->user, 'edge_owner_to_timeline_media')
+        && property_exists($data->graphql->user->edge_owner_to_timeline_media, 'edges')
       ){
-        foreach ($data->user->media->nodes as $item) {
-          if (
-            d3fy_get_object_property($item, '__typename') == 'GraphImage'
-            || d3fy_get_object_property($item, '__typename') == 'GraphSidecar'
-          ) {
-            $image = new stdClass();
-            $image->feed = $key;
-            $image->standard = d3fy_get_object_property($item, 'display_src');
-            $image->thumbnail = d3fy_get_object_property($item, 'thumbnail_src');
-            $image->code = d3fy_get_object_property($item, 'code');
-            $image->link = 'https://www.instagram.com/p/'.urlencode($image->code).'/';
-            $image->created_time = d3fy_get_object_property($item, 'date');
-            $image->id = d3fy_get_object_property($item, 'id');
-            $images[] = $image;
+        foreach ($data->graphql->user->edge_owner_to_timeline_media->edges as $edge) {
+          $item = (property_exists($edge, 'node')) ? $edge->node : null;
+          if ($item) {
+            if (
+              d3fy_get_object_property($item, '__typename') == 'GraphImage'
+              || d3fy_get_object_property($item, '__typename') == 'GraphSidecar'
+            ) {
+              $image = new stdClass();
+              $image->feed = $key;
+              $image->standard = d3fy_get_object_property($item, 'display_url');
+              $image->thumbnail = d3fy_get_object_property($item, 'thumbnail_src');
+              $image->code = d3fy_get_object_property($item, 'shortcode');
+              $image->link = 'https://www.instagram.com/p/'.urlencode($image->code).'/';
+              $image->created_time = d3fy_get_object_property($item, 'taken_at_timestamp');
+              $image->id = d3fy_get_object_property($item, 'id');
+              $images[] = $image;
+            }
           }
         }
       } // if ($data)

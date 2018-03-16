@@ -27,7 +27,7 @@ add_action( 'cornerstone_register_elements', 'cspp_register_elements', 100 );
 
 if ( !function_exists( 'cspp_modal_enqeue' ) ) {
 	function cspp_modal_enqeue() {
-  	$v = '1.1.3';
+  	$v = '1.1.5';
   	// $v = time();
   	wp_enqueue_script( 'cspp-lity', D3FY_CSPP_URL.'/lib/cspplity/lity.min.js', array( 'jquery' ), $v );
   	wp_enqueue_style( 'cspp-lity-csmodal', CS_MODAL_URL.'/assets/css/csmodal.css', array(), $v );
